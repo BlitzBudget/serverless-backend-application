@@ -23,14 +23,9 @@ func SaveRequest(body *string) {
 	svc := dynamodb.New(sess)
 	// snippet-end:[dynamodb.go.create_item.session]
 
-	queryParameters, av, err := repository.AttributeBuilder(body)
+	av, err := repository.AttributeBuilder(body)
 	if err != nil {
 		log.Fatalf("Got error marshalling new item: %v", err)
-		return
-	}
-
-	if queryParameters.PreventInfiniteLoop != nil && *queryParameters.PreventInfiniteLoop == "true" {
-		log.Fatalf("Request called by PDF generation scenario, Do not save to DynamoDB: %v", *queryParameters.PreventInfiniteLoop)
 		return
 	}
 

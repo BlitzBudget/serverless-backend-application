@@ -1,5 +1,5 @@
 package config
 
-const (
-	TableName = "perfecta-energia-proposal"
-)
+import "os"
+
+var TableName = os.Getenv("TABLE_NAME")

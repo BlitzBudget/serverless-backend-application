@@ -18,7 +18,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 
 	service.SaveRequest(&request.Body)
 	header := map[string]string{
-		"Access-Control-Allow-Origin":      "http://constellation-technology.com",
+		"Access-Control-Allow-Origin":      "*",
 		"Access-Control-Allow-Headers":     "*",
 		"Access-Control-Allow-Methods":     "OPTIONS,POST",
 		"Access-Control-Allow-Credentials": "true",
