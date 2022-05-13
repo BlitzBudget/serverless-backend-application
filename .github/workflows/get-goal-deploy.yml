@@ -29,4 +29,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: getGoal
-          zip_file: cd goals/get/getGoal.zip
+          zip_file: goals/get/getGoal.zip
