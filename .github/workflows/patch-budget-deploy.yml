@@ -17,7 +17,7 @@ jobs:
 
       # Patch Budget
       - name: Patch budget
-        run: cd budget/update/; GOOS=linux go build cmd/main.go; zip patchBudget.zip main;
+        run: cd budget/update/; GOOS=linux go build cmd/main.go; zip patchBudget.zip main; pwd;
 
       #- name: Patch Budget Test
       # run: cd budget/update/; go test -v ./...

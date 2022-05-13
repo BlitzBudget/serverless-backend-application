@@ -17,7 +17,7 @@ jobs:
 
       # Add Transaction
       - name: Add transaction
-        run: cd transaction/add/; GOOS=linux go build cmd/main.go; zip addTransaction.zip main;
+        run: cd transaction/add/; GOOS=linux go build cmd/main.go; zip addTransaction.zip main; pwd;
 
       #- name: Add Transaction Test
       #  run: cd transaction/add/; go test -v ./...

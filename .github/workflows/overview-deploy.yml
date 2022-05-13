@@ -17,7 +17,7 @@ jobs:
 
       # Overview
       - name: Get overview
-        run: cd overview/; GOOS=linux go build cmd/main.go; zip overview.zip main;
+        run: cd overview/; GOOS=linux go build cmd/main.go; zip overview.zip main; pwd;
 
       #- name: Overview Test
       #  run: cd overview/; go test -v ./...
