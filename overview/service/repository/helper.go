@@ -1,16 +1,16 @@
 package repository
 
 import (
-	"add-transactions/service/models"
 	"encoding/json"
+	"errors"
 	"fmt"
-	"time"
+	"overview/service/models"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 )
 
-func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error) {
+func AttributeBuilder(body *string) (*models.QueryParameter, error) {
 	queryParameter := models.QueryParameter{}
 	err := json.Unmarshal([]byte(*body), &queryParameter)
 	if err != nil {
@@ -20,12 +20,29 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 
 	fmt.Printf("marshalled bytes to struct: %+v", queryParameter)
 
-	date := time.Now().Format(time.RFC3339)
-	queryParameter.CreationDate = &date
-	queryParameter.UpdatedDate = &date
-	queryParameter.Sk = "Transaction#" + date
+	return &queryParameter, err
+}
 
-	av, err := dynamodbattribute.MarshalMap(queryParameter)
-	fmt.Printf("marshalled struct: %+v", av)
-	return av, err
+func ParseResponse(result *dynamodb.QueryOutput) (models.ResponseItems, error) {
+
+	if result.Items == nil {
+		msg := "no Items found"
+		return nil, errors.New(msg)
+	}
+
+	responseItems := models.ResponseItems{}
+	var err error
+
+	for k, v := range result.Items {
+		responseItem := models.ResponseItem{}
+
+		err = dynamodbattribute.UnmarshalMap(v, &responseItem)
+		if err != nil {
+			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v", k, err))
+		}
+		responseItems = append(responseItems, &responseItem)
+	}
+
+	fmt.Printf("Parsed %v Items", len(responseItems))
+	return responseItems, nil
 }

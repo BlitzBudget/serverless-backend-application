@@ -1,8 +1,8 @@
-module add-transactions
+module get-category
 
 go 1.17
 
-require github.com/aws/aws-sdk-go v1.44.12
+require github.com/aws/aws-sdk-go v1.44.13
 
 require (
 	github.com/aws/aws-lambda-go v1.31.1

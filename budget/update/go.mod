@@ -1,4 +1,4 @@
-module add-transactions
+module patch-budget
 
 go 1.17
 

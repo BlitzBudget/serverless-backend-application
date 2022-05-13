@@ -1,7 +1,7 @@
 package main
 
 import (
-	"add-transactions/handler"
+	"update-goal/handler"
 
 	runtime "github.com/aws/aws-lambda-go/lambda"
 )

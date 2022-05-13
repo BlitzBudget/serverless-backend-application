@@ -1,7 +1,8 @@
 package repository
 
 import (
-	"add-transactions/service/models"
+	"add-category/service/config"
+	"add-category/service/models"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -23,7 +24,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	date := time.Now().Format(time.RFC3339)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
-	queryParameter.Sk = "Transaction#" + date
+	queryParameter.Sk = config.SkPrefix + date
 
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
 	fmt.Printf("marshalled struct: %+v", av)

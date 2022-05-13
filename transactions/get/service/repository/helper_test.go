@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"add-transactions/service/models"
+	"get-transactions/service/models"
 	"testing"
 )
 
@@ -12,22 +12,11 @@ var queryParameter *models.QueryParameter
 func setup() {
 	walletId := "Wallet#2020-05-02T17:19:13.022Z"
 	transactionId := "Transaction#2020-05-02T17:19:13.022Z"
-	amount := int64(95)
-	creationDate := "2020-05-02T17:19:13.022"
-	updatedDate := "2020-05-02T17:19:13.022"
-	category := "Category#2020-05-02T17:19:13.022Z"
-	tags := []string{"Expense", "Travel"}
-	description := "estimated_autoconsumption"
 
 	queryParameter = &models.QueryParameter{
-		Pk:           &walletId,
-		Sk:           transactionId,
-		Amount:       &amount,
-		Description:  &description,
-		CreationDate: &creationDate,
-		UpdatedDate:  &updatedDate,
-		Category:     &category,
-		Tags:         &tags,
+		WalletId:       &walletId,
+		StartsWithDate: &transactionId,
+		EndsWithDate:   &transactionId,
 	}
 
 	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"category": "Category#2020-05-02T17:19:13.022Z","description": "Transaction Description","tags": ["Expense", "Travel"]}`
@@ -50,7 +39,7 @@ func Test_repository_AttributeBuilder(t *testing.T) {
 			args: args{
 				body: body,
 			},
-			want:    queryParameter.Pk,
+			want:    queryParameter.WalletId,
 			wantErr: false,
 		},
 		{

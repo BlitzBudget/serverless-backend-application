@@ -1,0 +1,11 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,PATCH",
+        "Access-Control-Allow-Origin": "*"
+    },
+    "multiValueHeaders": null,
+    "body": "{\"pk\":\"Wallet#2022-05-12T14:40:29.156Z\",\"sk\":\"Transaction#2022-05-12T20:25:19Z\",\"creation_date\":\"2022-05-12T20:25:19Z\",\"category\":\"Category#2022-04-12T14:40:29.156Z\",\"description\":\"Transaction Travel\",\"amount\":75,\"tags\":[\"Expense\",\"Rome\"],\"scheduled_transaction\":null}"
+}

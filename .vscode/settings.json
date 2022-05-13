@@ -1,3 +1,6 @@
 {
-    "nuxt.isNuxtApp": false
+    "nuxt.isNuxtApp": false,
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/NagarjunNagesh/Documents/GitHub/Personal/serverless-backend-application/.github/workflows/deploy.yml"
+    }
 }

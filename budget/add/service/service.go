@@ -1,10 +1,8 @@
 package service
 
 import (
-	"add-transactions/service/config"
 	"add-transactions/service/repository"
 	"fmt"
-	"log"
 
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -25,15 +23,13 @@ func SaveRequest(body *string) {
 
 	av, err := repository.AttributeBuilder(body)
 	if err != nil {
-		log.Fatalf("Got error marshalling new item: %v", err)
-		return
+		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
 	}
 
 	err = repository.CreateItem(av, svc)
 	if err != nil {
-		log.Fatalf("Got error calling PutItem: %v", err)
-		return
+		panic(fmt.Sprintf("SaveRequest: Got error calling PutItem: %v", err))
 	}
 
-	fmt.Println("Successfully added '" + "queryParameter.InstalledPotency" + "' (" + "queryParameter.AnnualProduction" + ") to table " + config.TableName)
+	fmt.Println("Successfully added the item!")
 }

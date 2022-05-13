@@ -1,36 +1,28 @@
 package repository
 
 import (
-	"add-transactions/service/models"
 	"testing"
+	"update-category/service/models"
 )
 
 var body string
 var validAnswer string
-var queryParameter *models.QueryParameter
+var requestModel *models.RequestModel
 
 func setup() {
-	walletId := "Wallet#2020-05-02T17:19:13.022Z"
-	transactionId := "Transaction#2020-05-02T17:19:13.022Z"
-	amount := int64(95)
-	creationDate := "2020-05-02T17:19:13.022"
-	updatedDate := "2020-05-02T17:19:13.022"
-	category := "Category#2020-05-02T17:19:13.022Z"
-	tags := []string{"Expense", "Travel"}
-	description := "estimated_autoconsumption"
+	pk := "User#2020-05-02T17:19:13.022Z"
+	sk := "Category#2020-05-02T17:19:13.022Z"
+	categoryName := "2020-05-02T17:19:13.022"
+	categoryType := "2020-05-02T17:19:13.022"
 
-	queryParameter = &models.QueryParameter{
-		Pk:           &walletId,
-		Sk:           transactionId,
-		Amount:       &amount,
-		Description:  &description,
-		CreationDate: &creationDate,
-		UpdatedDate:  &updatedDate,
-		Category:     &category,
-		Tags:         &tags,
+	requestModel = &models.RequestModel{
+		Pk:           &pk,
+		Sk:           &sk,
+		CategoryName: &categoryName,
+		CategoryType: &categoryType,
 	}
 
-	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"category": "Category#2020-05-02T17:19:13.022Z","description": "Transaction Description","tags": ["Expense", "Travel"]}`
+	body = `{"userId": "User#2020-05-02T17:19:13.022Z","amount": 95,"category": "Category#2020-05-02T17:19:13.022Z","description": "Category Description","tags": ["Expense", "Travel"]}`
 }
 
 func Test_repository_AttributeBuilder(t *testing.T) {
@@ -50,7 +42,7 @@ func Test_repository_AttributeBuilder(t *testing.T) {
 			args: args{
 				body: body,
 			},
-			want:    queryParameter.Pk,
+			want:    requestModel.Pk,
 			wantErr: false,
 		},
 		{
@@ -64,13 +56,10 @@ func Test_repository_AttributeBuilder(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := AttributeBuilder(&tt.args.body)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("AttributeBuilder() error = %v, wantErr %v", err, tt.wantErr)
+			got := AttributeBuilder(&tt.args.body)
+			if got == nil || got.Pk != tt.want {
+				t.Errorf("AttributeBuilder() got = %v, want %v", got, tt.want)
 				return
-			}
-			if err == nil {
-				t.Errorf("AttributeBuilder() = %v, want %v", got, tt.want)
 			}
 		})
 	}

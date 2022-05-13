@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"add-transactions/service/models"
+	"add-category/service/models"
 	"testing"
 )
 
@@ -11,23 +11,19 @@ var queryParameter *models.QueryParameter
 
 func setup() {
 	walletId := "Wallet#2020-05-02T17:19:13.022Z"
-	transactionId := "Transaction#2020-05-02T17:19:13.022Z"
-	amount := int64(95)
+	CategoryName := "Groceries"
+	CategoryType := "Expense"
 	creationDate := "2020-05-02T17:19:13.022"
 	updatedDate := "2020-05-02T17:19:13.022"
-	category := "Category#2020-05-02T17:19:13.022Z"
-	tags := []string{"Expense", "Travel"}
-	description := "estimated_autoconsumption"
+	sk := "Category#2020-05-02T17:19:13.022Z"
 
 	queryParameter = &models.QueryParameter{
 		Pk:           &walletId,
-		Sk:           transactionId,
-		Amount:       &amount,
-		Description:  &description,
+		Sk:           sk,
+		CategoryType: &CategoryType,
 		CreationDate: &creationDate,
 		UpdatedDate:  &updatedDate,
-		Category:     &category,
-		Tags:         &tags,
+		CategoryName: &CategoryName,
 	}
 
 	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"category": "Category#2020-05-02T17:19:13.022Z","description": "Transaction Description","tags": ["Expense", "Travel"]}`

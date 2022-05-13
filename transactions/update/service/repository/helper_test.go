@@ -1,13 +1,13 @@
 package repository
 
 import (
-	"add-transactions/service/models"
+	"patch-transactions/service/models"
 	"testing"
 )
 
 var body string
 var validAnswer string
-var queryParameter *models.QueryParameter
+var requestModel *models.RequestModel
 
 func setup() {
 	walletId := "Wallet#2020-05-02T17:19:13.022Z"
@@ -19,7 +19,7 @@ func setup() {
 	tags := []string{"Expense", "Travel"}
 	description := "estimated_autoconsumption"
 
-	queryParameter = &models.QueryParameter{
+	requestModel = &models.RequestModel{
 		Pk:           &walletId,
 		Sk:           transactionId,
 		Amount:       &amount,
@@ -50,7 +50,7 @@ func Test_repository_AttributeBuilder(t *testing.T) {
 			args: args{
 				body: body,
 			},
-			want:    queryParameter.Pk,
+			want:    requestModel.Pk,
 			wantErr: false,
 		},
 		{

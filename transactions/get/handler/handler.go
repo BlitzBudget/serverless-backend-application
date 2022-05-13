@@ -1,9 +1,10 @@
 package handler
 
 import (
-	"add-transactions/service"
 	"context"
+	"encoding/json"
 	"fmt"
+	"get-transactions/service"
 
 	"github.com/aws/aws-lambda-go/events"
 )
@@ -16,12 +17,16 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		fmt.Printf("    %v: %v\n", key, value)
 	}
 
-	service.SaveRequest(&request.Body)
+	data := service.QueryItems(&request.Body)
 	header := map[string]string{
 		"Access-Control-Allow-Origin":      "*",
 		"Access-Control-Allow-Headers":     "*",
 		"Access-Control-Allow-Methods":     "OPTIONS,POST",
 		"Access-Control-Allow-Credentials": "true",
 	}
-	return events.APIGatewayProxyResponse{Body: request.Body, StatusCode: 200, Headers: header}, nil
+	body, err := json.Marshal(data)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to unmarshal Response data %v", err))
+	}
+	return events.APIGatewayProxyResponse{Body: string(body), StatusCode: 200, Headers: header}, nil
 }

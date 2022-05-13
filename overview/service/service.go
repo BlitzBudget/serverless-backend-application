@@ -1,16 +1,16 @@
 package service
 
 import (
-	"add-transactions/service/config"
-	"add-transactions/service/repository"
 	"fmt"
 	"log"
+	"overview/service/models"
+	"overview/service/repository"
 
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func SaveRequest(body *string) {
+func QueryItems(body *string) []*models.ResponseItem {
 	// snippet-start:[dynamodb.go.create_item.session]
 	// Initialize a session that the SDK will use to load
 	// credentials from the shared credentials file ~/.aws/credentials
@@ -26,14 +26,23 @@ func SaveRequest(body *string) {
 	av, err := repository.AttributeBuilder(body)
 	if err != nil {
 		log.Fatalf("Got error marshalling new item: %v", err)
-		return
+		return nil
 	}
 
-	err = repository.CreateItem(av, svc)
+	var queryOutput *dynamodb.QueryOutput
+	queryOutput, err = repository.QueryItem(av, svc)
 	if err != nil {
 		log.Fatalf("Got error calling PutItem: %v", err)
-		return
+		return nil
 	}
 
-	fmt.Println("Successfully added '" + "queryParameter.InstalledPotency" + "' (" + "queryParameter.AnnualProduction" + ") to table " + config.TableName)
+	var responseItems []*models.ResponseItem
+	responseItems, err = repository.ParseResponse(queryOutput)
+	if err != nil {
+		log.Fatalf("Got error parsing Response Item: %v", err)
+		return nil
+	}
+
+	fmt.Printf("Successfully retrieved %v items with the consumed capacity of %v'", queryOutput.Count, queryOutput.ConsumedCapacity)
+	return responseItems
 }

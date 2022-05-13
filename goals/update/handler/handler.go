@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"add-transactions/service"
 	"context"
 	"fmt"
+	"update-goal/service"
 
 	"github.com/aws/aws-lambda-go/events"
 )
@@ -20,7 +20,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	header := map[string]string{
 		"Access-Control-Allow-Origin":      "*",
 		"Access-Control-Allow-Headers":     "*",
-		"Access-Control-Allow-Methods":     "OPTIONS,POST",
+		"Access-Control-Allow-Methods":     "OPTIONS,PATCH",
 		"Access-Control-Allow-Credentials": "true",
 	}
 	return events.APIGatewayProxyResponse{Body: request.Body, StatusCode: 200, Headers: header}, nil

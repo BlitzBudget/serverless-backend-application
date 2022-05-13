@@ -1,31 +1,38 @@
 package repository
 
 import (
-	"add-transactions/service/models"
 	"encoding/json"
 	"fmt"
+	"patch-budget/service/models"
 	"time"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 )
 
-func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error) {
-	queryParameter := models.QueryParameter{}
-	err := json.Unmarshal([]byte(*body), &queryParameter)
+func AttributeBuilder(body *string) *models.RequestModel {
+	requestModel := models.RequestModel{}
+	err := json.Unmarshal([]byte(*body), &requestModel)
 	if err != nil {
-		fmt.Printf("There was an error marshalling the bytes to struct: %v", err.Error())
-		return nil, err
+		panic(fmt.Sprintf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v", err.Error()))
 	}
 
-	fmt.Printf("marshalled bytes to struct: %+v", queryParameter)
+	fmt.Printf("AttributeBuilder: marshalled bytes to struct: %+v", requestModel)
 
+	return &requestModel
+}
+
+func ParseToQueryParameter(request *models.RequestModel) map[string]*dynamodb.AttributeValue {
 	date := time.Now().Format(time.RFC3339)
-	queryParameter.CreationDate = &date
-	queryParameter.UpdatedDate = &date
-	queryParameter.Sk = "Transaction#" + date
+	av, err := dynamodbattribute.MarshalMap(models.QueryParameter{
+		Planned:     request.Planned,
+		Category:    request.Category,
+		UpdatedDate: &date,
+	})
 
-	av, err := dynamodbattribute.MarshalMap(queryParameter)
-	fmt.Printf("marshalled struct: %+v", av)
-	return av, err
+	if err != nil {
+		panic(fmt.Sprintf("ParseToQueryParameter: Failed to marshal request to query parameter data %v", err))
+	}
+
+	return av
 }

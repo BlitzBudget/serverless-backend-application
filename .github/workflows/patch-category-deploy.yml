@@ -1,0 +1,32 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      # Patch Category
+      - name: Patch category
+        run: cd category/update/; GOOS=linux go build cmd/main.go; zip patchCategory.zip main;
+
+      - name: Patch Category Test
+        run: cd category/update/; go test -v ./...
+
+      - name: Patch Category gobuild deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: patchCategory
+          zip_file: cd category/update/build/patchCategory.zip

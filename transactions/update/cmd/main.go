@@ -1,7 +1,7 @@
 package main
 
 import (
-	"add-transactions/handler"
+	"patch-transactions/handler"
 
 	runtime "github.com/aws/aws-lambda-go/lambda"
 )
