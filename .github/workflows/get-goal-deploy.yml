@@ -1,4 +1,4 @@
-name: CI/CD
+name: Deploy Get Goal
 
 on:
   push:
@@ -17,10 +17,10 @@ jobs:
 
       # Get Goal
       - name: Get goal
-        run: cd goal/get/; GOOS=linux go build cmd/main.go; zip getGoal.zip main;
+        run: cd goals/get/; GOOS=linux go build cmd/main.go; zip getGoal.zip main;
 
       - name: Get Goal Test
-        run: cd goal/get/; go test -v ./...
+        run: cd goals/get/; go test -v ./...
 
       - name: Get Goal gobuild deploy
         uses: appleboy/lambda-action@master
@@ -29,4 +29,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: getGoal
-          zip_file: cd goal/get/build/getGoal.zip
+          zip_file: cd goals/get/build/getGoal.zip

@@ -1,4 +1,4 @@
-name: CI/CD
+name: Deploy Patch Goal
 
 on:
   push:
