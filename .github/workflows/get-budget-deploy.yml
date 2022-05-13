@@ -19,8 +19,8 @@ jobs:
       - name: Get budget
         run: cd budget/get/; GOOS=linux go build cmd/main.go; zip getBudget.zip main;
 
-      - name: Get Budget Test
-        run: cd budget/get/; go test -v ./...
+      #- name: Get Budget Test
+      #  run: cd budget/get/; go test -v ./...
 
       - name: Get Budget gobuild deploy
         uses: appleboy/lambda-action@master

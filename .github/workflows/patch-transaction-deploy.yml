@@ -19,8 +19,8 @@ jobs:
       - name: Patch transaction
         run: cd transaction/update/; GOOS=linux go build cmd/main.go; zip patchTransaction.zip main;
 
-      - name: Patch Transaction Test
-        run: cd transaction/update/; go test -v ./...
+      #- name: Patch Transaction Test
+      #  run: cd transaction/update/; go test -v ./...
 
       - name: Patch Transaction gobuild deploy
         uses: appleboy/lambda-action@master

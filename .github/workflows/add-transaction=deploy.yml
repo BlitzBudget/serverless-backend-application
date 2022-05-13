@@ -19,8 +19,8 @@ jobs:
       - name: Add transaction
         run: cd transaction/add/; GOOS=linux go build cmd/main.go; zip addTransaction.zip main;
 
-      - name: Add Transaction Test
-        run: cd transaction/add/; go test -v ./...
+      #- name: Add Transaction Test
+      #  run: cd transaction/add/; go test -v ./...
 
       - name: Add Transaction gobuild deploy
         uses: appleboy/lambda-action@master

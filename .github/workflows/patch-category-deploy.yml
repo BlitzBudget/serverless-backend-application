@@ -19,8 +19,8 @@ jobs:
       - name: Patch category
         run: cd category/update/; GOOS=linux go build cmd/main.go; zip patchCategory.zip main;
 
-      - name: Patch Category Test
-        run: cd category/update/; go test -v ./...
+      #- name: Patch Category Test
+      #  run: cd category/update/; go test -v ./...
 
       - name: Patch Category gobuild deploy
         uses: appleboy/lambda-action@master

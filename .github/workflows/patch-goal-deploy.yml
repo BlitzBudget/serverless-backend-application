@@ -19,8 +19,8 @@ jobs:
       - name: Patch goal
         run: cd goal/update/; GOOS=linux go build cmd/main.go; zip patchGoal.zip main;
 
-      - name: Patch Goal Test
-        run: cd goal/update/; go test -v ./...
+      #- name: Patch Goal Test
+      #  run: cd goal/update/; go test -v ./...
 
       - name: Patch Goal gobuild deploy
         uses: appleboy/lambda-action@master

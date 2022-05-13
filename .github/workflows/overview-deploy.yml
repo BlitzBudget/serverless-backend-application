@@ -19,8 +19,8 @@ jobs:
       - name: Get overview
         run: cd overview/; GOOS=linux go build cmd/main.go; zip overview.zip main;
 
-      - name: Overview Test
-        run: cd overview/; go test -v ./...
+      #- name: Overview Test
+      #  run: cd overview/; go test -v ./...
 
       - name: Overview gobuild deploy
         uses: appleboy/lambda-action@master
