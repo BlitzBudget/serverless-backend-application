@@ -17,7 +17,7 @@ jobs:
 
       # Add Goal
       - name: Add goal
-        run: cd goals/add/; GOOS=linux go build cmd/main.go; zip addGoal.zip main; pwd;
+        run: cd goals/add/; GOOS=linux go build cmd/main.go; zip addGoal.zip main; ls;
 
      #- name: Add Goal Test
       #  run: cd goals/add/; go test -v ./...

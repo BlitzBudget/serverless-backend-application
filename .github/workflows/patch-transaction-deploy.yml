@@ -17,7 +17,7 @@ jobs:
 
       # Patch Transaction
       - name: Patch transaction
-        run: cd transaction/update/; GOOS=linux go build cmd/main.go; zip patchTransaction.zip main; pwd;
+        run: cd transaction/update/; GOOS=linux go build cmd/main.go; zip patchTransaction.zip main; ls;
 
       #- name: Patch Transaction Test
       #  run: cd transaction/update/; go test -v ./...

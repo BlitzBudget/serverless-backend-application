@@ -17,7 +17,7 @@ jobs:
 
       # Patch Goal
       - name: Patch goal
-        run: cd goals/update/; GOOS=linux go build cmd/main.go; zip patchGoal.zip main; pwd;
+        run: cd goals/update/; GOOS=linux go build cmd/main.go; zip patchGoal.zip main; ls;
 
       #- name: Patch Goal Test
       #  run: cd goal/update/; go test -v ./...
