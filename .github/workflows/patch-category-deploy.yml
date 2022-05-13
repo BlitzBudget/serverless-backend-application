@@ -17,7 +17,7 @@ jobs:
 
       # Patch Category
       - name: Patch category
-        run: cd category/update/; GOOS=linux go build cmd/main.go; zip patchCategory.zip build/main; pwd;
+        run: cd category/update/; GOOS=linux go build cmd/main.go; zip patchCategory.zip main; pwd;
 
       #- name: Patch Category Test
       #  run: cd category/update/; go test -v ./...
@@ -29,4 +29,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: patchCategory
-          zip_file: cd category/update/build/patchCategory.zip
+          zip_file: cd category/update/patchCategory.zip

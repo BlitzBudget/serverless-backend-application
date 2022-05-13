@@ -17,7 +17,7 @@ jobs:
 
       # Patch Budget
       - name: Patch budget
-        run: cd budget/update/; GOOS=linux go build cmd/main.go; zip patchBudget.zip build/main; pwd;
+        run: cd budget/update/; GOOS=linux go build cmd/main.go; zip patchBudget.zip main; pwd;
 
       #- name: Patch Budget Test
       # run: cd budget/update/; go test -v ./...
@@ -29,4 +29,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: patchBudget
-          zip_file: cd budget/update/build/patchBudget.zip
+          zip_file: cd budget/update/patchBudget.zip
