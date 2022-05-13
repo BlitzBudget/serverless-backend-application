@@ -17,7 +17,7 @@ jobs:
 
       # Add Category
       - name: Add category
-        run: cd category/add/; GOOS=linux go build cmd/main.go; zip addCategory.zip main; pwd;
+        run: cd category/add/; GOOS=linux go build cmd/main.go; zip addCategory.zip build/main; pwd;
 
       #- name: Add Category Test
       #  run: cd category/add/; go test -v ./...

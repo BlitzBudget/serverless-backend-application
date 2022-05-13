@@ -17,7 +17,7 @@ jobs:
 
       # Patch Category
       - name: Patch category
-        run: cd category/update/; GOOS=linux go build cmd/main.go; zip patchCategory.zip main; pwd;
+        run: cd category/update/; GOOS=linux go build cmd/main.go; zip patchCategory.zip build/main; pwd;
 
       #- name: Patch Category Test
       #  run: cd category/update/; go test -v ./...
