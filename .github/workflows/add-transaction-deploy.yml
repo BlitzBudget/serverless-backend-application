@@ -18,7 +18,7 @@ jobs:
 
       # Add Transaction
       - name: Add transaction
-        run: cd transaction/add/; GOOS=linux go build cmd/main.go; zip addTransaction.zip main; ls;
+        run: cd transactions/add/; GOOS=linux go build cmd/main.go; zip addTransaction.zip main; ls;
 
       #- name: Add Transaction Test
       #  run: cd transaction/add/; go test -v ./...
@@ -30,4 +30,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: addTransactions
-          zip_file: transaction/add/addTransaction.zip
+          zip_file: transactions/add/addTransaction.zip
