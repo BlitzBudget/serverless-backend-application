@@ -17,7 +17,7 @@ jobs:
 
       # Overview
       - name: Get overview
-        run: cd overview/; GOOS=linux go build cmd/main.go; zip overview.zip build/main; pwd;
+        run: cd overview/; GOOS=linux go build cmd/main.go; zip overview.zip main; pwd;
 
       #- name: Overview Test
       #  run: cd overview/; go test -v ./...
@@ -29,4 +29,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: overview
-          zip_file: cd overview/build/overview.zip
+          zip_file: cd overview/overview.zip
