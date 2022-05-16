@@ -2,8 +2,8 @@ package repository
 
 import (
 	"fmt"
-	"update-category/service/config"
-	"update-category/service/models"
+	"update-goal/service/config"
+	"update-goal/service/models"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -22,7 +22,7 @@ func UpdateItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB, 
 			},
 		},
 		ReturnValues:     aws.String("UPDATED_NEW"),
-		UpdateExpression: aws.String("set category_name = :n, category_type = :t, updated_date = :u"),
+		UpdateExpression: aws.String("set transaction_name = :t, updated_date = :u"),
 	}
 
 	_, err := svc.UpdateItem(input)
