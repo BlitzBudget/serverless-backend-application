@@ -1,10 +1,9 @@
-name: Deploy Add Notification 
+name: Deploy Get Notification
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
-    
 
 jobs:
   build:
@@ -17,18 +16,18 @@ jobs:
         with:
           go-version: 1.17
 
-      # Add Notification
-      - name: Add notification
-        run: cd notification/add/; GOOS=linux go build cmd/main.go; zip addNotification.zip main; ls;
+      # Get Notifications
+      - name: Get notification
+        run: cd notifications/get/; GOOS=linux go build cmd/main.go; zip getNotification.zip main; ls;
 
-      #- name: Add Notification Test
-      #  run: cd notification/add/; go test -v ./...
+      #- name: Get Notification Test
+      #  run: cd notifications/get/; go test -v ./...
 
-      - name: Add Notification gobuild deploy
+      - name: Get Notification gobuild deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
-          function_name: addNotification
-          zip_file: notification/add/addNotification.zip
+          function_name: getNotification
+          zip_file: notifications/get/getNotification.zip
