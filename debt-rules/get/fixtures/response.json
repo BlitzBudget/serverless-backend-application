@@ -7,5 +7,5 @@
       "Access-Control-Allow-Origin": "*"
     },
     "multiValueHeaders": null,
-    "body": "[{\"pk\":\"Wallet#2022-05-12T14:40:29.156Z\",\"sk\":\"Category#2022-05-12T20:25:19Z\",\"creation_date\":\"2022-05-12T20:25:19Z\",\"category\":\"Category#2022-05-12T14:40:29.156Z\",\"description\":\"Category Description\",\"amount\":95,\"tags\":[\"Expense\",\"Travel\"],\"scheduled_category\":null}]"
+    "body": "[{\"pk\":\"Wallet#2022-05-12T14:40:29.156Z\",\"sk\":\"Debt#2022-05-12T20:25:19Z\",\"creation_date\":\"2022-05-12T20:25:19Z\",\"debt\":\"Debt#2022-05-12T14:40:29.156Z\",\"description\":\"Debt Description\",\"amount\":95,\"tags\":[\"Expense\",\"Travel\"],\"scheduled_debt\":null}]"
   }

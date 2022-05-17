@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"get-category-rule/service"
+	"get-debt-rule/service"
 
 	"github.com/aws/aws-lambda-go/events"
 )

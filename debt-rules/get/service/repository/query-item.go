@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"get-category-rule/service/config"
-	"get-category-rule/service/models"
+	"get-debt-rule/service/config"
+	"get-debt-rule/service/models"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
