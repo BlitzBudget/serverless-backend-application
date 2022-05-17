@@ -25,7 +25,7 @@ func QueryItem(av *models.QueryParameter, svc *dynamodb.DynamoDB) (*dynamodb.Que
 				AttributeValueList: []*dynamodb.AttributeValue{
 					{
 						S: aws.String(config.SkPrefix),
-					}
+					},
 				},
 			},
 		},
