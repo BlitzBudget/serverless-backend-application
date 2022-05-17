@@ -27,7 +27,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + date
 
-	queryParameter.CurrentValue == nil {
+	if queryParameter.CurrentValue == nil {
 		queryParameter.CurrentValue = &currentValue
 	}
 
