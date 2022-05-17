@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"time"
+	"update-category/service/config"
 	"update-category/service/models"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -26,6 +27,7 @@ func ParseToQueryParameter(request *models.RequestModel) map[string]*dynamodb.At
 	date := time.Now().Format(time.RFC3339)
 	av, err := dynamodbattribute.MarshalMap(models.QueryParameter{
 		TransactionName: request.TransactionName,
+		Sk:              config.SkPrefix + *request.TransactionName,
 		UpdatedDate:     &date,
 	})
 
