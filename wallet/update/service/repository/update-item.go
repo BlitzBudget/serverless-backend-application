@@ -22,7 +22,7 @@ func UpdateItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB, 
 			},
 		},
 		ReturnValues:     aws.String("UPDATED_NEW"),
-		UpdateExpression: aws.String("set currency = :c, name = :n, updated_date = :u"),
+		UpdateExpression: aws.String("set wallet_currency = :c, wallet_name = :n, updated_date = :u"),
 	}
 
 	_, err := svc.UpdateItem(input)

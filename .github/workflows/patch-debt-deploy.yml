@@ -1,0 +1,33 @@
+name: Deploy Patch Debt
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      # Patch Debt
+      - name: Patch debt
+        run: cd debt/update/; GOOS=linux go build cmd/main.go; zip patchDebt.zip main; ls;
+
+      #- name: Patch Debt Test
+      # run: cd debt/update/; go test -v ./...
+
+      - name: Patch Debt gobuild deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: patchDebt
+          zip_file: debt/update/patchDebt.zip
