@@ -7,5 +7,5 @@ var ScanIndexForward = false
 var ProjectionExpression = "transaction_amount, transaction_name, sk, pk, creation_date"
 
 const (
-	SkPrefix = "Investment#"
+	SkPrefix = "InvestmentRule#"
 )
