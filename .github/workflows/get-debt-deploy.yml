@@ -18,7 +18,7 @@ jobs:
 
       # Get Debt
       - name: Get debt
-        run: cd debts/get/; GOOS=linux go build cmd/main.go; zip getDebt.zip main; ls;
+        run: cd debt/get/; GOOS=linux go build cmd/main.go; zip getDebt.zip main; ls;
 
       #- name: Get Debt Test
       #  run: cd debts/get/; go test -v ./...
@@ -30,4 +30,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: getDebt
-          zip_file: debts/get/getDebt.zip
+          zip_file: debt/get/getDebt.zip
