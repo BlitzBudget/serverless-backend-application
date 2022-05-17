@@ -8,7 +8,7 @@ type ResponseItem struct {
 	TargetAmount  *int64  `json:"target_amount"`
 	CurrentAmount *int64  `json:"current_amount"`
 	TargetDate    *string `json:"target_date"`
-	Name          *string `json:"name"`
+	Name          *string `json:"goal_name"`
 	GoalAchieved  *bool   `json:"goal_achieved"`
 }
 

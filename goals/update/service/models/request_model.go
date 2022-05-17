@@ -8,5 +8,5 @@ type RequestModel struct {
 	GoalAchieved  *bool   `validate:"required" json:"goal_achieved"`
 	CurrentAmount *int64  `validate:"required" json:"current_amount"`
 	TargetDate    *string `validate:"required" json:"target_date"`
-	Name          *string `validate:"required" json:"name"`
+	Name          *string `validate:"required" json:"goal_name"`
 }

@@ -8,5 +8,5 @@ type QueryParameter struct {
 	InvestmentedAmount *int64  `validate:"required" json:"investmented_amount"`
 	CreationDate       *string `json:"creation_date"`
 	UpdatedDate        *string `json:"updated_date"`
-	InvestmentName     *string `json:"investment_name"`
+	InvestmentName     *string `validate:"required" json:"investment_name"`
 }
