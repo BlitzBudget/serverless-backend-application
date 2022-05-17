@@ -10,10 +10,10 @@ var validAnswer string
 var queryParameter *models.QueryParameter
 
 func setup() {
-	categoryId := "Category#2020-05-02T17:19:13.022Z"
+	debtId := "Category#2020-05-02T17:19:13.022Z"
 
 	queryParameter = &models.QueryParameter{
-		CategoryId: &categoryId,
+		DebtId: &debtId,
 	}
 
 	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"category": "Category#2020-05-02T17:19:13.022Z","description": "Category Description","tags": ["Expense", "Travel"]}`
