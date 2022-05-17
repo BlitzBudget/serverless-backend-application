@@ -1,7 +1,0 @@
-{
-    "nuxt.isNuxtApp": false,
-    "go.lintOnSave": "package",
-    "go.autocompleteUnimportedPackages": true,
-    "go.buildOnSave": "package",
-    "go.testOnSave": true
-}
