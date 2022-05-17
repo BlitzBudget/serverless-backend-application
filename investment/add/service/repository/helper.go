@@ -21,10 +21,15 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 
 	fmt.Printf("marshalled bytes to struct: %+v", queryParameter)
 
+	currentValue := int64(0)
 	date := time.Now().Format(time.RFC3339)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + date
+
+	queryParameter.CurrentValue == nil {
+		queryParameter.CurrentValue = &currentValue
+	}
 
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
 	fmt.Printf("marshalled struct: %+v", av)

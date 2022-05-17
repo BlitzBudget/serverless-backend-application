@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"add-transactions/service/config"
-	"add-transactions/service/models"
+	"add-budget/service/config"
+	"add-budget/service/models"
 	"encoding/json"
 	"fmt"
 	"time"

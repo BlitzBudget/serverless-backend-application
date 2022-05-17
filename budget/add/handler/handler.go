@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"add-transactions/service"
+	"add-budget/service"
 	"context"
 	"fmt"
 

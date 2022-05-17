@@ -25,10 +25,12 @@ func AttributeBuilder(body *string) *models.RequestModel {
 func ParseToQueryParameter(request *models.RequestModel) map[string]*dynamodb.AttributeValue {
 	date := time.Now().Format(time.RFC3339)
 	av, err := dynamodbattribute.MarshalMap(models.QueryParameter{
-		TargetAmount: request.TargetAmount,
-		TargetDate:   request.TargetDate,
-		Name:         request.Name,
-		UpdatedDate:  &date,
+		TargetAmount:  request.TargetAmount,
+		CurrentAmount: request.CurrentAmount,
+		TargetDate:    request.TargetDate,
+		GoalAchieved:  request.GoalAchieved,
+		Name:          request.Name,
+		UpdatedDate:   &date,
 	})
 
 	if err != nil {

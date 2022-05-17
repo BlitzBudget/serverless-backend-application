@@ -1,7 +1,7 @@
 package service
 
 import (
-	"add-transactions/service/repository"
+	"add-budget/service/repository"
 	"fmt"
 
 	"github.com/aws/aws-sdk-go/aws/session"

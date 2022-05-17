@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"add-transactions/service/config"
+	"add-budget/service/config"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"

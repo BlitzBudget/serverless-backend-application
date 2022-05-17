@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"add-transactions/service/models"
+	"add-budget/service/models"
 	"testing"
 )
 
