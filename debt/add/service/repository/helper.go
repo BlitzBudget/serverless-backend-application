@@ -21,13 +21,14 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 
 	fmt.Printf("marshalled bytes to struct: %+v", queryParameter)
 
+	debtRepaid := false
 	date := time.Now().Format(time.RFC3339)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + date
 
 	if queryParameter.DebtRepaid != nil {
-		queryParameter.DebtRepaid = false
+		queryParameter.DebtRepaid = &debtRepaid
 	}
 
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
