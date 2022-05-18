@@ -5,7 +5,7 @@ type ResponseItem struct {
 	Pk           *string `json:"pk"`
 	Sk           *string `json:"sk"`
 	CreationDate *string `json:"creation_date"`
-	Debt         *int64  `json:"debt"`
+	DebtAmount   *int64  `json:"debt_amount"`
 	CurrentValue *int64  `json:"current_value"`
 	DebtName     *string `json:"debt_name"`
 	DebtRepaid   *bool   `json:"debt_repaid"`
