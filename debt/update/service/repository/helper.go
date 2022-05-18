@@ -25,7 +25,7 @@ func AttributeBuilder(body *string) *models.RequestModel {
 func ParseToQueryParameter(request *models.RequestModel) map[string]*dynamodb.AttributeValue {
 	date := time.Now().Format(time.RFC3339)
 	av, err := dynamodbattribute.MarshalMap(models.QueryParameter{
-		DebtAmount:   request.DebtAmount,
+		DebtedAmount: request.DebtedAmount,
 		DebtName:     request.DebtName,
 		DebtRepaid:   request.DebtRepaid,
 		CurrentValue: request.CurrentValue,
