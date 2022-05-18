@@ -6,6 +6,6 @@ type QueryParameter struct {
 	DebtName     *string `validate:"required" json:":n"`
 	CurrentValue *int64  `validate:"required" json:":c"`
 	UpdatedDate  *string `validate:"required" json:":u"`
-	Debt         *int64  `validate:"required" json:":d"`
+	DebtAmount   *int64  `validate:"required" json:":d"`
 	DebtRepaid   *bool   `validate:"required" json:":r"`
 }

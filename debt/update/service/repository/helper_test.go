@@ -20,7 +20,7 @@ func setup() {
 	requestModel = &models.RequestModel{
 		Pk:           &pk,
 		Sk:           &sk,
-		Debt:         &debt,
+		DebtAmount:   &debt,
 		DebtName:     &debtName,
 		DebtRepaid:   &debtRepaid,
 		CurrentValue: &currentValue,
