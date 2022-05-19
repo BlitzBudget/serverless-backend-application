@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"add-category-link/service/category-rule/models"
 	"add-category-link/service/config"
+	"add-category-link/service/models"
 	"errors"
 
 	"github.com/aws/aws-sdk-go/aws"
