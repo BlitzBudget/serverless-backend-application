@@ -36,7 +36,7 @@ func unmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) er
 		dbAttrMap[k] = &dbAttr
 	}
 
-	fmt.Printf("The Mapping of the new image is %v", dbAttrMap)
+	fmt.Printf("The Mapping of the new image is %v", dbAttrMap["description"])
 	// return dynamodbattribute.UnmarshalMap(dbAttrMap, out)
 	return nil
 
