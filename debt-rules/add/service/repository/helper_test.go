@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"add-category-rule/service/models"
+	"add-debt-rule/service/models"
 	"testing"
 )
 
@@ -10,21 +10,21 @@ var validAnswer string
 var queryParameter *models.QueryParameter
 
 func setup() {
-	CategoryrId := "Category#2020-05-02T17:19:13.022Z"
+	DebtrId := "Debt#2020-05-02T17:19:13.022Z"
 	TransactionName := "Groceries"
 	creationDate := "2020-05-02T17:19:13.022"
 	updatedDate := "2020-05-02T17:19:13.022"
-	sk := "CategoryRule#2020-05-02T17:19:13.022Z"
+	sk := "DebtRule#2020-05-02T17:19:13.022Z"
 
 	queryParameter = &models.QueryParameter{
-		Pk:              &CategoryrId,
+		Pk:              &DebtrId,
 		Sk:              sk,
 		TransactionName: &TransactionName,
 		CreationDate:    &creationDate,
 		UpdatedDate:     &updatedDate,
 	}
 
-	body = `{"categoryrId": "Category#2020-05-02T17:19:13.022Z","amount": 95,"category": "Category#2020-05-02T17:19:13.022Z","description": "Transaction Description","tags": ["Expense", "Travel"]}`
+	body = `{"debtrId": "Debt#2020-05-02T17:19:13.022Z","amount": 95,"debt": "Debt#2020-05-02T17:19:13.022Z","description": "Transaction Description","tags": ["Expense", "Travel"]}`
 }
 
 func Test_repository_AttributeBuilder(t *testing.T) {

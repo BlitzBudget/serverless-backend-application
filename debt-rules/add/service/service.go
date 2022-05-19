@@ -1,7 +1,7 @@
 package service
 
 import (
-	"add-category-rule/service/repository"
+	"add-debt-rule/service/repository"
 	"fmt"
 
 	"github.com/aws/aws-sdk-go/aws/session"

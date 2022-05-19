@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"add-category-rule/service/config"
-	"add-category-rule/service/models"
+	"add-debt-rule/service/config"
+	"add-debt-rule/service/models"
 	"encoding/json"
 	"fmt"
 	"time"
