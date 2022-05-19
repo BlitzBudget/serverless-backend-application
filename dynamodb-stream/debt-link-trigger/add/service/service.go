@@ -26,5 +26,5 @@ func ProcessRecords(records *[]events.DynamoDBEventRecord) {
 		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
 	}
 
-	fmt.Println("Successfully added the item!")
+	fmt.Println("Successfully processed all the records!")
 }

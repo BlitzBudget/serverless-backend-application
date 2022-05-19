@@ -50,7 +50,7 @@ func GetDebtRuleItem(svc dynamodbiface.DynamoDBAPI, sk *string, pk *string) (*mo
 		return nil, err
 	}
 
-	fmt.Printf("Successfully retrieved the item %v. \n", item.Sk)
+	fmt.Printf("Successfully retrieved the item %v. \n", *item.Sk)
 	return &item, nil
 }
 
@@ -83,6 +83,6 @@ func GetDebtItem(svc dynamodbiface.DynamoDBAPI, sk *string, pk *string) (*models
 		return nil, err
 	}
 
-	fmt.Printf("Successfully retrieved the item %v. \n", item.DebtName)
+	fmt.Printf("Successfully retrieved the item %v. \n", *item.DebtName)
 	return &item, nil
 }
