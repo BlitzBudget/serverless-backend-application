@@ -25,18 +25,18 @@ func CreateDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 		var debtRule *models.DebtRule
 		debtRule, err = repository.GetDebtRuleItem(svc, &sk, pk)
 		if err != nil {
-			fmt.Printf("AttributeBuilder: Got error Debt Rule GetTableItem: %v. \n", err)
+			fmt.Printf("AttributeBuilder: Got error Debt Rule GetDebtRuleItem: %v. \n", err)
 			continue
 		}
 
 		if *debtRule.TransactionName == *description {
 			debt, err := repository.GetDebtItem(svc, debtRule.DebtId, pk)
 			if err != nil {
-				fmt.Printf("AttributeBuilder: Got error Debt GetTableItem: %v. \n", err)
+				fmt.Printf("AttributeBuilder: Got error Debt GetDebtItem: %v. \n", err)
 				continue
 			}
 
-			fmt.Printf("AttributeBuilder: Debt Retireve is : %v", debt.DebtName)
+			fmt.Printf("AttributeBuilder: Debt Retireved is : %v", debt.DebtName)
 			amt, error := strconv.Atoi(*amount)
 			if error != nil {
 				fmt.Printf("AttributeBuilder: Unable to convert amount to integer: %v. \n", err)
