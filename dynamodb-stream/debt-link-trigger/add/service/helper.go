@@ -17,7 +17,7 @@ func CreateDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 	for _, record := range *records {
 		description, pk, amount, err := unmarshalStreamImage(record.Change.NewImage)
 		if err != nil {
-			fmt.Printf("AttributeBuilder: Got error unmarshalStreamImage: %v", err)
+			fmt.Printf("AttributeBuilder: Got error unmarshalStreamImage: %v. \n", err)
 			continue
 		}
 
@@ -25,26 +25,26 @@ func CreateDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 		var debtRule *models.DebtRule
 		debtRule, err = repository.GetDebtRuleItem(svc, &sk, pk)
 		if err != nil {
-			fmt.Printf("AttributeBuilder: Got error Debt Rule GetTableItem: %v", err)
+			fmt.Printf("AttributeBuilder: Got error Debt Rule GetTableItem: %v. \n", err)
 			continue
 		}
 
 		if *debtRule.TransactionName == *description {
 			debt, err := repository.GetDebtItem(svc, debtRule.DebtId, pk)
 			if err != nil {
-				fmt.Printf("AttributeBuilder: Got error Debt GetTableItem: %v", err)
+				fmt.Printf("AttributeBuilder: Got error Debt GetTableItem: %v. \n", err)
 				continue
 			}
 
 			fmt.Printf("AttributeBuilder: Debt Retireve is : %v", debt.DebtName)
 			amt, error := strconv.Atoi(*amount)
 			if error != nil {
-				fmt.Printf("AttributeBuilder: Unable to convert amount to integer: %v", err)
+				fmt.Printf("AttributeBuilder: Unable to convert amount to integer: %v. \n", err)
 				continue
 			}
 			currentValue := int64(amt) + *debt.CurrentValue
 			debt.CurrentValue = &currentValue
-			fmt.Printf("AttributeBuilder: The new Debt amount is: %v", currentValue)
+			fmt.Printf("AttributeBuilder: The new Debt amount is: %v. \n", currentValue)
 		}
 	}
 
