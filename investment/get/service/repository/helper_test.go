@@ -10,14 +10,14 @@ var validAnswer string
 var queryParameter *models.QueryParameter
 
 func setup() {
-	userId := "Wallet#2020-05-02T17:19:13.022Z"
+	walletId := "Wallet#2020-05-02T17:19:13.022Z"
 	investmentId := "Investment#2020-05-02T17:19:13.022Z"
 	investedAmount := int64(20)
 	currentValue := int64(20)
 	investmentName := "Mutual Funds"
 
 	queryParameter = &models.QueryParameter{
-		UserId:         &userId,
+		WalletId:       &walletId,
 		StartsWithDate: &investmentId,
 		EndsWithDate:   &investmentId,
 		InvestedAmount: &investedAmount,
@@ -45,7 +45,7 @@ func Test_repository_AttributeBuilder(t *testing.T) {
 			args: args{
 				body: body,
 			},
-			want:    queryParameter.UserId,
+			want:    queryParameter.WalletId,
 			wantErr: false,
 		},
 		{
