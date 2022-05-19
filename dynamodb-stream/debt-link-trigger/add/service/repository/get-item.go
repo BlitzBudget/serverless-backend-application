@@ -4,6 +4,7 @@ import (
 	"add-debt-link/service/config"
 	"add-debt-link/service/models"
 	"errors"
+	"fmt"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -49,6 +50,7 @@ func GetDebtRuleItem(svc dynamodbiface.DynamoDBAPI, sk *string, pk *string) (*mo
 		return nil, err
 	}
 
+	fmt.Printf("Successfully retrieved the item %v", item.Sk)
 	return &item, nil
 }
 
@@ -81,5 +83,6 @@ func GetDebtItem(svc dynamodbiface.DynamoDBAPI, sk *string, pk *string) (*models
 		return nil, err
 	}
 
+	fmt.Printf("Successfully retrieved the item %v", item.DebtName)
 	return &item, nil
 }

@@ -29,7 +29,7 @@ func CreateDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 			continue
 		}
 
-		if debtRule.TransactionName == description {
+		if *debtRule.TransactionName == *description {
 			debt, err := repository.GetDebtItem(svc, debtRule.DebtId, pk)
 			if err != nil {
 				fmt.Printf("AttributeBuilder: Got error Debt GetTableItem: %v", err)
