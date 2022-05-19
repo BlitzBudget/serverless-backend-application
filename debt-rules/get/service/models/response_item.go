@@ -7,6 +7,7 @@ type ResponseItem struct {
 	CreationDate      *string `json:"creation_date"`
 	TransactionName   *string `json:"transaction_name"`
 	TransactionAmount *int64  `json:"transaction_amount"`
+	DebtId            *string `json:"debt_id"`
 }
 
 type ResponseItems []*ResponseItem

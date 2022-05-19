@@ -1,14 +1,27 @@
 package service
 
 import (
-	"add-debt/service/repository"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
 func ProcessRecords(records *[]events.DynamoDBEventRecord) {
-	_, err := repository.AttributeBuilder(records)
+	// snippet-start:[dynamodb.go.create_item.session]
+	// Initialize a session that the SDK will use to load
+	// credentials from the shared credentials file ~/.aws/credentials
+	// and region from the shared configuration file ~/.aws/config.
+	sess := session.Must(session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable,
+	}))
+
+	// Create DynamoDB client
+	svc := dynamodb.New(sess)
+	// snippet-end:[dynamodb.go.create_item.session]
+
+	_, err := CreateCategoryLink(records,svc)
 	if err != nil {
 		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
 	}

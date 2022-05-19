@@ -1,4 +1,4 @@
-module add-debt
+module add-category-link
 
 go 1.17
 

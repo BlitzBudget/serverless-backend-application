@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"add-debt/service"
+	"add-category-link/service"
 	"context"
 	"fmt"
 
