@@ -1,4 +1,4 @@
-name: Deploy Get CategoryRules
+name: Deploy Get Category Rules
 
 on:
   push:
