@@ -22,9 +22,9 @@ func IncrementDebtRepayment(debtRule *models.DebtRule, transaction *models.Trans
 		return
 	}
 
-	fmt.Printf("incrementDebtRepayment: Debt Retireved is : %v", debt.DebtName)
+	fmt.Printf("incrementDebtRepayment: Debt Retireved is : %v", *debt.DebtName)
 	if *debt.DebtRepaid {
-		fmt.Printf("incrementDebtRepayment: The Debt %v has been repaid %v. \n", debt.DebtName, debt.DebtRepaid)
+		fmt.Printf("incrementDebtRepayment: The Debt %v has been repaid %v. \n", *debt.DebtName, *debt.DebtRepaid)
 		return
 	}
 
