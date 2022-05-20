@@ -30,9 +30,9 @@ func IncrementInvestmentAmount(investmentRule *models.InvestmentRule, transactio
 
 func incrementInvestmentCurrentValue(transaction *models.Transaction, investment *models.Investment) {
 	currentValue := *transaction.Amount - *investment.CurrentValue
-	investedAmount := *transaction.Amount - *investment.InvestmentedAmount
+	investedAmount := *transaction.Amount - *investment.InvestedAmount
 	investment.CurrentValue = &currentValue
-	investment.InvestmentedAmount = &investedAmount
+	investment.InvestedAmount = &investedAmount
 	fmt.Printf("incrementInvestmentAmount: The new Investment amount is: %v. \n", currentValue)
 }
 

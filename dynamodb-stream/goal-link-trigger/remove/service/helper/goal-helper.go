@@ -30,7 +30,7 @@ func IncrementGoalAchieved(goalRule *models.GoalRule, transaction *models.Transa
 }
 
 func updategoalAchieved(goal *models.Goal, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
-	if *goal.CurrentAmount <= *goal.GoaledAmount {
+	if *goal.CurrentAmount <= *goal.TargetAmount {
 		goalAchieved := false
 		goal.GoalAchieved = &goalAchieved
 	}
