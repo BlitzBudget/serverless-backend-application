@@ -28,5 +28,5 @@ func UpdateTransacionItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.
 	if err != nil {
 		fmt.Printf("UpdateItem: Failed to update the transaction item %v.\n", err)
 	}
-	fmt.Printf("UpdateItem: Successfully updated the transaction item %v with debt id. \n", sk)
+	fmt.Printf("UpdateItem: Successfully updated the transaction item %v with debt id. \n", *sk)
 }

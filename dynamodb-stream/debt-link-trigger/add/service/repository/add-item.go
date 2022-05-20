@@ -15,6 +15,6 @@ func CreateItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB) 
 	}
 
 	_, err := svc.PutItem(input)
-	fmt.Printf("UpdateItem: Successfully added the notification item for successful debt repayment. \n")
+	fmt.Printf("Add Item: Successfully added the notification item for successful debt repayment. \n")
 	return err
 }

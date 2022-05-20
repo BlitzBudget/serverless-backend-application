@@ -29,15 +29,15 @@ func IncrementDebtRepayment(debtRule *models.DebtRule, transaction *models.Trans
 	}
 
 	incrementDebtCurrentValue(transaction, debt)
-	updatedebtRepaid(debt, transaction)
+	updatedebtRepaid(debt, transaction, svc)
 	UpdateCurrentValueForDebt(svc, debt)
 }
 
-func updatedebtRepaid(debt *models.Debt, transaction *models.Transaction) {
+func updatedebtRepaid(debt *models.Debt, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
 	if *debt.CurrentValue >= *debt.DebtedAmount {
 		debtRepaid := true
 		debt.DebtRepaid = &debtRepaid
-		RepaidDebtNotification(transaction.Pk, debt.DebtName)
+		RepaidDebtNotification(transaction.Pk, debt.DebtName, svc)
 	}
 }
 
