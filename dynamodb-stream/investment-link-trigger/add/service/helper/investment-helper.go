@@ -12,7 +12,7 @@ import (
 // Add the transaction amount with the current value field in the investment
 func IncrementInvestmentAmount(investmentRule *models.InvestmentRule, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
 	if !(descriptionMatches(investmentRule, transaction.Description) || amountMatches(investmentRule, *transaction.Amount)) {
-		fmt.Printf("incrementInvestmentAmount: The transaction description and the transaction amount do not match: %v. \n", investmentRule.Sk)
+		fmt.Printf("incrementInvestmentAmount: The transaction description and the transaction amount do not match: %v. \n", *investmentRule.Sk)
 		return
 	}
 
@@ -22,7 +22,7 @@ func IncrementInvestmentAmount(investmentRule *models.InvestmentRule, transactio
 		return
 	}
 
-	fmt.Printf("incrementInvestmentAmount: Investment Retireved is : %v", investment.InvestmentName)
+	fmt.Printf("incrementInvestmentAmount: Investment Retireved is : %v", *investment.InvestmentName)
 
 	incrementInvestmentCurrentValue(transaction, investment)
 	UpdateCurrentValueForInvestment(svc, investment)

@@ -12,7 +12,7 @@ import (
 // Add the transaction amount with the current value field in the debt
 func IncrementDebtRepayment(debtRule *models.DebtRule, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
 	if !(descriptionMatches(debtRule, transaction.Description) || amountMatches(debtRule, *transaction.Amount)) {
-		fmt.Printf("incrementDebtRepayment: The transaction description and the transaction amount do not match: %v. \n", debtRule.Sk)
+		fmt.Printf("incrementDebtRepayment: The transaction description and the transaction amount do not match: %v. \n", *debtRule.Sk)
 		return
 	}
 

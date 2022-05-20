@@ -26,7 +26,7 @@ func DebtParseToQueryParameter(currentValue *int64, debtRepaid *bool) map[string
 	})
 
 	if err != nil {
-		fmt.Printf("ParseToQueryParameter: Failed to update current value %v for the debt %v. \n", currentValue, err)
+		fmt.Printf("ParseToQueryParameter: Failed to update current value %v for the debt %v. \n", *currentValue, err)
 	}
 
 	return av

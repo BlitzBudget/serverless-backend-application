@@ -26,7 +26,7 @@ func InvestmentParseToQueryParameter(currentValue *int64, investmentAmount *bool
 	})
 
 	if err != nil {
-		fmt.Printf("ParseToQueryParameter: Failed to update current value %v for the investment %v. \n", currentValue, err)
+		fmt.Printf("ParseToQueryParameter: Failed to update current value %v for the investment %v. \n", *currentValue, err)
 	}
 
 	return av

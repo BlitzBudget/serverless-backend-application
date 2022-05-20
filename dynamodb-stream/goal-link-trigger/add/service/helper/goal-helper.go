@@ -12,7 +12,7 @@ import (
 // Add the transaction amount with the current value field in the goal
 func IncrementGoalAchieved(goalRule *models.GoalRule, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
 	if !(descriptionMatches(goalRule, transaction.Description) || amountMatches(goalRule, *transaction.Amount)) {
-		fmt.Printf("incrementGoalAchieved: The transaction description and the transaction amount do not match: %v. \n", goalRule.Sk)
+		fmt.Printf("incrementGoalAchieved: The transaction description and the transaction amount do not match: %v. \n", *goalRule.Sk)
 		return
 	}
 

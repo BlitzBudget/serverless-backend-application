@@ -24,7 +24,7 @@ func ParseToQueryParameter(goalId *string) map[string]*dynamodb.AttributeValue {
 	})
 
 	if err != nil {
-		fmt.Printf("ParseToQueryParameter: Failed to update transaction with goal id %v, %v. \n", goalId, err)
+		fmt.Printf("ParseToQueryParameter: Failed to update transaction with goal id %v, %v. \n", *goalId, err)
 	}
 
 	return av
