@@ -1,6 +1,7 @@
 package helper
 
 import (
+	"add-debt-link/service/i18n"
 	"add-debt-link/service/models"
 	"fmt"
 	"time"
@@ -14,7 +15,7 @@ const (
 
 // Add a repaid debt notification to the
 func RepaidDebtNotification(pk *string, debtName *string) {
-	message := "Hurray! You just finished this loan! " + *debtName
+	message := i18n.Notification + *debtName
 	notification := models.Notificaion{
 		Pk:           pk,
 		Notification: &message,
