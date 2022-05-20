@@ -28,7 +28,7 @@ func ParseToQueryParameter(request *models.RequestModel) map[string]*dynamodb.At
 	av, err := dynamodbattribute.MarshalMap(models.QueryParameter{
 		Amount:      request.Amount,
 		Description: request.Description,
-		Category:    request.Category,
+		CategoryId:  request.CategoryId,
 		Tags:        request.Tags,
 		UpdatedDate: &date,
 	})

@@ -8,6 +8,6 @@ type QueryParameter struct {
 	Description  *string   `validate:"required" json:"description"`
 	CreationDate *string   `json:"creation_date"`
 	UpdatedDate  *string   `json:"updated_date"`
-	Category     *string   `validate:"required" json:"category"`
+	CategoryIdId *string   `validate:"required" json:"category_id"`
 	Tags         *[]string `validate:"required" json:"tags"`
 }

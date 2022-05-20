@@ -15,7 +15,7 @@ func setup() {
 	amount := int64(95)
 	creationDate := "2020-05-02T17:19:13.022"
 	updatedDate := "2020-05-02T17:19:13.022"
-	category := "Category#2020-05-02T17:19:13.022Z"
+	categoryId := "CategoryId#2020-05-02T17:19:13.022Z"
 	tags := []string{"Expense", "Travel"}
 	description := "estimated_autoconsumption"
 
@@ -26,11 +26,11 @@ func setup() {
 		Description:  &description,
 		CreationDate: &creationDate,
 		UpdatedDate:  &updatedDate,
-		Category:     &category,
+		CategoryId:   &categoryId,
 		Tags:         &tags,
 	}
 
-	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"category": "Category#2020-05-02T17:19:13.022Z","description": "Transaction Description","tags": ["Expense", "Travel"]}`
+	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"category_id": "CategoryId#2020-05-02T17:19:13.022Z","description": "Transaction Description","tags": ["Expense", "Travel"]}`
 }
 
 func Test_repository_AttributeBuilder(t *testing.T) {

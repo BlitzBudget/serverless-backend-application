@@ -5,7 +5,7 @@ type ResponseItem struct {
 	Pk           *string   `json:"pk"`
 	Sk           *string   `json:"sk"`
 	CreationDate *string   `json:"creation_date"`
-	Category     *string   `json:"category"`
+	CategoryId   *string   `json:"category_id"`
 	Description  *string   `json:"description"`
 	Amount       *int64    `json:"amount"`
 	Tags         *[]string `json:"tags"`
