@@ -28,17 +28,16 @@ func IncrementDebtRepayment(debtRule *models.DebtRule, transaction *models.Trans
 		return
 	}
 
-	incrementCurrentValueIfDebtNotRepaid(debt, transaction)
+	incrementDebtCurrentValue(transaction, debt)
+	updatedebtRepaid(debt, transaction)
 	UpdateCurrentValueForDebt(svc, debt)
 }
 
-func incrementCurrentValueIfDebtNotRepaid(debt *models.Debt, transaction *models.Transaction) {
+func updatedebtRepaid(debt *models.Debt, transaction *models.Transaction) {
 	if *debt.CurrentValue >= *debt.DebtedAmount {
 		debtRepaid := true
 		debt.DebtRepaid = &debtRepaid
 		RepaidDebtNotification(transaction.Pk, debt.DebtName)
-	} else {
-		incrementDebtCurrentValue(transaction, debt)
 	}
 }
 

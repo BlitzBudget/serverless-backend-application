@@ -2,6 +2,7 @@ package repository
 
 import (
 	"add-debt-link/service/config"
+	"fmt"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -14,5 +15,6 @@ func CreateItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB) 
 	}
 
 	_, err := svc.PutItem(input)
+	fmt.Printf("UpdateItem: Successfully added the notification item for successful debt repayment. \n")
 	return err
 }
