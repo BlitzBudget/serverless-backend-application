@@ -1,6 +1,7 @@
 package service
 
 import (
+	"add-debt-link/service/helper"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -21,7 +22,7 @@ func ProcessRecords(records *[]events.DynamoDBEventRecord) {
 	svc := dynamodb.New(sess)
 	// snippet-end:[dynamodb.go.create_item.session]
 
-	_, err := CreateDebtLink(records, svc)
+	_, err := helper.CreateDebtLink(records, svc)
 	if err != nil {
 		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
 	}

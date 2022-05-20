@@ -1,0 +1,33 @@
+package helper
+
+import (
+	"add-debt-link/service/models"
+	"fmt"
+	"time"
+
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+)
+
+const (
+	SkPrefix = "Notification#"
+)
+
+// Add a repaid debt notification to the
+func RepaidDebtNotification(pk *string, debtName *string) {
+	message := "Hurray! You just finished this loan! " + *debtName
+	notification := models.Notificaion{
+		Pk:           pk,
+		Notification: &message,
+	}
+	date := time.Now().Format(time.RFC3339)
+	notification.CreationDate = &date
+	notification.UpdatedDate = &date
+	notification.Sk = SkPrefix + date
+
+	av, err := dynamodbattribute.MarshalMap(notification)
+	if err != nil {
+		fmt.Printf("Notification item cannot be marshalled: %v", err)
+		return
+	}
+	fmt.Printf("Notification item Marshalled: %+v", av)
+}
