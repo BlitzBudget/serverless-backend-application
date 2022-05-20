@@ -22,7 +22,7 @@ func IncrementGoalAchieved(goalRule *models.GoalRule, transaction *models.Transa
 		return
 	}
 
-	fmt.Printf("incrementGoalAchieved: Goal Retireved is : %v", goal.GoalName)
+	fmt.Printf("incrementGoalAchieved: Goal Retireved is : %v. \n", goal.GoalName)
 	if *goal.GoalAchieved {
 		fmt.Printf("incrementGoalAchieved: The Goal %v has been repaid %v. \n", goal.GoalName, goal.GoalAchieved)
 		return

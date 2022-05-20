@@ -22,7 +22,7 @@ func IncrementInvestmentAmount(investmentRule *models.InvestmentRule, transactio
 		return
 	}
 
-	fmt.Printf("incrementInvestmentAmount: Investment Retireved is : %v", *investment.InvestmentName)
+	fmt.Printf("incrementInvestmentAmount: Investment Retireved is : %v. \n", *investment.InvestmentName)
 
 	incrementInvestmentCurrentValue(transaction, investment)
 	UpdateCurrentValueForInvestment(svc, investment)
