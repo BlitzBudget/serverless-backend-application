@@ -1,4 +1,4 @@
-name: Deploy Add GoalLinkTrigger
+name: Deploy Remove GoalLinkTrigger
 
 on:
   push:
@@ -17,14 +17,14 @@ jobs:
         with:
           go-version: 1.17
 
-      # Add GoalLinkTrigger
-      - name: Add dynamodb-stream/goal-link-trigger
+      # Remove GoalLinkTrigger
+      - name: Remove dynamodb-stream/goal-link-trigger
         run: cd dynamodb-stream/goal-link-trigger/remove/; GOOS=linux go build cmd/main.go; zip removeGoalLinkTrigger.zip main; ls;
 
-      #- name: Add GoalLinkTrigger Test
+      #- name: Remove GoalLinkTrigger Test
       #  run: cd dynamodb-stream/goal-link-trigger/remove/; go test -v ./...
 
-      - name: Add GoalLinkTrigger gobuild deploy
+      - name: Remove GoalLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_KEY_ID }}

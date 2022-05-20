@@ -1,4 +1,4 @@
-name: Deploy Add CategoryLinkTrigger
+name: Deploy Remove CategoryLinkTrigger
 
 on:
   push:
@@ -17,14 +17,14 @@ jobs:
         with:
           go-version: 1.17
 
-      # Add CategoryLinkTrigger
-      - name: Add dynamodb-stream/category-link-trigger
+      # Remove CategoryLinkTrigger
+      - name: Remove dynamodb-stream/category-link-trigger
         run: cd dynamodb-stream/category-link-trigger/remove/; GOOS=linux go build cmd/main.go; zip removeCategoryLinkTrigger.zip main; ls;
 
-      #- name: Add CategoryLinkTrigger Test
+      #- name: Remove CategoryLinkTrigger Test
       #  run: cd dynamodb-stream/category-link-trigger/remove/; go test -v ./...
 
-      - name: Add CategoryLinkTrigger gobuild deploy
+      - name: Remove CategoryLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_KEY_ID }}

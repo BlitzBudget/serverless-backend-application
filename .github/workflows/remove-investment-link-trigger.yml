@@ -1,4 +1,4 @@
-name: Deploy Add InvestmentLinkTrigger
+name: Deploy Remove InvestmentLinkTrigger
 
 on:
   push:
@@ -17,14 +17,14 @@ jobs:
         with:
           go-version: 1.17
 
-      # Add InvestmentLinkTrigger
-      - name: Add dynamodb-stream/investment-link-trigger
+      # Remove InvestmentLinkTrigger
+      - name: Remove dynamodb-stream/investment-link-trigger
         run: cd dynamodb-stream/investment-link-trigger/remove/; GOOS=linux go build cmd/main.go; zip removeInvestmentLinkTrigger.zip main; ls;
 
-      #- name: Add InvestmentLinkTrigger Test
+      #- name: Remove InvestmentLinkTrigger Test
       #  run: cd dynamodb-stream/investment-link-trigger/remove/; go test -v ./...
 
-      - name: Add InvestmentLinkTrigger gobuild deploy
+      - name: Remove InvestmentLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
