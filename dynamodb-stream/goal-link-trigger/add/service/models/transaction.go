@@ -32,7 +32,7 @@ func ConvertDynamoDBToModel(dbAttrMap map[string]*dynamodb.AttributeValue) Trans
 		Sk:          dbAttrMap["sk"].S,
 		Description: dbAttrMap["description"].S,
 		Amount:      &bigIntAmount,
-		Category:    dbAttrMap["category"].S,
+		Category:    dbAttrMap["category_id"].S,
 	}
 	return transaction
 }
