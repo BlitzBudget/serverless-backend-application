@@ -25,6 +25,7 @@ func CreateDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 			continue
 		}
 
+		UpdateTransactionWithDebtId(debtRule.DebtId, svc, transaction)
 		IncrementDebtRepayment(debtRule, transaction, svc)
 	}
 }
