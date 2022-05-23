@@ -25,7 +25,7 @@ func RepaidDebtNotification(pk *string, debtName *string, svc *dynamodb.DynamoDB
 	date := time.Now().Format(time.RFC3339)
 	notification.CreationDate = &date
 	notification.UpdatedDate = &date
-	notification.Sk = SkPrefix + date
+	notification.Sk = SkPrefix + message
 
 	av, err := dynamodbattribute.MarshalMap(notification)
 	if err != nil {

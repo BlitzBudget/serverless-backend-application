@@ -21,6 +21,7 @@ func ProcessRecords(records *[]events.DynamoDBEventRecord) {
 	// Create DynamoDB client
 	svc := dynamodb.New(sess)
 	// snippet-end:[dynamodb.go.create_item.session]
+	fmt.Printf("Records for processing %v. \n", records)
 
 	helper.CreateDebtLink(records, svc)
 

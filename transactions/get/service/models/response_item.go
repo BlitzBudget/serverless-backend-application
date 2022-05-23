@@ -9,6 +9,9 @@ type ResponseItem struct {
 	Description  *string   `json:"description"`
 	Amount       *int64    `json:"amount"`
 	Tags         *[]string `json:"tags"`
+	InvestmentId *string   `json:"investment_id"`
+	DebtId       *string   `json:"debt_id"`
+	GoalId       *string   `json:"goal_id"`
 }
 
 type ResponseItems []*ResponseItem
