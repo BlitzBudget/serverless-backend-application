@@ -35,6 +35,6 @@ func GoalParseToQueryParameter(currentValue *int64, goalAchieved *bool) map[stri
 // Update Transaction Item with Goal ID
 func UpdateCurrentAmountForGoal(svc *dynamodb.DynamoDB, request *models.Goal) {
 	av := GoalParseToQueryParameter(request.CurrentAmount, request.GoalAchieved)
-	updateExpression := "set current_amount = :c, goal_repaid = :r, updated_date = :u"
+	updateExpression := "set current_amount = :c, goal_achieved = :r, updated_date = :u"
 	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)
 }
