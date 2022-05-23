@@ -34,7 +34,23 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 		queryParameter.GoalAchieved = &goalAchieved
 	}
 
+	mandatoryFieldsCheck(queryParameter)
+
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
 	fmt.Printf("marshalled struct: %+v", av)
 	return av, err
+}
+
+func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
+	if queryParameter.TargetAmount == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Target Amount is empty."))
+	}
+
+	if queryParameter.TargetDate == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Target Date is empty."))
+	}
+
+	if queryParameter.Name == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Goal Name is empty."))
+	}
 }

@@ -26,7 +26,19 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + date
 
+	mandatoryFieldsCheck(queryParameter)
+
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
 	fmt.Printf("marshalled struct: %+v", av)
 	return av, err
+}
+
+func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
+	if queryParameter.CategoryName == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Category Name is empty."))
+	}
+
+	if queryParameter.CategoryType == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Category Type is empty."))
+	}
 }

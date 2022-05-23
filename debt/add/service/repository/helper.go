@@ -27,6 +27,8 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + date
 
+	mandatoryFieldsCheck(queryParameter)
+
 	if queryParameter.DebtRepaid != nil {
 		queryParameter.DebtRepaid = &debtRepaid
 	}
@@ -34,4 +36,14 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
 	fmt.Printf("marshalled struct: %+v", av)
 	return av, err
+}
+
+func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
+	if queryParameter.DebtedAmount == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Debt Amount is empty."))
+	}
+
+	if queryParameter.DebtName == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Debt Name is empty."))
+	}
 }

@@ -26,7 +26,20 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + *queryParameter.TransactionName
 
+	mandatoryFieldsCheck(queryParameter)
+
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
 	fmt.Printf("marshalled struct: %+v. \n", av)
 	return av, err
+}
+
+
+func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
+	if queryParameter.GoalId == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Debt Id is empty."))
+	}
+
+	if queryParameter.TransactionName == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Transaction Name is empty."))
+	}
 }
