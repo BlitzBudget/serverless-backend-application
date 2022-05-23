@@ -11,18 +11,9 @@ var queryParameter *models.QueryParameter
 
 func setup() {
 	walletId := "Wallet#2020-05-02T17:19:13.022Z"
-	investmentId := "Investment#2020-05-02T17:19:13.022Z"
-	investedAmount := int64(20)
-	currentValue := int64(20)
-	investmentName := "Mutual Funds"
 
 	queryParameter = &models.QueryParameter{
-		WalletId:       &walletId,
-		StartsWithDate: &investmentId,
-		EndsWithDate:   &investmentId,
-		InvestedAmount: &investedAmount,
-		CurrentValue:   &currentValue,
-		InvestmentName: &investmentName,
+		WalletId: &walletId,
 	}
 
 	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"investment": "Investment#2020-05-02T17:19:13.022Z","description": "Investment Description","tags": ["Expense", "Travel"]}`

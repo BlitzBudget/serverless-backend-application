@@ -16,7 +16,7 @@ func QueryItem(av *models.QueryParameter, svc *dynamodb.DynamoDB) (*dynamodb.Que
 				ComparisonOperator: aws.String("EQ"),
 				AttributeValueList: []*dynamodb.AttributeValue{
 					{
-						S: aws.String(*av.DebtId),
+						S: aws.String(*av.WalletId),
 					},
 				},
 			},
