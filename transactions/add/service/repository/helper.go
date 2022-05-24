@@ -35,9 +35,6 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 }
 
 func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
-	if queryParameter.CategoryId == nil {
-		panic(fmt.Sprintln("AttributeBuilder:: Category Id is empty."))
-	}
 
 	if queryParameter.Description == nil {
 		panic(fmt.Sprintln("AttributeBuilder:: Description is empty."))
