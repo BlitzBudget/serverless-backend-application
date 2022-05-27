@@ -5,8 +5,8 @@ type ResponseItem struct {
 	Pk           *string `json:"pk"`
 	Sk           *string `json:"sk"`
 	CreationDate *string `json:"creation_date"`
-	Currency     *string `json:"currency"`
-	Name         *string `json:"name"`
+	Currency     *string `json:"wallet_currency"`
+	Name         *string `json:"wallet_name"`
 }
 
 type ResponseItems []*ResponseItem

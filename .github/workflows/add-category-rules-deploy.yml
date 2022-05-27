@@ -1,4 +1,4 @@
-name: Deploy Add CategoryRules Rules
+name: Deploy Add Category Rules
 
 on:
   push:

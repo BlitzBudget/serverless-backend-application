@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"add-category-rule/service/config"
-	"add-category-rule/service/models"
+	"add-debt-rule/service/config"
+	"add-debt-rule/service/models"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -26,7 +26,19 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + *queryParameter.TransactionName
 
+	mandatoryFieldsCheck(queryParameter)
+
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
 	fmt.Printf("marshalled struct: %+v", av)
 	return av, err
+}
+
+func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
+	if queryParameter.DebtId == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Debt Id is empty."))
+	}
+
+	if queryParameter.TransactionName == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Transaction Name is empty."))
+	}
 }

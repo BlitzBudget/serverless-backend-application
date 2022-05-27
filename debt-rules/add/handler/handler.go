@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"add-category-rule/service"
+	"add-debt-rule/service"
 	"context"
 	"fmt"
 

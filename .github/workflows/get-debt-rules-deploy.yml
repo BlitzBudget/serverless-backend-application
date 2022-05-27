@@ -1,4 +1,4 @@
-name: Deploy Get DebtRules
+name: Deploy Get Debt Rules
 
 on:
   push:

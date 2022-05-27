@@ -6,6 +6,6 @@ type RequestModel struct {
 	Sk          *string   `validate:"required" json:"sk"`
 	Amount      *int64    `validate:"required" json:"amount"`
 	Description *string   `validate:"required" json:"description"`
-	Category    *string   `validate:"required" json:"category"`
+	CategoryId  *string   `validate:"required" json:"category_id"`
 	Tags        *[]string `validate:"required" json:"tags"`
 }

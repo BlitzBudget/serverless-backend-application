@@ -11,12 +11,9 @@ var queryParameter *models.QueryParameter
 
 func setup() {
 	userId := "Wallet#2020-05-02T17:19:13.022Z"
-	categoryId := "Category#2020-05-02T17:19:13.022Z"
 
 	queryParameter = &models.QueryParameter{
 		UserId:         &userId,
-		StartsWithDate: &categoryId,
-		EndsWithDate:   &categoryId,
 	}
 
 	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"category": "Category#2020-05-02T17:19:13.022Z","description": "Category Description","tags": ["Expense", "Travel"]}`

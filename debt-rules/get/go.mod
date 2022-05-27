@@ -1,4 +1,4 @@
-module get-category-rule
+module get-debt-rule
 
 go 1.17
 

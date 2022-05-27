@@ -1,5 +1,5 @@
 {
-    "body": "{\"userId\": \"User#2022-05-12T14:40:29.156Z\",\"startsWithDate\": \"2020-05-01\",\"endsWithDate\": \"20222-05-28\"}",
+    "body": "{\"user_id\": \"User#2022-05-12T14:40:29.156Z\",\"startsWithDate\": \"2020-05-01\",\"endsWithDate\": \"20222-05-28\"}",
     "params": {
       "path": {},
       "querystring": {},

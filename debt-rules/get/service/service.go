@@ -2,8 +2,8 @@ package service
 
 import (
 	"fmt"
-	"get-category-rule/service/models"
-	"get-category-rule/service/repository"
+	"get-debt-rule/service/models"
+	"get-debt-rule/service/repository"
 	"log"
 
 	"github.com/aws/aws-sdk-go/aws/session"

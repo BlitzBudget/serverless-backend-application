@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"get-category-rule/service/config"
-	"get-category-rule/service/models"
+	"get-debt-rule/service/config"
+	"get-debt-rule/service/models"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -16,7 +16,7 @@ func QueryItem(av *models.QueryParameter, svc *dynamodb.DynamoDB) (*dynamodb.Que
 				ComparisonOperator: aws.String("EQ"),
 				AttributeValueList: []*dynamodb.AttributeValue{
 					{
-						S: aws.String(*av.CategoryId),
+						S: aws.String(*av.WalletId),
 					},
 				},
 			},

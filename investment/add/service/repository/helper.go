@@ -31,7 +31,19 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 		queryParameter.CurrentValue = &currentValue
 	}
 
+	mandatoryFieldsCheck(queryParameter)
+
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
 	fmt.Printf("marshalled struct: %+v", av)
 	return av, err
+}
+
+func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
+	if queryParameter.InvestedAmount == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: Investment Amount is empty."))
+	}
+
+	if queryParameter.InvestmentName == nil {
+		panic(fmt.Sprintln("AttributeBuilder:: InvestmentName is empty."))
+	}
 }

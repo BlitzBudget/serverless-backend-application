@@ -1,0 +1,34 @@
+name: Deploy Add GoalLinkTrigger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      # Add GoalLinkTrigger
+      - name: Add dynamodb-stream/goal-link-trigger
+        run: cd dynamodb-stream/goal-link-trigger/add/; GOOS=linux go build cmd/main.go; zip addGoalLinkTrigger.zip main; ls;
+
+      #- name: Add GoalLinkTrigger Test
+      #  run: cd dynamodb-stream/goal-link-trigger/add/; go test -v ./...
+
+      - name: Add GoalLinkTrigger gobuild deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: addGoalLinkTrigger
+          zip_file: dynamodb-stream/goal-link-trigger/add/addGoalLinkTrigger.zip

@@ -2,5 +2,5 @@ package models
 
 // Create struct to hold info about new item
 type QueryParameter struct {
-	InvestmentId *string `validate:"required" json:"investmentId"`
+	WalletId *string `validate:"required" json:"wallet_id"`
 }

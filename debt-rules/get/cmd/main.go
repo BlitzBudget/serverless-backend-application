@@ -1,7 +1,7 @@
 package main
 
 import (
-	"get-category-rule/handler"
+	"get-debt-rule/handler"
 
 	runtime "github.com/aws/aws-lambda-go/lambda"
 )

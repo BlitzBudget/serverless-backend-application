@@ -1,0 +1,34 @@
+name: Deploy Update DebtLinkTrigger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      # Update DebtLinkTrigger
+      - name: Update dynamodb-stream/debt-link-trigger
+        run: cd dynamodb-stream/debt-link-trigger/update/; GOOS=linux go build cmd/main.go; zip updateDebtLinkTrigger.zip main; ls;
+
+      #- name: Update DebtLinkTrigger Test
+      #  run: cd dynamodb-stream/debt-link-trigger/update/; go test -v ./...
+
+      - name: Update DebtLinkTrigger gobuild deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: updateDebtLinkTrigger
+          zip_file: dynamodb-stream/debt-link-trigger/update/updateDebtLinkTrigger.zip

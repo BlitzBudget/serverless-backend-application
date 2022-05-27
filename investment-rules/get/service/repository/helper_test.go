@@ -10,10 +10,10 @@ var validAnswer string
 var queryParameter *models.QueryParameter
 
 func setup() {
-	investmentId := "Investment#2020-05-02T17:19:13.022Z"
+	walletId := "Investment#2020-05-02T17:19:13.022Z"
 
 	queryParameter = &models.QueryParameter{
-		InvestmentId: &investmentId,
+		WalletId: &walletId,
 	}
 
 	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"investment": "Investment#2020-05-02T17:19:13.022Z","description": "Investment Description","tags": ["Expense", "Travel"]}`
@@ -36,7 +36,7 @@ func Test_repository_AttributeBuilder(t *testing.T) {
 			args: args{
 				body: body,
 			},
-			want:    queryParameter.InvestmentId,
+			want:    queryParameter.WalletId,
 			wantErr: false,
 		},
 		{

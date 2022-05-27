@@ -1,4 +1,4 @@
-module add-category-rule
+module add-debt-rule
 
 go 1.17
 

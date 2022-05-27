@@ -1,4 +1,4 @@
-name: Deploy Add GoalRules Rules
+name: Deploy Add Goal Rules
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: Deploy Get InvestmentRules
+name: Deploy Get Investment Rules
 
 on:
   push:

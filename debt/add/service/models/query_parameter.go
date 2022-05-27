@@ -8,5 +8,6 @@ type QueryParameter struct {
 	DebtedAmount *int64  `validate:"required" json:"debted_amount"`
 	CreationDate *string `json:"creation_date"`
 	UpdatedDate  *string `json:"updated_date"`
-	DebtName     *string `validate:"required" json:"debt"`
+	DebtRepaid   *bool   `json:"debt_repaid"`
+	DebtName     *string `validate:"required" json:"debt_name"`
 }

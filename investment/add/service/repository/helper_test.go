@@ -19,13 +19,13 @@ func setup() {
 	sk := "Investment#2020-05-02T17:19:13.022Z"
 
 	queryParameter = &models.QueryParameter{
-		Pk:                 &walletId,
-		Sk:                 sk,
-		CurrentValue:       &currentValue,
-		InvestmentedAmount: &investedAmount,
-		CreationDate:       &creationDate,
-		UpdatedDate:        &updatedDate,
-		InvestmentName:     &InvestmentName,
+		Pk:             &walletId,
+		Sk:             sk,
+		CurrentValue:   &currentValue,
+		InvestedAmount: &investedAmount,
+		CreationDate:   &creationDate,
+		UpdatedDate:    &updatedDate,
+		InvestmentName: &InvestmentName,
 	}
 
 	body = `{"walletId": "Wallet#2020-05-02T17:19:13.022Z","amount": 95,"investment": "Investment#2020-05-02T17:19:13.022Z","description": "Transaction Description","tags": ["Expense", "Travel"]}`
