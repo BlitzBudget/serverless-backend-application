@@ -17,7 +17,7 @@ type QueryParameter struct {
 
 // convert item to dynamodb attribute
 func ParseToQueryParameter(goalId *string) map[string]*dynamodb.AttributeValue {
-	date := time.Now().Format(time.RFC3339)
+	date := time.Now().Format(time.RFC3339Nano)
 	av, err := dynamodbattribute.MarshalMap(QueryParameter{
 		GoalId:      goalId,
 		UpdatedDate: &date,

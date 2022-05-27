@@ -23,7 +23,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 
 	goalAchieved := false
 	currentAmount := int64(0)
-	date := time.Now().Format(time.RFC3339)
+	date := time.Now().Format(time.RFC3339Nano)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + date

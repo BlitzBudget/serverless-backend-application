@@ -22,7 +22,7 @@ func RepaidDebtNotification(pk *string, debtName *string, svc *dynamodb.DynamoDB
 		Pk:           pk,
 		Notification: &message,
 	}
-	date := time.Now().Format(time.RFC3339)
+	date := time.Now().Format(time.RFC3339Nano)
 	notification.CreationDate = &date
 	notification.UpdatedDate = &date
 	notification.Sk = SkPrefix + message

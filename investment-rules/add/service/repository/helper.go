@@ -21,7 +21,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 
 	fmt.Printf("marshalled bytes to struct: %+v", queryParameter)
 
-	date := time.Now().Format(time.RFC3339)
+	date := time.Now().Format(time.RFC3339Nano)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + *queryParameter.TransactionName

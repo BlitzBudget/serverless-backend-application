@@ -21,7 +21,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 
 	fmt.Printf("marshalled bytes to struct: %+v. \n", queryParameter)
 
-	date := time.Now().Format(time.RFC3339)
+	date := time.Now().Format(time.RFC3339Nano)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + *queryParameter.TransactionName
@@ -32,7 +32,6 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	fmt.Printf("marshalled struct: %+v. \n", av)
 	return av, err
 }
-
 
 func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
 	if queryParameter.GoalId == nil {

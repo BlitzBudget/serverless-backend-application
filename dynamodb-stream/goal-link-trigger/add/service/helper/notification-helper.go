@@ -22,7 +22,7 @@ func AchievedGoalNotification(pk *string, goalName *string, svc *dynamodb.Dynamo
 		Pk:           pk,
 		Notification: &message,
 	}
-	date := time.Now().Format(time.RFC3339)
+	date := time.Now().Format(time.RFC3339Nano)
 	notification.CreationDate = &date
 	notification.UpdatedDate = &date
 	notification.Sk = SkPrefix + message

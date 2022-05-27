@@ -18,7 +18,7 @@ type InvestmentQueryParameter struct {
 
 // convert item to dynamodb attribute
 func InvestmentParseToQueryParameter(currentValue *int64, investmentAmount *bool) map[string]*dynamodb.AttributeValue {
-	date := time.Now().Format(time.RFC3339)
+	date := time.Now().Format(time.RFC3339Nano)
 	av, err := dynamodbattribute.MarshalMap(InvestmentQueryParameter{
 		CurrentValue:     currentValue,
 		InvestmentAmount: investmentAmount,

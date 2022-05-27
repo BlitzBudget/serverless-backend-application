@@ -18,7 +18,7 @@ type DebtQueryParameter struct {
 
 // convert item to dynamodb attribute
 func DebtParseToQueryParameter(currentValue *int64, debtRepaid *bool) map[string]*dynamodb.AttributeValue {
-	date := time.Now().Format(time.RFC3339)
+	date := time.Now().Format(time.RFC3339Nano)
 	av, err := dynamodbattribute.MarshalMap(DebtQueryParameter{
 		CurrentValue: currentValue,
 		DebtRepaid:   debtRepaid,
