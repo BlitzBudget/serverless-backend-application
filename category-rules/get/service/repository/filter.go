@@ -11,7 +11,7 @@ func FilterByCategoryId(responseItems []*models.ResponseItem, av *models.QueryPa
 	}
 
 	for _, categoryRule := range responseItems {
-		if categoryRule.CategoryId == av.CategoryId {
+		if *categoryRule.CategoryId == *av.CategoryId {
 			filteredItems = append(filteredItems, categoryRule)
 		}
 	}
