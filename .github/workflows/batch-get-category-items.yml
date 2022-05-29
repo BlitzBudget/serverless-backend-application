@@ -1,4 +1,4 @@
-name: Deploy Get Category
+name: Deploy Batch Get Category
 
 on:
   push:

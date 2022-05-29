@@ -43,7 +43,7 @@ func QueryItems(body *string) []*models.ResponseItem {
 		return nil
 	}
 
-	filteredResponse := repository.FilterResponse(&responseItems, av)
+	filteredResponse := repository.FilterResponse(responseItems, av)
 
 	fmt.Printf("Successfully retrieved %v items with the consumed capacity of %v'", queryOutput.Count, queryOutput.ConsumedCapacity)
 	return filteredResponse

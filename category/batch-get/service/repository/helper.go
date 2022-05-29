@@ -47,10 +47,10 @@ func ParseResponse(result *dynamodb.QueryOutput) (models.ResponseItems, error) {
 	return responseItems, nil
 }
 
-func FilterResponse(responseItems *models.ResponseItems, av *models.QueryParameter) models.ResponseItems {
+func FilterResponse(responseItems []*models.ResponseItem, av *models.QueryParameter) models.ResponseItems {
 	var filteredResponseItems models.ResponseItems
 
-	for _, ri := range *responseItems {
+	for _, ri := range responseItems {
 		if contains(*av.CategoryIds, *ri.Sk) {
 			filteredResponseItems = append(filteredResponseItems, ri)
 			fmt.Printf("The filtered item is %v. \n", ri.Sk)
