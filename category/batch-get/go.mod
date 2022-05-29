@@ -1,4 +1,4 @@
-module get-category
+module batch-get-category
 
 go 1.17
 

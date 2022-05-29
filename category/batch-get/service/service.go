@@ -1,9 +1,9 @@
 package service
 
 import (
+	"batch-get-category/service/models"
+	"batch-get-category/service/repository"
 	"fmt"
-	"get-category/service/models"
-	"get-category/service/repository"
 	"log"
 
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -29,20 +29,22 @@ func QueryItems(body *string) []*models.ResponseItem {
 		return nil
 	}
 
-	var batchGetItemOutput *dynamodb.BatchGetItemOutput
-	batchGetItemOutput, err = repository.BatchGetItems(av, svc)
+	var queryOutput *dynamodb.QueryOutput
+	queryOutput, err = repository.QueryItem(av, svc)
 	if err != nil {
 		log.Fatalf("Got error calling PutItem: %v", err)
 		return nil
 	}
 
 	var responseItems []*models.ResponseItem
-	responseItems, err = repository.ParseResponse(batchGetItemOutput)
+	responseItems, err = repository.ParseResponse(queryOutput)
 	if err != nil {
 		log.Fatalf("Got error parsing Response Item: %v", err)
 		return nil
 	}
 
-	fmt.Printf("Successfully retrieved items with the consumed capacity of %v'", batchGetItemOutput.ConsumedCapacity)
-	return responseItems
+	filteredResponse := repository.FilterResponse(&responseItems, av)
+
+	fmt.Printf("Successfully retrieved %v items with the consumed capacity of %v'", queryOutput.Count, queryOutput.ConsumedCapacity)
+	return filteredResponse
 }

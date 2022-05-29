@@ -1,10 +1,10 @@
 package repository
 
 import (
+	"batch-get-category/service/models"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"get-category/service/models"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
@@ -23,9 +23,9 @@ func AttributeBuilder(body *string) (*models.QueryParameter, error) {
 	return &queryParameter, err
 }
 
-func ParseResponse(result *dynamodb.BatchGetItemOutput) (models.ResponseItems, error) {
+func ParseResponse(result *dynamodb.QueryOutput) (models.ResponseItems, error) {
 
-	if result.Responses == nil {
+	if result.Items == nil {
 		msg := "no Items found"
 		return nil, errors.New(msg)
 	}
@@ -33,19 +33,41 @@ func ParseResponse(result *dynamodb.BatchGetItemOutput) (models.ResponseItems, e
 	responseItems := models.ResponseItems{}
 	var err error
 
-	for _, v := range result.Responses {
+	for k, v := range result.Items {
 		responseItem := models.ResponseItem{}
 
-		for k2, v2 := range v {
-			err = dynamodbattribute.UnmarshalMap(v2, &responseItem)
-			if err != nil {
-				panic(fmt.Sprintf("Failed to unmarshal Record %v, %v", k2, err))
-			}
-			fmt.Printf("Response Item processed is %v", responseItem.Sk)
-			responseItems = append(responseItems, &responseItem)
+		err = dynamodbattribute.UnmarshalMap(v, &responseItem)
+		if err != nil {
+			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v", k, err))
+		}
+		responseItems = append(responseItems, &responseItem)
+	}
+
+	fmt.Printf("Parsed %v Items. \n", len(responseItems))
+	return responseItems, nil
+}
+
+func FilterResponse(responseItems *models.ResponseItems, av *models.QueryParameter) models.ResponseItems {
+	var filteredResponseItems models.ResponseItems
+
+	for _, ri := range *responseItems {
+		if contains(*av.CategoryIds, *ri.Sk) {
+			filteredResponseItems = append(filteredResponseItems, ri)
+			fmt.Printf("The filtered item is %v. \n", ri.Sk)
 		}
 	}
 
-	fmt.Printf("Parsed %v Items", len(responseItems))
-	return responseItems, nil
+	return filteredResponseItems
+}
+
+// https://play.golang.org/p/Qg_uv_inCek
+// contains checks if a string is present in a slice
+func contains(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
 }

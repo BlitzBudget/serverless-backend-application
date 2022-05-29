@@ -1,7 +1,7 @@
 package main
 
 import (
-	"get-category/handler"
+	"batch-get-category/handler"
 
 	runtime "github.com/aws/aws-lambda-go/lambda"
 )

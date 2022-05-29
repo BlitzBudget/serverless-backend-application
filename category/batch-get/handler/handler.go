@@ -1,10 +1,10 @@
 package handler
 
 import (
+	"batch-get-category/service"
 	"context"
 	"encoding/json"
 	"fmt"
-	"get-category/service"
 
 	"github.com/aws/aws-lambda-go/events"
 )
