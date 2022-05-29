@@ -5,6 +5,7 @@ import (
 	"add-category-link/service/models"
 	"add-category-link/service/repository"
 	"fmt"
+	"strings"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -25,7 +26,7 @@ func CreateCategoryLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.Dyn
 			continue
 		}
 
-		if *categoryRule.TransactionName == *transaction.Description {
+		if strings.Contains(*transaction.Description, *categoryRule.TransactionName) {
 			UpdateTransactionWithCategoryId(categoryRule.CategoryId, svc, transaction)
 		}
 	}

@@ -5,6 +5,7 @@ import (
 	"add-debt-link/service/models"
 	"add-debt-link/service/repository"
 	"fmt"
+	"strings"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -44,5 +45,5 @@ func amountMatches(debtRule *models.DebtRule, amt int64) bool {
 
 // Check if the description matches
 func descriptionMatches(debtRule *models.DebtRule, description *string) bool {
-	return *debtRule.TransactionName == *description
+	return strings.Contains(*description, *debtRule.TransactionName)
 }

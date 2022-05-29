@@ -4,6 +4,7 @@ import (
 	"add-investment-link/service/models"
 	"add-investment-link/service/repository"
 	"fmt"
+	"strings"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
@@ -43,5 +44,5 @@ func amountMatches(investmentRule *models.InvestmentRule, amt int64) bool {
 
 // Check if the description matches
 func descriptionMatches(investmentRule *models.InvestmentRule, description *string) bool {
-	return *investmentRule.TransactionName == *description
+	return strings.Contains(*description, *investmentRule.TransactionName)
 }

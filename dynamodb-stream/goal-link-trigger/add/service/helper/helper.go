@@ -5,6 +5,7 @@ import (
 	"add-goal-link/service/models"
 	"add-goal-link/service/repository"
 	"fmt"
+	"strings"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -44,5 +45,5 @@ func amountMatches(goalRule *models.GoalRule, amt int64) bool {
 
 // Check if the description matches
 func descriptionMatches(goalRule *models.GoalRule, description *string) bool {
-	return *goalRule.TransactionName == *description
+	return strings.Contains(*description, *goalRule.TransactionName)
 }
