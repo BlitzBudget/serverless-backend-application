@@ -26,9 +26,9 @@ func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*
 
 		json.Unmarshal(bytes, &dbAttr)
 		dbAttrMap[k] = &dbAttr
-	}
 
-	fmt.Printf("The Mapping of the new image is %v. \n", *dbAttrMap["description"].S)
+		fmt.Printf("UnmarshalStreamImage: The parsed DynamoDB attr is %v for the key %v. \n", &dbAttr, k)
+	}
 
 	debt := models.ConvertDynamoDBToModel(dbAttrMap)
 	// return dynamodbattribute.UnmarshalMap(dbAttrMap, out)
