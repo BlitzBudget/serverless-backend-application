@@ -40,7 +40,7 @@ func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 			}
 		}
 
-		fmt.Printf("Successfully deleted the Debt rules for Debt %v", debt.Sk)
+		fmt.Printf("Successfully deleted the Debt rules for Debt %v. \n", debt.Sk)
 
 	}
 }

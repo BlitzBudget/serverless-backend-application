@@ -21,6 +21,7 @@ func DeleteItem(pk *string, sk *string, svc dynamodbiface.DynamoDBAPI) {
 		Sk: sk,
 	}
 
+	fmt.Printf("Deleting Item %v with the PK %v. \n", sk, pk)
 	av, err := dynamodbattribute.MarshalMap(item)
 	if err != nil {
 		fmt.Println("Got error marshalling map:")
