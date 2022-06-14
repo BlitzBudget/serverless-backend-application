@@ -27,7 +27,7 @@ func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 			continue
 		}
 
-		var debtRules models.DebtRules
+		var debtRules []*models.DebtRule
 		debtRules, err = ParseResponse(queryOutput)
 		if err != nil {
 			fmt.Printf("RemoveDebtLink: Got error Debt Rule ParseResponse: %v. \n", err)
@@ -35,12 +35,10 @@ func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 		}
 
 		for _, v := range debtRules {
-			if v.Sk == debt.Sk {
+			if *v.Sk == *debt.Sk {
 				repository.DeleteItem(v.Pk, v.Sk, svc)
 			}
 		}
-
-		fmt.Printf("Successfully deleted the Debt rules for Debt %v. \n", debt.Sk)
 
 	}
 }
@@ -65,6 +63,6 @@ func ParseResponse(result *dynamodb.QueryOutput) (models.DebtRules, error) {
 		debtRules = append(debtRules, &debtRule)
 	}
 
-	fmt.Printf("Parsed %v Items", len(debtRules))
+	fmt.Printf("Parsed %v Items. \n", len(debtRules))
 	return debtRules, nil
 }

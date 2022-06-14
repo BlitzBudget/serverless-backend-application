@@ -40,4 +40,6 @@ func DeleteItem(pk *string, sk *string, svc dynamodbiface.DynamoDBAPI) {
 		fmt.Println(err.Error())
 		return
 	}
+
+	fmt.Printf("Successfully deleted the Debt rule %v for Debt %v. \n", sk, pk)
 }
