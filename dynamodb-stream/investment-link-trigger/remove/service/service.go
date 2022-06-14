@@ -22,7 +22,7 @@ func ProcessRecords(records *[]events.DynamoDBEventRecord) {
 	svc := dynamodb.New(sess)
 	// snippet-end:[dynamodb.go.create_item.session]
 
-	_, err := helper.CreateInvestmentLink(records, svc)
+	_, err := helper.RemoveInvestmentLink(records, svc)
 	if err != nil {
 		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
 	}

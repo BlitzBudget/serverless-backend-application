@@ -10,10 +10,11 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func CreateInvestmentLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) (map[string]*dynamodb.AttributeValue, error) {
+func RemoveInvestmentLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) (map[string]*dynamodb.AttributeValue, error) {
 
 	for _, record := range *records {
-		transaction, err := UnmarshalStreamImage(record.Change.NewImage)
+		fmt.Printf("RemoveGoalLink:: Old Image is %v. \n", record)
+		transaction, err := UnmarshalStreamImage(record.Change.OldImage)
 		if err != nil {
 			fmt.Printf("AttributeBuilder: Got error unmarshalStreamImage: %v. \n", err)
 			continue
