@@ -35,7 +35,7 @@ func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 		}
 
 		for _, v := range debtRules {
-			if *v.Sk == *debt.Sk {
+			if *v.DebtId == *debt.Sk {
 				repository.DeleteItem(v.Pk, v.Sk, svc)
 			}
 		}
@@ -43,14 +43,14 @@ func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 	}
 }
 
-func ParseResponse(result *dynamodb.QueryOutput) (models.DebtRules, error) {
+func ParseResponse(result *dynamodb.QueryOutput) ([]*models.DebtRule, error) {
 
 	if result.Items == nil {
 		msg := "no Items found"
 		return nil, errors.New(msg)
 	}
 
-	debtRules := models.DebtRules{}
+	var debtRules []*models.DebtRule
 	var err error
 
 	for k, v := range result.Items {
