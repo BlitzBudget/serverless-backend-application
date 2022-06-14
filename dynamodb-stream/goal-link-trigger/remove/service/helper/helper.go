@@ -13,20 +13,20 @@ import (
 func CreateGoalLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) {
 
 	for _, record := range *records {
-		transaction, err := UnmarshalStreamImage(record.Change.NewImage)
+		_, err := UnmarshalStreamImage(record.Change.NewImage)
 		if err != nil {
 			fmt.Printf("AttributeBuilder: Got error unmarshalStreamImage: %v. \n", err)
 			continue
 		}
 
-		goalRule, err := getGoalRule(transaction.Description, svc, transaction.Pk)
+		/*goalRule, err := getGoalRule(transaction.Description, svc, transaction.Pk)
 		if err != nil {
 			fmt.Printf("AttributeBuilder: Got error Goal Rule GetGoalRuleItem: %v. \n", err)
 			continue
 		}
 
 		UpdateTransactionWithGoalId(svc, transaction)
-		IncrementGoalAchieved(goalRule, transaction, svc)
+		IncrementGoalAchieved(goalRule, transaction, svc)*/
 	}
 }
 

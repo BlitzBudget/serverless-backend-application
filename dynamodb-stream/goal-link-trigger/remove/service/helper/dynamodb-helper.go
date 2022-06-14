@@ -29,8 +29,8 @@ func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*
 		fmt.Printf("Mapping attribute %v with Key %v. \n", dbAttr, k)
 	}
 
-	transaction := models.ConvertDynamoDBToModel(dbAttrMap)
-	// return dynamodbattribute.UnmarshalMap(dbAttrMap, out)
-	return &transaction, nil
+	//transaction := models.ConvertDynamoDBToModel(dbAttrMap)
+
+	return nil, nil
 
 }
