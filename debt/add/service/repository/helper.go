@@ -29,7 +29,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 
 	mandatoryFieldsCheck(queryParameter)
 
-	if queryParameter.DebtRepaid != nil {
+	if queryParameter.DebtRepaid == nil {
 		queryParameter.DebtRepaid = &debtRepaid
 	}
 
