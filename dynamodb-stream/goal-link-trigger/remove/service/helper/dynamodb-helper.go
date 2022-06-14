@@ -16,7 +16,6 @@ func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*
 	dbAttrMap := make(map[string]*dynamodb.AttributeValue)
 
 	for k, v := range attribute {
-
 		var dbAttr dynamodb.AttributeValue
 
 		bytes, marshalErr := v.MarshalJSON()

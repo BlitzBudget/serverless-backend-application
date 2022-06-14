@@ -22,7 +22,7 @@ func ProcessRecords(records *[]events.DynamoDBEventRecord) {
 	svc := dynamodb.New(sess)
 	// snippet-end:[dynamodb.go.create_item.session]
 
-	helper.CreateGoalLink(records, svc)
+	helper.RemoveGoalLink(records, svc)
 
 	fmt.Println("Successfully processed all the records!")
 }
