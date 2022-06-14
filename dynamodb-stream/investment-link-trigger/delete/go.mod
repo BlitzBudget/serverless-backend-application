@@ -1,4 +1,4 @@
-module add-debt-link
+module add-investment-link
 
 go 1.17
 

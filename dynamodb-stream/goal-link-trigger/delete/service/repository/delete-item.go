@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"add-debt-link/service/config"
+	"delete-goal-link/service/config"
 	"fmt"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -41,5 +41,5 @@ func DeleteItem(pk *string, sk *string, svc dynamodbiface.DynamoDBAPI) {
 		return
 	}
 
-	fmt.Printf("Successfully deleted the Debt rule %v for Debt %v. \n", sk, pk)
+	fmt.Printf("Successfully deleted the Goal rule %v for Goal %v. \n", sk, pk)
 }

@@ -17,7 +17,7 @@ import (
 // Output:
 //     If success, the information about the table item and nil
 //     Otherwise, nil and an error from the call to GetItem or UnmarshalMap
-func GetCategoryRuleItems(svc dynamodbiface.DynamoDBAPI, pk *string) (*dynamodb.QueryOutput, error) {
+func QueryItems(svc dynamodbiface.DynamoDBAPI, pk *string, sk string) (*dynamodb.QueryOutput, error) {
 
 	input := &dynamodb.QueryInput{
 		TableName: aws.String(config.TableName),
@@ -34,7 +34,7 @@ func GetCategoryRuleItems(svc dynamodbiface.DynamoDBAPI, pk *string) (*dynamodb.
 				ComparisonOperator: aws.String("BEGINS_WITH"),
 				AttributeValueList: []*dynamodb.AttributeValue{
 					{
-						S: aws.String(config.SkCategoryRulePrefix),
+						S: aws.String(sk),
 					},
 				},
 			},

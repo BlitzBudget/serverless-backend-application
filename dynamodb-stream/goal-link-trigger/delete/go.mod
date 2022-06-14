@@ -1,4 +1,4 @@
-module add-debt-link
+module delete-goal-link
 
 go 1.17
 

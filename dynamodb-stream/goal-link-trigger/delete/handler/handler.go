@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"add-debt-link/service"
 	"context"
+	"delete-goal-link/service"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"

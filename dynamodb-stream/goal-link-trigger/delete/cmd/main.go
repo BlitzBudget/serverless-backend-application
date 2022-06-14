@@ -1,7 +1,7 @@
 package main
 
 import (
-	"add-debt-link/handler"
+	"delete-goal-link/handler"
 
 	runtime "github.com/aws/aws-lambda-go/lambda"
 )

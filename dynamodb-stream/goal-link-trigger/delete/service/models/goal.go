@@ -5,21 +5,21 @@ import (
 )
 
 // Create struct to hold info about retrieved item
-type Debt struct {
+type Goal struct {
 	Pk           *string `json:"pk"`
 	Sk           *string `json:"sk"`
 	CreationDate *string `json:"creation_date"`
-	DebtedAmount *int64  `json:"debted_amount"`
+	GoaledAmount *int64  `json:"goaled_amount"`
 	CurrentValue *int64  `json:"current_value"`
-	DebtName     *string `json:"debt_name"`
-	DebtRepaid   *bool   `json:"debt_repaid"`
+	GoalName     *string `json:"goal_name"`
+	GoalRepaid   *bool   `json:"goal_repaid"`
 }
 
-func ConvertDynamoDBToModel(dbAttrMap map[string]*dynamodb.AttributeValue) Debt {
+func ConvertDynamoDBToModel(dbAttrMap map[string]*dynamodb.AttributeValue) Goal {
 
-	debt := Debt{
+	goal := Goal{
 		Pk: dbAttrMap["pk"].S,
 		Sk: dbAttrMap["sk"].S,
 	}
-	return debt
+	return goal
 }

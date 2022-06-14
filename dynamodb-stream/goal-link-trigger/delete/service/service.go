@@ -1,7 +1,7 @@
 package service
 
 import (
-	"add-debt-link/service/helper"
+	"delete-goal-link/service/helper"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -22,7 +22,7 @@ func ProcessRecords(records *[]events.DynamoDBEventRecord) {
 	svc := dynamodb.New(sess)
 	// snippet-end:[dynamodb.go.create_item.session]
 
-	helper.RemoveDebtLink(records, svc)
+	helper.RemoveGoalLink(records, svc)
 
 	fmt.Println("Successfully processed all the records!")
 }

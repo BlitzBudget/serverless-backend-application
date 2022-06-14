@@ -8,4 +8,5 @@ var ProjectionExpression = "category_id, transaction_amount, transaction_name, s
 
 const (
 	SkCategoryRulePrefix = "CategoryRule#"
+	SkWalletPrefix       = "Wallet#"
 )

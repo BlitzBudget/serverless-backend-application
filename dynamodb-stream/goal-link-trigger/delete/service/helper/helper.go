@@ -1,8 +1,8 @@
 package helper
 
 import (
-	"add-debt-link/service/models"
-	"add-debt-link/service/repository"
+	"delete-goal-link/service/models"
+	"delete-goal-link/service/repository"
 	"errors"
 	"fmt"
 
@@ -11,31 +11,31 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 )
 
-func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) {
+func RemoveGoalLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) {
 
 	for _, record := range *records {
 		fmt.Printf("RemoveGoalLink:: Old Image is %v. \n", record)
-		debt, err := UnmarshalStreamImage(record.Change.OldImage)
+		goal, err := UnmarshalStreamImage(record.Change.OldImage)
 		if err != nil {
-			fmt.Printf("RemoveDebtLink: Got error unmarshalStreamImage: %v. \n", err)
+			fmt.Printf("RemoveGoalLink: Got error unmarshalStreamImage: %v. \n", err)
 			continue
 		}
 
-		queryOutput, err := repository.GetDebtRuleItems(svc, debt.Pk)
+		queryOutput, err := repository.GetGoalRuleItems(svc, goal.Pk)
 		if err != nil {
-			fmt.Printf("RemoveDebtLink: Got error Debt Rule GetDebtRuleItem: %v. \n", err)
+			fmt.Printf("RemoveGoalLink: Got error Goal Rule GetGoalRuleItem: %v. \n", err)
 			continue
 		}
 
-		var debtRules []*models.DebtRule
-		debtRules, err = ParseResponse(queryOutput)
+		var goalRules []*models.GoalRule
+		goalRules, err = ParseResponse(queryOutput)
 		if err != nil {
-			fmt.Printf("RemoveDebtLink: Got error Debt Rule ParseResponse: %v. \n", err)
+			fmt.Printf("RemoveGoalLink: Got error Goal Rule ParseResponse: %v. \n", err)
 			continue
 		}
 
-		for _, v := range debtRules {
-			if *v.DebtId == *debt.Sk {
+		for _, v := range goalRules {
+			if *v.GoalId == *goal.Sk {
 				repository.DeleteItem(v.Pk, v.Sk, svc)
 			}
 		}
@@ -43,26 +43,26 @@ func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 	}
 }
 
-func ParseResponse(result *dynamodb.QueryOutput) ([]*models.DebtRule, error) {
+func ParseResponse(result *dynamodb.QueryOutput) ([]*models.GoalRule, error) {
 
 	if result.Items == nil {
 		msg := "no Items found"
 		return nil, errors.New(msg)
 	}
 
-	var debtRules []*models.DebtRule
+	var goalRules []*models.GoalRule
 	var err error
 
 	for k, v := range result.Items {
-		debtRule := models.DebtRule{}
+		goalRule := models.GoalRule{}
 
-		err = dynamodbattribute.UnmarshalMap(v, &debtRule)
+		err = dynamodbattribute.UnmarshalMap(v, &goalRule)
 		if err != nil {
 			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v", k, err))
 		}
-		debtRules = append(debtRules, &debtRule)
+		goalRules = append(goalRules, &goalRule)
 	}
 
-	fmt.Printf("Parsed %v Items. \n", len(debtRules))
-	return debtRules, nil
+	fmt.Printf("Parsed %v Items. \n", len(goalRules))
+	return goalRules, nil
 }

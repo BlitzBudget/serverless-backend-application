@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"add-debt-link/service/config"
+	"add-investment-link/service/config"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -17,7 +17,7 @@ import (
 // Output:
 //     If success, the information about the table item and nil
 //     Otherwise, nil and an error from the call to GetItem or UnmarshalMap
-func GetDebtRuleItems(svc dynamodbiface.DynamoDBAPI, pk *string) (*dynamodb.QueryOutput, error) {
+func GetInvestmentRuleItems(svc dynamodbiface.DynamoDBAPI, pk *string) (*dynamodb.QueryOutput, error) {
 
 	input := &dynamodb.QueryInput{
 		TableName: aws.String(config.TableName),
@@ -34,7 +34,7 @@ func GetDebtRuleItems(svc dynamodbiface.DynamoDBAPI, pk *string) (*dynamodb.Quer
 				ComparisonOperator: aws.String("BEGINS_WITH"),
 				AttributeValueList: []*dynamodb.AttributeValue{
 					{
-						S: aws.String(config.SkDebtRulePrefix),
+						S: aws.String(config.SkInvestmentRulePrefix),
 					},
 				},
 			},

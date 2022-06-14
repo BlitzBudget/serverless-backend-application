@@ -1,6 +1,7 @@
 package helper
 
 import (
+	"delete-category-link/service/config"
 	"delete-category-link/service/models"
 	"delete-category-link/service/repository"
 	"errors"
@@ -21,7 +22,9 @@ func RemoveCategoryLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.Dyn
 			continue
 		}
 
-		queryOutput, err := repository.GetCategoryRuleItems(svc, category.Pk)
+		fetchWallets(svc, category, err)
+
+		queryOutput, err := repository.QueryItems(svc, category.Pk, config.SkCategoryRulePrefix)
 		if err != nil {
 			fmt.Printf("RemoveCategoryLink: Got error Category Rule GetCategoryRuleItem: %v. \n", err)
 			continue
@@ -41,6 +44,10 @@ func RemoveCategoryLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.Dyn
 		}
 
 	}
+}
+
+func fetchWallets(svc *dynamodb.DynamoDB, category *models.Category, err error) {
+	// TODO
 }
 
 func ParseResponse(result *dynamodb.QueryOutput) ([]*models.CategoryRule, error) {

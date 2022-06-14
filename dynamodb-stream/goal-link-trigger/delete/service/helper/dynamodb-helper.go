@@ -1,7 +1,7 @@
 package helper
 
 import (
-	"add-debt-link/service/models"
+	"delete-goal-link/service/models"
 	"encoding/json"
 	"fmt"
 
@@ -11,7 +11,7 @@ import (
 
 // unmarshalStreamImage converts events.DynamoDBAttributeValue to struct
 //func unmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue, out interface{}) error {
-func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*models.Debt, error) {
+func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*models.Goal, error) {
 
 	dbAttrMap := make(map[string]*dynamodb.AttributeValue)
 
@@ -30,8 +30,8 @@ func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*
 		fmt.Printf("UnmarshalStreamImage: The parsed DynamoDB attr is %v for the key %v. \n", &dbAttr, k)
 	}
 
-	debt := models.ConvertDynamoDBToModel(dbAttrMap)
+	goal := models.ConvertDynamoDBToModel(dbAttrMap)
 	// return dynamodbattribute.UnmarshalMap(dbAttrMap, out)
-	return &debt, nil
+	return &goal, nil
 
 }

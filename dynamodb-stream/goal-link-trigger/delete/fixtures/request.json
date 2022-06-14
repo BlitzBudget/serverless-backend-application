@@ -1,5 +1,5 @@
 {
-    "body": "{\"pk\":\"Wallet#2022-05-12T14:40:29.156Z\",\"sk\":\"Transaction#2022-05-12T20:25:19Z\",\"creation_date\":\"2022-05-12T20:25:19Z\",\"debt\":\"Debt#2022-04-12T14:40:29.156Z\",\"description\":\"Transaction Travel\",\"amount\":75,\"tags\":[\"Expense\",\"Rome\"],\"scheduled_debt\":null}",
+    "body": "{\"pk\":\"Wallet#2022-05-12T14:40:29.156Z\",\"sk\":\"Transaction#2022-05-12T20:25:19Z\",\"creation_date\":\"2022-05-12T20:25:19Z\",\"goal\":\"Goal#2022-04-12T14:40:29.156Z\",\"description\":\"Transaction Travel\",\"amount\":75,\"tags\":[\"Expense\",\"Rome\"],\"scheduled_goal\":null}",
     "params": {
         "path": {},
         "querystring": {},
@@ -46,6 +46,6 @@
         "user-arn": "",
         "request-id": "92231855-49fd-41da-87ed-dfa4fc0d0a01",
         "resource-id": "7ftbxq",
-        "resource-path": "/debt"
+        "resource-path": "/goal"
     }
 }
