@@ -26,7 +26,6 @@ func RemoveGoalLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 			continue
 		}
 
-		UpdateTransactionWithGoalId(svc, transaction)
 		IncrementGoalAchieved(goalRule, transaction, svc)
 	}
 }

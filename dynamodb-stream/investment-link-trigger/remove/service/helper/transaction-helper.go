@@ -1,8 +1,6 @@
 package helper
 
 import (
-	"add-investment-link/service/models"
-	"add-investment-link/service/repository"
 	"fmt"
 	"time"
 
@@ -28,11 +26,4 @@ func ParseToQueryParameter() map[string]*dynamodb.AttributeValue {
 	}
 
 	return av
-}
-
-// Update Transaction Item with Investment ID
-func UpdateTransactionWithInvestmentId(svc *dynamodb.DynamoDB, request *models.Transaction) {
-	av := ParseToQueryParameter()
-	updateExpression := "set investment_id = :d, updated_date = :u"
-	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)
 }

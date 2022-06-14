@@ -26,7 +26,6 @@ func RemoveInvestmentLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.D
 			continue
 		}
 
-		UpdateTransactionWithInvestmentId(svc, transaction)
 		IncrementInvestmentAmount(investmentRule, transaction, svc)
 	}
 

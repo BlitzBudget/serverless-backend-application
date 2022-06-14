@@ -1,8 +1,6 @@
 package helper
 
 import (
-	"add-goal-link/service/models"
-	"add-goal-link/service/repository"
 	"fmt"
 	"time"
 
@@ -28,11 +26,4 @@ func ParseToQueryParameter() map[string]*dynamodb.AttributeValue {
 	}
 
 	return av
-}
-
-// Update Transaction Item with Goal ID
-func UpdateTransactionWithGoalId(svc *dynamodb.DynamoDB, request *models.Transaction) {
-	av := ParseToQueryParameter()
-	updateExpression := "set goal_id = :d, updated_date = :u"
-	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)
 }
