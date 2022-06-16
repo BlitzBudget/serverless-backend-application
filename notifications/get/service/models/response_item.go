@@ -5,7 +5,7 @@ type ResponseItem struct {
 	Pk           *string `json:"pk"`
 	Sk           *string `json:"sk"`
 	CreationDate *string `json:"creation_date"`
-	Notification *int64  `json:"notification"`
+	Notification *string `json:"notification"`
 }
 
 type ResponseItems []*ResponseItem
