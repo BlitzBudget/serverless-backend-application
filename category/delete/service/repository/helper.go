@@ -16,7 +16,7 @@ func AttributeBuilder(body *string) *models.RequestModel {
 		panic(fmt.Sprintf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v", err.Error()))
 	}
 
-	fmt.Printf("AttributeBuilder: marshalled bytes to struct: %+v", requestModel)
+	fmt.Printf("AttributeBuilder: marshalled bytes to struct: %+v. \n", requestModel)
 
 	return &requestModel
 }

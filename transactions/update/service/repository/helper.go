@@ -18,7 +18,7 @@ func AttributeBuilder(body *string) *models.RequestModel {
 		return nil
 	}
 
-	fmt.Printf("AttributeBuilder: marshalled bytes to struct: %+v", requestModel)
+	fmt.Printf("AttributeBuilder: marshalled bytes to struct: %+v. \n", requestModel)
 
 	return &requestModel
 }

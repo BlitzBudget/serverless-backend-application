@@ -18,7 +18,7 @@ func AttributeBuilder(body *string) (*models.QueryParameter, error) {
 		return nil, err
 	}
 
-	fmt.Printf("marshalled bytes to struct: %+v", queryParameter)
+	fmt.Printf("marshalled bytes to struct: %+v. \n", queryParameter)
 
 	return &queryParameter, err
 }
@@ -43,6 +43,6 @@ func ParseResponse(result *dynamodb.QueryOutput) (models.ResponseItems, error) {
 		responseItems = append(responseItems, &responseItem)
 	}
 
-	fmt.Printf("Parsed %v Items", len(responseItems))
+	fmt.Printf("Parsed %v Items. \n", len(responseItems))
 	return responseItems, nil
 }
