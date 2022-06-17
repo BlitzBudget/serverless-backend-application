@@ -12,7 +12,7 @@ import (
 func QueryItem(av *models.QueryParameter, svc *dynamodb.DynamoDB) (*dynamodb.QueryOutput, error) {
 	startsWithDate := config.SkPrefix + *av.StartsWithDate
 	endsWithDate := config.SkPrefix + *av.EndsWithDate
-	fmt.Printf("The starts With Date is %v and the Ends with Date is %v", startsWithDate, endsWithDate)
+	fmt.Printf("The starts With Date is %v and the Ends with Date is %v. \n", startsWithDate, endsWithDate)
 
 	input := &dynamodb.QueryInput{
 		TableName: aws.String(config.TableName),

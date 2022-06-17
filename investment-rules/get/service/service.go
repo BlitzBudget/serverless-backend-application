@@ -43,6 +43,6 @@ func QueryItems(body *string) []*models.ResponseItem {
 		return nil
 	}
 
-	fmt.Printf("Successfully retrieved %v items with the consumed capacity of %v'", queryOutput.Count, queryOutput.ConsumedCapacity)
+	fmt.Printf("Successfully retrieved %v items with the consumed capacity of %v'", *queryOutput.Count, queryOutput.ConsumedCapacity)
 	return responseItems
 }
