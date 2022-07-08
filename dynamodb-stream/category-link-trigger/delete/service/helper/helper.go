@@ -22,32 +22,33 @@ func RemoveCategoryLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.Dyn
 			continue
 		}
 
-		fetchWallets(svc, category, err)
-
-		queryOutput, err := repository.QueryItems(svc, category.Pk, config.SkCategoryRulePrefix)
-		if err != nil {
-			fmt.Printf("RemoveCategoryLink: Got error Category Rule GetCategoryRuleItem: %v. \n", err)
-			continue
-		}
-
-		var categoryRules []*models.CategoryRule
-		categoryRules, err = ParseResponse(queryOutput)
-		if err != nil {
-			fmt.Printf("RemoveCategoryLink: Got error Category Rule ParseResponse: %v. \n", err)
-			continue
-		}
-
-		for _, v := range categoryRules {
-			if *v.CategoryId == *category.Sk {
-				repository.DeleteItem(v.Pk, v.Sk, svc)
-			}
+		wallets := FetchWallets(svc, category)
+		for _, wallet := range wallets {
+			deleteCategoryRulesForWallet(svc, wallet, category)
 		}
 
 	}
 }
 
-func fetchWallets(svc *dynamodb.DynamoDB, category *models.Category, err error) {
-	// TODO
+func deleteCategoryRulesForWallet(svc *dynamodb.DynamoDB, wallet *models.Wallet, category *models.Category) {
+	queryOutput, err := repository.QueryItems(svc, wallet.Sk, config.SkCategoryRulePrefix, config.ProjectionExpression)
+	if err != nil {
+		fmt.Printf("RemoveCategoryLink: Got error Category Rule GetCategoryRuleItem: %v. \n", err)
+		return
+	}
+
+	var categoryRules []*models.CategoryRule
+	categoryRules, err = ParseResponse(queryOutput)
+	if err != nil {
+		fmt.Printf("RemoveCategoryLink: Got error Category Rule ParseResponse: %v. \n", err)
+		return
+	}
+
+	for _, v := range categoryRules {
+		if *v.CategoryId == *category.Sk {
+			repository.DeleteItem(v.Pk, v.Sk, svc)
+		}
+	}
 }
 
 func ParseResponse(result *dynamodb.QueryOutput) ([]*models.CategoryRule, error) {

@@ -17,7 +17,7 @@ import (
 // Output:
 //     If success, the information about the table item and nil
 //     Otherwise, nil and an error from the call to GetItem or UnmarshalMap
-func QueryItems(svc dynamodbiface.DynamoDBAPI, pk *string, sk string) (*dynamodb.QueryOutput, error) {
+func QueryItems(svc dynamodbiface.DynamoDBAPI, pk *string, sk string, projectionExpression string) (*dynamodb.QueryOutput, error) {
 
 	input := &dynamodb.QueryInput{
 		TableName: aws.String(config.TableName),
@@ -39,7 +39,7 @@ func QueryItems(svc dynamodbiface.DynamoDBAPI, pk *string, sk string) (*dynamodb
 				},
 			},
 		},
-		ProjectionExpression: &config.ProjectionExpression,
+		ProjectionExpression: &projectionExpression,
 		ScanIndexForward:     &config.ScanIndexForward,
 	}
 
