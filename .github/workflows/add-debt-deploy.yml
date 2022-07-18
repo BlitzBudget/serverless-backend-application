@@ -21,8 +21,8 @@ jobs:
       - name: Add debt
         run: cd debt/add/; GOOS=linux go build cmd/main.go; zip addDebt.zip main; ls;
 
-     #- name: Add Debt Test
-      #  run: cd debt/add/; go test -v ./...
+      - name: Add Debt Test
+        run: cd debt/add/; go test -v ./...
 
       - name: Add Debt gobuild deploy
         uses: appleboy/lambda-action@master

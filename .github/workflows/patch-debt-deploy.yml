@@ -20,8 +20,8 @@ jobs:
       - name: Patch debt
         run: cd debt/update/; GOOS=linux go build cmd/main.go; zip patchDebt.zip main; ls;
 
-      #- name: Patch Debt Test
-      # run: cd debt/update/; go test -v ./...
+      - name: Patch Debt Test
+        run: cd debt/update/; go test -v ./...
 
       - name: Patch Debt gobuild deploy
         uses: appleboy/lambda-action@master

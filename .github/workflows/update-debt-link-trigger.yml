@@ -21,8 +21,8 @@ jobs:
       - name: Update dynamodb-stream/debt-link-trigger
         run: cd dynamodb-stream/debt-link-trigger/update/; GOOS=linux go build cmd/main.go; zip updateDebtLinkTrigger.zip main; ls;
 
-      #- name: Update DebtLinkTrigger Test
-      #  run: cd dynamodb-stream/debt-link-trigger/update/; go test -v ./...
+      - name: Update DebtLinkTrigger Test
+        run: cd dynamodb-stream/debt-link-trigger/update/; go test -v ./...
 
       - name: Update DebtLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master

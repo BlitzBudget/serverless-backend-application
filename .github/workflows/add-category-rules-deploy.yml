@@ -21,8 +21,8 @@ jobs:
       - name: Add rules
         run: cd category-rules/add/; GOOS=linux go build cmd/main.go; zip addCategoryRules.zip main; ls;
 
-      #- name: Add CategoryRules Test
-      #  run: cd category-rules/add/; go test -v ./...
+      - name: Add CategoryRules Test
+        run: cd category-rules/add/; go test -v ./...
 
       - name: Add CategoryRules gobuild deploy
         uses: appleboy/lambda-action@master

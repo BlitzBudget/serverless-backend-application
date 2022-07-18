@@ -20,8 +20,8 @@ jobs:
       - name: Get investment-rules
         run: cd investment-rules/get/; GOOS=linux go build cmd/main.go; zip getInvestmentRules.zip main; ls;
 
-      #- name: Get InvestmentRules Test
-      #  run: cd investment-rules/get/; go test -v ./...
+      - name: Get InvestmentRules Test
+        run: cd investment-rules/get/; go test -v ./...
 
       - name: Get InvestmentRules gobuild deploy
         uses: appleboy/lambda-action@master

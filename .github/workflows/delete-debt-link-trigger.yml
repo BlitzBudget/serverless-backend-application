@@ -21,8 +21,8 @@ jobs:
       - name: Remove dynamodb-stream/debt-link-trigger
         run: cd dynamodb-stream/debt-link-trigger/delete/; GOOS=linux go build cmd/main.go; zip deleteDebtLinkTrigger.zip main; ls;
 
-      #- name: Remove DebtLinkTrigger Test
-      #  run: cd dynamodb-stream/debt-link-trigger/delete/; go test -v ./...
+      - name: Remove DebtLinkTrigger Test
+        run: cd dynamodb-stream/debt-link-trigger/delete/; go test -v ./...
 
       - name: Remove DebtLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master

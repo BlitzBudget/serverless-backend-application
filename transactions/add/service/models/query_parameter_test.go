@@ -38,7 +38,7 @@ func TestQueryParameter(t *testing.T) {
 		return
 	}
 
-	if *queryParameter.Amount != int64(amount) {
+	if *queryParameter.Amount != float64(amount) {
 		t.Errorf("QueryParameter: Amount do not match, got = %v, want = %v", *queryParameter.Amount, amount)
 		return
 	}

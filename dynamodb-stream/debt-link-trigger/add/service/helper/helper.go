@@ -39,8 +39,8 @@ func getDebtRule(description *string, svc *dynamodb.DynamoDB, pk *string) (*mode
 }
 
 // Check if the amount matches
-func amountMatches(debtRule *models.DebtRule, amt int64) bool {
-	return (debtRule.TransactionAmount != nil && *debtRule.TransactionAmount == amt) || (debtRule.TransactionAmount == nil) || *debtRule.TransactionAmount == int64(0)
+func amountMatches(debtRule *models.DebtRule, amt float64) bool {
+	return (debtRule.TransactionAmount != nil && *debtRule.TransactionAmount == amt) || (debtRule.TransactionAmount == nil) || *debtRule.TransactionAmount == float64(0)
 }
 
 // Check if the description matches

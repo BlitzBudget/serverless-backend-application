@@ -11,13 +11,13 @@ import (
 )
 
 type GoalQueryParameter struct {
-	CurrentAmount *int64  `validate:"required" json:":c"`
-	GoalAchieved  *bool   `validate:"required" json:":r"`
-	UpdatedDate   *string `validate:"required" json:":u"`
+	CurrentAmount *float64 `validate:"required" json:":c"`
+	GoalAchieved  *bool    `validate:"required" json:":r"`
+	UpdatedDate   *string  `validate:"required" json:":u"`
 }
 
 // convert item to dynamodb attribute
-func GoalParseToQueryParameter(currentValue *int64, goalAchieved *bool) map[string]*dynamodb.AttributeValue {
+func GoalParseToQueryParameter(currentValue *float64, goalAchieved *bool) map[string]*dynamodb.AttributeValue {
 	date := time.Now().Format(time.RFC3339Nano)
 	av, err := dynamodbattribute.MarshalMap(GoalQueryParameter{
 		CurrentAmount: currentValue,

@@ -20,8 +20,8 @@ jobs:
       - name: Patch budget
         run: cd budget/update/; GOOS=linux go build cmd/main.go; zip patchBudget.zip main; ls;
 
-      #- name: Patch Budget Test
-      # run: cd budget/update/; go test -v ./...
+      - name: Patch Budget Test
+        run: cd budget/update/; go test -v ./...
 
       - name: Patch Budget gobuild deploy
         uses: appleboy/lambda-action@master

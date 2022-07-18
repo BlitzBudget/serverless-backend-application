@@ -39,12 +39,12 @@ func TestQueryParameter(t *testing.T) {
 		return
 	}
 
-	if *queryParameter.CurrentValue != int64(currentValue) {
+	if *queryParameter.CurrentValue != float64(currentValue) {
 		t.Errorf("QueryParameter: CurrentValue do not match, got = %v, want = %v", *queryParameter.CurrentValue, currentValue)
 		return
 	}
 
-	if *queryParameter.DebtedAmount != int64(debtedAmount) {
+	if *queryParameter.DebtedAmount != float64(debtedAmount) {
 		t.Errorf("QueryParameter: DebtedAmount do not match, got = %v, want = %v", *queryParameter.DebtedAmount, debtedAmount)
 		return
 	}

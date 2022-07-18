@@ -21,8 +21,8 @@ jobs:
       - name: Add dynamodb-stream/goal-link-trigger
         run: cd dynamodb-stream/goal-link-trigger/add/; GOOS=linux go build cmd/main.go; zip addGoalLinkTrigger.zip main; ls;
 
-      #- name: Add GoalLinkTrigger Test
-      #  run: cd dynamodb-stream/goal-link-trigger/add/; go test -v ./...
+      - name: Add GoalLinkTrigger Test
+        run: cd dynamodb-stream/goal-link-trigger/add/; go test -v ./...
 
       - name: Add GoalLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master

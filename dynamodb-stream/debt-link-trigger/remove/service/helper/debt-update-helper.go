@@ -11,13 +11,13 @@ import (
 )
 
 type DebtQueryParameter struct {
-	CurrentValue *int64  `validate:"required" json:":c"`
-	DebtRepaid   *bool   `validate:"required" json:":r"`
-	UpdatedDate  *string `validate:"required" json:":u"`
+	CurrentValue *float64 `validate:"required" json:":c"`
+	DebtRepaid   *bool    `validate:"required" json:":r"`
+	UpdatedDate  *string  `validate:"required" json:":u"`
 }
 
 // convert item to dynamodb attribute
-func DebtParseToQueryParameter(currentValue *int64, debtRepaid *bool) map[string]*dynamodb.AttributeValue {
+func DebtParseToQueryParameter(currentValue *float64, debtRepaid *bool) map[string]*dynamodb.AttributeValue {
 	date := time.Now().Format(time.RFC3339Nano)
 	av, err := dynamodbattribute.MarshalMap(DebtQueryParameter{
 		CurrentValue: currentValue,

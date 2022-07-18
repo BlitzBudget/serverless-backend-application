@@ -14,7 +14,7 @@ type Transaction struct {
 	CreationDate         *string   `json:"creation_date"`
 	Category             *string   `json:"category"`
 	Description          *string   `json:"description"`
-	Amount               *int64    `json:"amount"`
+	Amount               *float64  `json:"amount"`
 	Tags                 *[]string `json:"tags"`
 	ScheduledTransaction *bool     `json:"scheduled_transaction"`
 }
@@ -26,7 +26,7 @@ func ConvertDynamoDBToModel(dbAttrMap map[string]*dynamodb.AttributeValue) Trans
 		fmt.Printf("AttributeBuilder: Unable to convert amount to integer: %v. \n", err)
 		amt = 0
 	}
-	bigIntAmount := int64(amt)
+	bigIntAmount := float64(amt)
 
 	transaction := Transaction{
 		Pk:          dbAttrMap["pk"].S,

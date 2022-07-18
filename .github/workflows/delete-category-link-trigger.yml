@@ -21,8 +21,8 @@ jobs:
       - name: Remove dynamodb-stream/category-link-trigger
         run: cd dynamodb-stream/category-link-trigger/delete/; GOOS=linux go build cmd/main.go; zip deleteCategoryLinkTrigger.zip main; ls;
 
-      #- name: Remove CategoryLinkTrigger Test
-      #  run: cd dynamodb-stream/category-link-trigger/delete/; go test -v ./...
+      - name: Remove CategoryLinkTrigger Test
+        run: cd dynamodb-stream/category-link-trigger/delete/; go test -v ./...
 
       - name: Remove CategoryLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master

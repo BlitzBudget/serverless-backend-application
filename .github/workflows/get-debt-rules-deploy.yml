@@ -20,8 +20,8 @@ jobs:
       - name: Get debt-rules
         run: cd debt-rules/get/; GOOS=linux go build cmd/main.go; zip getDebtRules.zip main; ls;
 
-      #- name: Get DebtRules Test
-      #  run: cd debt-rules/get/; go test -v ./...
+      - name: Get DebtRules Test
+        run: cd debt-rules/get/; go test -v ./...
 
       - name: Get DebtRules gobuild deploy
         uses: appleboy/lambda-action@master

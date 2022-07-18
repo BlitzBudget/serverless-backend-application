@@ -21,8 +21,8 @@ jobs:
       - name: Update dynamodb-stream/category-link-trigger
         run: cd dynamodb-stream/category-link-trigger/update/; GOOS=linux go build cmd/main.go; zip updateCategoryLinkTrigger.zip main; ls;
 
-      #- name: Update CategoryLinkTrigger Test
-      #  run: cd dynamodb-stream/category-link-trigger/update/; go test -v ./...
+      - name: Update CategoryLinkTrigger Test
+        run: cd dynamodb-stream/category-link-trigger/update/; go test -v ./...
 
       - name: Update CategoryLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master

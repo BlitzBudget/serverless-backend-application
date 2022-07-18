@@ -21,8 +21,8 @@ jobs:
       - name: Add Goal rules
         run: cd goal-rules/add/; GOOS=linux go build cmd/main.go; zip addGoalRules.zip main; ls;
 
-      #- name: Add GoalRules Test
-      #  run: cd goal-rules/add/; go test -v ./...
+      - name: Add GoalRules Test
+        run: cd goal-rules/add/; go test -v ./...
 
       - name: Add GoalRules gobuild deploy
         uses: appleboy/lambda-action@master

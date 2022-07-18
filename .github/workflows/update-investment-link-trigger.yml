@@ -21,8 +21,8 @@ jobs:
       - name: Update dynamodb-stream/investment-link-trigger
         run: cd dynamodb-stream/investment-link-trigger/update/; GOOS=linux go build cmd/main.go; zip updateInvestmentLinkTrigger.zip main; ls;
 
-      #- name: Update InvestmentLinkTrigger Test
-      #  run: cd dynamodb-stream/investment-link-trigger/update/; go test -v ./...
+      - name: Update InvestmentLinkTrigger Test
+        run: cd dynamodb-stream/investment-link-trigger/update/; go test -v ./...
 
       - name: Update InvestmentLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master

@@ -20,8 +20,8 @@ jobs:
       - name: Get category
         run: cd category/batch-get/; GOOS=linux go build cmd/main.go; zip batchGetCategory.zip main; ls;
 
-      #- name: Get Category Test
-      #  run: cd category/batch-get/; go test -v ./...
+      - name: Get Category Test
+        run: cd category/batch-get/; go test -v ./...
 
       - name: Get Category gobuild deploy
         uses: appleboy/lambda-action@master

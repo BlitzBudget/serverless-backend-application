@@ -20,8 +20,8 @@ jobs:
       - name: Add wallet
         run: cd wallet/add/; GOOS=linux go build cmd/main.go; zip addWallet.zip main; ls;
 
-      #- name: Add Wallet Test
-      #  run: cd wallet/add/; go test -v ./...
+      - name: Add Wallet Test
+        run: cd wallet/add/; go test -v ./...
 
       - name: Add Wallet gobuild deploy
         uses: appleboy/lambda-action@master

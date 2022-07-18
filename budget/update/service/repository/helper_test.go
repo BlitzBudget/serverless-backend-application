@@ -12,7 +12,7 @@ var requestModel *models.RequestModel
 func setup() {
 	walletId := "Wallet#2020-05-02T17:19:13.022Z"
 	budgetId := "Budget#2020-05-02T17:19:13.022Z"
-	planned := int64(95)
+	planned := float64(95)
 	category := "Category#2020-05-02T17:19:13.022Z"
 
 	requestModel = &models.RequestModel{
