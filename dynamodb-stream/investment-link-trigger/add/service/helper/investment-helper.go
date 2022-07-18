@@ -38,8 +38,8 @@ func incrementInvestmentCurrentValue(transaction *models.Transaction, investment
 }
 
 // Check if the amount matches
-func amountMatches(investmentRule *models.InvestmentRule, amt int64) bool {
-	return (investmentRule.TransactionAmount != nil && *investmentRule.TransactionAmount == amt) || (investmentRule.TransactionAmount == nil) || *investmentRule.TransactionAmount == int64(0)
+func amountMatches(investmentRule *models.InvestmentRule, amt float64) bool {
+	return (investmentRule.TransactionAmount != nil && *investmentRule.TransactionAmount == amt) || (investmentRule.TransactionAmount == nil) || *investmentRule.TransactionAmount == float64(0)
 }
 
 // Check if the description matches

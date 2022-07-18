@@ -11,8 +11,8 @@ var queryParameter *models.QueryParameter
 
 func setup() {
 	walletId := "Wallet#2020-05-02T17:19:13.022Z"
-	currentValue := int64(20)
-	investedAmount := int64(10)
+	currentValue := float64(20)
+	investedAmount := float64(10)
 	DebtName := "Index Funds"
 	creationDate := "2020-05-02T17:19:13.022"
 	updatedDate := "2020-05-02T17:19:13.022"

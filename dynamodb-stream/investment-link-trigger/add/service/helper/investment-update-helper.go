@@ -11,13 +11,13 @@ import (
 )
 
 type InvestmentQueryParameter struct {
-	CurrentValue     *int64  `validate:"required" json:":c"`
-	InvestmentAmount *bool   `validate:"required" json:":r"`
-	UpdatedDate      *string `validate:"required" json:":u"`
+	CurrentValue     *float64 `validate:"required" json:":c"`
+	InvestmentAmount *bool    `validate:"required" json:":r"`
+	UpdatedDate      *string  `validate:"required" json:":u"`
 }
 
 // convert item to dynamodb attribute
-func InvestmentParseToQueryParameter(currentValue *int64, investmentAmount *bool) map[string]*dynamodb.AttributeValue {
+func InvestmentParseToQueryParameter(currentValue *float64, investmentAmount *bool) map[string]*dynamodb.AttributeValue {
 	date := time.Now().Format(time.RFC3339Nano)
 	av, err := dynamodbattribute.MarshalMap(InvestmentQueryParameter{
 		CurrentValue:     currentValue,

@@ -4,7 +4,7 @@ package models
 type QueryParameter struct {
 	Pk           *string   `validate:"required" json:"pk"`
 	Sk           string    `json:"sk"`
-	Amount       *int64    `validate:"required" json:"amount"`
+	Amount       *float64  `validate:"required" json:"amount"`
 	Description  *string   `validate:"required" json:"description"`
 	CreationDate *string   `json:"creation_date"`
 	UpdatedDate  *string   `json:"updated_date"`

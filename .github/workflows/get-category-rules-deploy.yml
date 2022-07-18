@@ -20,8 +20,8 @@ jobs:
       - name: Get category-rules
         run: cd category-rules/get/; GOOS=linux go build cmd/main.go; zip getCategoryRules.zip main; ls;
 
-      #- name: Get CategoryRules Test
-      #  run: cd category-rules/get/; go test -v ./...
+      - name: Get CategoryRules Test
+        run: cd category-rules/get/; go test -v ./...
 
       - name: Get CategoryRules gobuild deploy
         uses: appleboy/lambda-action@master

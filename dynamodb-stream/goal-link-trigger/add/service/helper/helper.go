@@ -39,8 +39,8 @@ func getGoalRule(description *string, svc *dynamodb.DynamoDB, pk *string) (*mode
 }
 
 // Check if the amount matches
-func amountMatches(goalRule *models.GoalRule, amt int64) bool {
-	return (goalRule.TransactionAmount != nil && *goalRule.TransactionAmount == amt) || (goalRule.TransactionAmount == nil) || *goalRule.TransactionAmount == int64(0)
+func amountMatches(goalRule *models.GoalRule, amt float64) bool {
+	return (goalRule.TransactionAmount != nil && *goalRule.TransactionAmount == amt) || (goalRule.TransactionAmount == nil) || *goalRule.TransactionAmount == float64(0)
 }
 
 // Check if the description matches

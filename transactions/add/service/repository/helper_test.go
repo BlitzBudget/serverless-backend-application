@@ -12,7 +12,7 @@ var queryParameter *models.QueryParameter
 func setup() {
 	walletId := "Wallet#2020-05-02T17:19:13.022Z"
 	transactionId := "Transaction#2020-05-02T17:19:13.022Z"
-	amount := int64(95)
+	amount := float64(95)
 	creationDate := "2020-05-02T17:19:13.022"
 	updatedDate := "2020-05-02T17:19:13.022"
 	categoryId := "CategoryId#2020-05-02T17:19:13.022Z"

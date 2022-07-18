@@ -21,8 +21,8 @@ jobs:
       - name: Update dynamodb-stream/goal-link-trigger
         run: cd dynamodb-stream/goal-link-trigger/update/; GOOS=linux go build cmd/main.go; zip updateGoalLinkTrigger.zip main; ls;
 
-      #- name: Update GoalLinkTrigger Test
-      #  run: cd dynamodb-stream/goal-link-trigger/update/; go test -v ./...
+      - name: Update GoalLinkTrigger Test
+        run: cd dynamodb-stream/goal-link-trigger/update/; go test -v ./...
 
       - name: Update GoalLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master

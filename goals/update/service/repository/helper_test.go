@@ -12,7 +12,7 @@ var requestModel *models.RequestModel
 func setup() {
 	walletId := "Wallet#2020-05-02T17:19:13.022Z"
 	sk := "Goal#2020-05-02T17:19:13.022Z"
-	targetAmount := int64(95)
+	targetAmount := float64(95)
 	updatedDate := "2020-05-02T17:19:13.022"
 	name := "Investment"
 

@@ -12,10 +12,10 @@ var requestModel *models.RequestModel
 func setup() {
 	pk := "User#2020-05-02T17:19:13.022Z"
 	sk := "Investment#2020-05-02T17:19:13.022Z"
-	debt := int64(60)
+	debt := float64(60)
 	debtName := "Debt Name"
 	debtRepaid := true
-	currentValue := int64(30)
+	currentValue := float64(30)
 
 	requestModel = &models.RequestModel{
 		Pk:           &pk,

@@ -21,8 +21,8 @@ jobs:
       - name: Add category
         run: cd category/add/; GOOS=linux go build cmd/main.go; zip addCategory.zip main; ls;
 
-      #- name: Add Category Test
-      #  run: cd category/add/; go test -v ./...
+      - name: Add Category Test
+        run: cd category/add/; go test -v ./...
 
       - name: Add Category gobuild deploy
         uses: appleboy/lambda-action@master

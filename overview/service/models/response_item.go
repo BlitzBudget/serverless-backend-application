@@ -7,7 +7,7 @@ type ResponseItem struct {
 	CreationDate         *string   `json:"creation_date"`
 	Category             *string   `json:"category"`
 	Description          *string   `json:"description"`
-	Amount               *int64    `json:"amount"`
+	Amount               *float64  `json:"amount"`
 	Tags                 *[]string `json:"tags"`
 	ScheduledTransaction *bool     `json:"scheduled_transaction"`
 }

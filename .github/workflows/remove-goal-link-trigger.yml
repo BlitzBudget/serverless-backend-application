@@ -21,8 +21,8 @@ jobs:
       - name: Remove dynamodb-stream/goal-link-trigger
         run: cd dynamodb-stream/goal-link-trigger/remove/; GOOS=linux go build cmd/main.go; zip removeGoalLinkTrigger.zip main; ls;
 
-      #- name: Remove GoalLinkTrigger Test
-      #  run: cd dynamodb-stream/goal-link-trigger/remove/; go test -v ./...
+      - name: Remove GoalLinkTrigger Test
+        run: cd dynamodb-stream/goal-link-trigger/remove/; go test -v ./...
 
       - name: Remove GoalLinkTrigger gobuild deploy
         uses: appleboy/lambda-action@master

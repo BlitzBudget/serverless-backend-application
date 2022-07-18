@@ -20,8 +20,8 @@ jobs:
       - name: Get investment
         run: cd investment/get/; GOOS=linux go build cmd/main.go; zip getInvestment.zip main; ls;
 
-      #- name: Get Investment Test
-      #  run: cd investment/get/; go test -v ./...
+      - name: Get Investment Test
+        run: cd investment/get/; go test -v ./...
 
       - name: Get Investment gobuild deploy
         uses: appleboy/lambda-action@master

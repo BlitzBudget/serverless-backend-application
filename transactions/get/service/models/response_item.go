@@ -7,7 +7,7 @@ type ResponseItem struct {
 	CreationDate *string   `json:"creation_date"`
 	CategoryId   *string   `json:"category_id"`
 	Description  *string   `json:"description"`
-	Amount       *int64    `json:"amount"`
+	Amount       *float64  `json:"amount"`
 	Tags         *[]string `json:"tags"`
 	InvestmentId *string   `json:"investment_id"`
 	DebtId       *string   `json:"debt_id"`

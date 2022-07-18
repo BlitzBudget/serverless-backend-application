@@ -20,8 +20,8 @@ jobs:
       - name: Get notification
         run: cd notifications/get/; GOOS=linux go build cmd/main.go; zip getNotification.zip main; ls;
 
-      #- name: Get Notification Test
-      #  run: cd notifications/get/; go test -v ./...
+      - name: Get Notification Test
+        run: cd notifications/get/; go test -v ./...
 
       - name: Get Notification gobuild deploy
         uses: appleboy/lambda-action@master
