@@ -14,7 +14,7 @@ func TestQueryParameter(t *testing.T) {
 	currentValue := 500
 	investedAmount := 200
 	investmentName := "investmentName"
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"current_value\":" + strconv.Itoa(currentValue) + ",\"invested_amount\":\"" + strconv.Itoa(investedAmount) + "\",\"updated_date\":\"" + updatedDate + "\",\"investment_name\":\"" + investmentName + "}"
+	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"current_value\":" + strconv.Itoa(currentValue) + ",\"invested_amount\":" + strconv.Itoa(investedAmount) + ",\"updated_date\":\"" + updatedDate + "\",\"investment_name\":\"" + investmentName + "\"}"
 	queryParameter := QueryParameter{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
