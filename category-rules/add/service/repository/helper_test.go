@@ -1,41 +1,55 @@
 package repository
 
 import (
-	"strconv"
 	"testing"
 )
 
 func TestAttributeBuilder(t *testing.T) {
 	pk := "Wallet#2022-05-12T20:25:19Z"
-	sk := "Budget#2022-05-12T20:25:19Z"
-	planned := 200
-	category := "category"
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"planned\":" + strconv.Itoa(planned) + ",\"category\":\"" + category + "\"}"
+	creationDate := "2022-05-12T20:25:19Z"
+	updatedDate := "2022-05-12T20:25:19Z"
+	transactionName := "transactionName"
+	categoryId := "categoryId"
+	body := "{\"pk\":\"" + pk + "\",\"creation_date\":\"" + creationDate + "\",\"category_id\":\"" + categoryId + "\",\"transaction_name\":\"" + transactionName + "\",\"updated_date\":\"" + updatedDate + "\"}"
 
-	requestModel := AttributeBuilder(&body)
+	got, err := AttributeBuilder(&body)
+	if err != nil {
+		t.Errorf("AttributeBuilder() error = %v", err)
+		return
+	}
 
-	if requestModel == nil {
+	if got == nil {
 		t.Errorf("AttributeBuilder() is null")
 		return
 	}
 
-	if *requestModel.Pk != pk {
-		t.Errorf("pk convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Pk, pk)
+	if *(*got["creation_date"]).S == "" {
+		t.Errorf("name creationDate to DynamoDB attribute not correct, got = %v", *(*got["creation_date"]).S)
 		return
 	}
 
-	if *requestModel.Sk != sk {
-		t.Errorf("SK convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Sk, sk)
+	if *(*got["updated_date"]).S == "" {
+		t.Errorf("name updated_date to DynamoDB attribute not correct, got = %v", *(*got["updated_date"]).S)
 		return
 	}
 
-	if *requestModel.Planned != float64(planned) {
-		t.Errorf("planned convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Planned, planned)
+	if *(*got["pk"]).S != pk {
+		t.Errorf("name pk to DynamoDB attribute not correct, got = %v, want = %v", *(*got["pk"]).S, pk)
 		return
 	}
 
-	if *requestModel.Category != category {
-		t.Errorf("category convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Category, category)
+	if *(*got["sk"]).S == "" {
+		t.Errorf("name sk to DynamoDB attribute not correct, got = %v", *(*got["sk"]).S)
+		return
+	}
+
+	if *(*got["transaction_name"]).S != transactionName {
+		t.Errorf("name transaction_name to DynamoDB attribute not correct, got = %v, want = %v", *(*got["transaction_name"]).S, transactionName)
+		return
+	}
+
+	if *(*got["category_id"]).S != categoryId {
+		t.Errorf("name category_id to DynamoDB attribute not correct, got = %v, want = %v", *(*got["category_id"]).S, categoryId)
 		return
 	}
 }
