@@ -1,41 +1,54 @@
 package repository
 
 import (
-	"strconv"
+	"encoding/json"
+	"fmt"
 	"testing"
 )
 
 func TestAttributeBuilder(t *testing.T) {
-	pk := "Wallet#2022-05-12T20:25:19Z"
-	sk := "Budget#2022-05-12T20:25:19Z"
-	planned := 200
-	category := "category"
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"planned\":" + strconv.Itoa(planned) + ",\"category\":\"" + category + "\"}"
+	userId := "userId"
+	var categoryIds [3]string
+	categoryIds[0] = "categoryID1"
+	categoryIds[1] = "categoryID2"
+	categoryIds[2] = "categoryID3"
+	categoryIdJSON, err := json.Marshal(categoryIds)
+	if err != nil {
+		fmt.Printf("Error: %s", err.Error())
+	}
 
-	requestModel := AttributeBuilder(&body)
+	body := "{\"user_id\":\"" + userId + "\",\"category_ids\":" + string(categoryIdJSON) + "}"
+
+	requestModel, err := AttributeBuilder(&body)
+
+	if err != nil {
+		t.Errorf("Err is not null")
+		return
+	}
 
 	if requestModel == nil {
 		t.Errorf("AttributeBuilder() is null")
 		return
 	}
 
-	if *requestModel.Pk != pk {
-		t.Errorf("pk convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Pk, pk)
+	if *requestModel.UserId != userId {
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.UserId, userId)
 		return
 	}
 
-	if *requestModel.Sk != sk {
-		t.Errorf("SK convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Sk, sk)
+	if (*(*requestModel).CategoryIds)[0] != categoryIds[0] {
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", (*(*requestModel).CategoryIds)[0], categoryIds[0])
+		return
+	}
+	
+	if (*(*requestModel).CategoryIds)[1] != categoryIds[1] {
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", (*(*requestModel).CategoryIds)[1], categoryIds[1])
+		return
+	}
+		
+	if (*(*requestModel).CategoryIds)[2] != categoryIds[2] {
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", (*(*requestModel).CategoryIds)[2], categoryIds[2])
 		return
 	}
 
-	if *requestModel.Planned != float64(planned) {
-		t.Errorf("planned convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Planned, planned)
-		return
-	}
-
-	if *requestModel.Category != category {
-		t.Errorf("category convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Category, category)
-		return
-	}
 }
