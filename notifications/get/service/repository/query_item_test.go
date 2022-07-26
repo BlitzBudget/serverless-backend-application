@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"get-budget/service/models"
+	"get-notification/service/models"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
