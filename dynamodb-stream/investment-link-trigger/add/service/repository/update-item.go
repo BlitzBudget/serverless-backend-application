@@ -6,9 +6,10 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func UpdateItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB, pk *string, sk *string, updateExpression string) {
+func UpdateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.DynamoDBAPI, pk *string, sk *string, updateExpression string) {
 	input := &dynamodb.UpdateItemInput{
 		ExpressionAttributeValues: av,
 		TableName:                 &config.TableName,

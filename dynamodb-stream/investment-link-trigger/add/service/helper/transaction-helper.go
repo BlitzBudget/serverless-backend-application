@@ -8,6 +8,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 type QueryParameter struct {
@@ -31,7 +32,7 @@ func ParseToQueryParameter(investmentId *string) map[string]*dynamodb.AttributeV
 }
 
 // Update Transaction Item with Investment ID
-func UpdateTransactionWithInvestmentId(investmentId *string, svc *dynamodb.DynamoDB, request *models.Transaction) {
+func UpdateTransactionWithInvestmentId(investmentId *string, svc dynamodbiface.DynamoDBAPI, request *models.Transaction) {
 	av := ParseToQueryParameter(investmentId)
 	updateExpression := "set investment_id = :d, updated_date = :u"
 	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)

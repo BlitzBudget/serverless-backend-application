@@ -4,13 +4,12 @@ import (
 	"add-goal-link/service/models"
 	"add-goal-link/service/repository"
 	"fmt"
-
-	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 // Increament the Goal Achieved with the transaction
 // Add the transaction amount with the current value field in the goal
-func IncrementGoalAchieved(goalRule *models.GoalRule, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
+func IncrementGoalAchieved(goalRule *models.GoalRule, transaction *models.Transaction, svc dynamodbiface.DynamoDBAPI) {
 	if !(descriptionMatches(goalRule, transaction.Description) || amountMatches(goalRule, *transaction.Amount)) {
 		fmt.Printf("incrementGoalAchieved: The transaction description and the transaction amount do not match: %v. \n", goalRule.Sk)
 		return
@@ -29,7 +28,7 @@ func IncrementGoalAchieved(goalRule *models.GoalRule, transaction *models.Transa
 	UpdateCurrentAmountForGoal(svc, goal)
 }
 
-func updategoalAchieved(goal *models.Goal, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
+func updategoalAchieved(goal *models.Goal, transaction *models.Transaction, svc dynamodbiface.DynamoDBAPI) {
 	if *goal.CurrentAmount <= *goal.TargetAmount {
 		goalAchieved := false
 		goal.GoalAchieved = &goalAchieved
