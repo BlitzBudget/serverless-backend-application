@@ -17,12 +17,8 @@ func (m *mockDynamodbClient) Query(input *dynamodb.QueryInput) (*dynamodb.QueryO
 	result := dynamodb.QueryOutput{}
 
 	wallet := "wallet"
-	startsWithDate := "2022-10-20"
-	endsWithDate := "2022-12-01"
 	item := models.QueryParameter{
 		WalletId:       &wallet,
-		StartsWithDate: &startsWithDate,
-		EndsWithDate:   &endsWithDate,
 	}
 
 	av, err := dynamodbattribute.MarshalMap(item)
@@ -42,12 +38,8 @@ func (m *mockDynamodbClient) Query(input *dynamodb.QueryInput) (*dynamodb.QueryO
 func TestQueryItem(t *testing.T) {
 	mockSvc := &mockDynamodbClient{}
 	wallet := "wallet"
-	startsWithDate := "2022-10-20"
-	endsWithDate := "2022-12-01"
 	av := models.QueryParameter{
 		WalletId:       &wallet,
-		StartsWithDate: &startsWithDate,
-		EndsWithDate:   &endsWithDate,
 	}
 
 	_, err := QueryItem(&av, mockSvc)
