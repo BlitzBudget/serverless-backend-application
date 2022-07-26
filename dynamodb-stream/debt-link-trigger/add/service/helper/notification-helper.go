@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 const (
@@ -16,7 +16,7 @@ const (
 )
 
 // Add a repaid debt notification to the
-func RepaidDebtNotification(pk *string, debtName *string, svc *dynamodb.DynamoDB) {
+func RepaidDebtNotification(pk *string, debtName *string, svc dynamodbiface.DynamoDBAPI) {
 	message := i18n.Notification + *debtName
 	notification := models.Notificaion{
 		Pk:           pk,

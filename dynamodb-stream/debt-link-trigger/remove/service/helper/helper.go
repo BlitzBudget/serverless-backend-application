@@ -7,10 +7,10 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) {
+func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc dynamodbiface.DynamoDBAPI) {
 
 	for _, record := range *records {
 		fmt.Printf("RemoveGoalLink:: Old Image is %v. \n", record)
@@ -31,7 +31,7 @@ func RemoveDebtLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 }
 
 // Fetch Debt
-func getDebtRule(description *string, svc *dynamodb.DynamoDB, pk *string) (*models.DebtRule, error) {
+func getDebtRule(description *string, svc dynamodbiface.DynamoDBAPI, pk *string) (*models.DebtRule, error) {
 	sk := config.SkDebtRulePrefix + *description
 	debtRule, err := repository.GetDebtRuleItem(svc, &sk, pk)
 	return debtRule, err

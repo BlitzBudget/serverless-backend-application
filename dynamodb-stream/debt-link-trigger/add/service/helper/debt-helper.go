@@ -4,13 +4,12 @@ import (
 	"add-debt-link/service/models"
 	"add-debt-link/service/repository"
 	"fmt"
-
-	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 // Increament the Debt Repayment with the transaction
 // Add the transaction amount with the current value field in the debt
-func IncrementDebtRepayment(debtRule *models.DebtRule, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
+func IncrementDebtRepayment(debtRule *models.DebtRule, transaction *models.Transaction, svc dynamodbiface.DynamoDBAPI) {
 	if !(descriptionMatches(debtRule, transaction.Description) || amountMatches(debtRule, *transaction.Amount)) {
 		fmt.Printf("incrementDebtRepayment: The transaction description and the transaction amount do not match: %v. \n", *debtRule.Sk)
 		return
@@ -33,7 +32,7 @@ func IncrementDebtRepayment(debtRule *models.DebtRule, transaction *models.Trans
 	UpdateCurrentValueForDebt(svc, debt)
 }
 
-func updatedebtRepaid(debt *models.Debt, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
+func updatedebtRepaid(debt *models.Debt, transaction *models.Transaction, svc dynamodbiface.DynamoDBAPI) {
 	if *debt.CurrentValue >= *debt.DebtedAmount {
 		debtRepaid := true
 		debt.DebtRepaid = &debtRepaid

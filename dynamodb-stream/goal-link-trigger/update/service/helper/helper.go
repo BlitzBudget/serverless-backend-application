@@ -7,10 +7,10 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func CreateGoalLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) {
+func CreateGoalLink(records *[]events.DynamoDBEventRecord, svc dynamodbiface.DynamoDBAPI) {
 
 	for _, record := range *records {
 		transaction, err := UnmarshalStreamImage(record.Change.NewImage)
@@ -31,7 +31,7 @@ func CreateGoalLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoD
 }
 
 // Fetch Goal
-func getGoalRule(description *string, svc *dynamodb.DynamoDB, pk *string) (*models.GoalRule, error) {
+func getGoalRule(description *string, svc dynamodbiface.DynamoDBAPI, pk *string) (*models.GoalRule, error) {
 	sk := config.SkGoalRulePrefix + *description
 	goalRule, err := repository.GetGoalRuleItem(svc, &sk, pk)
 	return goalRule, err

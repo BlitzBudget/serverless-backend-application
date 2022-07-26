@@ -9,9 +9,10 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func FetchWallets(svc *dynamodb.DynamoDB, category *models.Category) []*models.Wallet {
+func FetchWallets(svc dynamodbiface.DynamoDBAPI, category *models.Category) []*models.Wallet {
 	queryOutput, err := repository.QueryItems(svc, category.Pk, config.SkWalletPrefix, config.WalletProjectionExpression)
 	if err != nil {
 		fmt.Printf("FetchWallets: Got error while Fetching Wallet: %v. \n", err)

@@ -7,10 +7,10 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func CreateCategoryLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) {
+func CreateCategoryLink(records *[]events.DynamoDBEventRecord, svc dynamodbiface.DynamoDBAPI) {
 
 	for _, record := range *records {
 		transaction, err := UnmarshalStreamImage(record.Change.NewImage)
@@ -31,7 +31,7 @@ func CreateCategoryLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.Dyn
 	}
 }
 
-func getCategoryRule(transaction *models.Transaction, svc *dynamodb.DynamoDB) (*models.CategoryRule, error) {
+func getCategoryRule(transaction *models.Transaction, svc dynamodbiface.DynamoDBAPI) (*models.CategoryRule, error) {
 	sk := config.SkCategoryRulePrefix + *transaction.Description
 	categoryRule, err := repository.GetCategoryRuleItem(svc, &sk, transaction.Pk)
 	return categoryRule, err

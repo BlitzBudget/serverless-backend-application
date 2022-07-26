@@ -8,6 +8,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 type InvestmentQueryParameter struct {
@@ -33,7 +34,7 @@ func InvestmentParseToQueryParameter(currentValue *float64, investmentAmount *bo
 }
 
 // Update Transaction Item with Investment ID
-func UpdateCurrentValueForInvestment(svc *dynamodb.DynamoDB, request *models.Investment) {
+func UpdateCurrentValueForInvestment(svc dynamodbiface.DynamoDBAPI, request *models.Investment) {
 	av := InvestmentParseToQueryParameter(request.CurrentValue, request.InvestmentAmount)
 	updateExpression := "set current_value = :c, investment_amount = :r, updated_date = :u"
 	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)

@@ -8,6 +8,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 type DebtQueryParameter struct {
@@ -33,7 +34,7 @@ func DebtParseToQueryParameter(currentValue *float64, debtRepaid *bool) map[stri
 }
 
 // Update Transaction Item with Debt ID
-func UpdateCurrentValueForDebt(svc *dynamodb.DynamoDB, request *models.Debt) {
+func UpdateCurrentValueForDebt(svc dynamodbiface.DynamoDBAPI, request *models.Debt) {
 	av := DebtParseToQueryParameter(request.CurrentValue, request.DebtRepaid)
 	updateExpression := "set current_value = :c, debt_repaid = :r, updated_date = :u"
 	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)

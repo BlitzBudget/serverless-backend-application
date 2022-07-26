@@ -8,9 +8,10 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func RemoveInvestmentLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) (map[string]*dynamodb.AttributeValue, error) {
+func RemoveInvestmentLink(records *[]events.DynamoDBEventRecord, svc dynamodbiface.DynamoDBAPI) (map[string]*dynamodb.AttributeValue, error) {
 
 	for _, record := range *records {
 		fmt.Printf("RemoveGoalLink:: Old Image is %v. \n", record)
@@ -33,7 +34,7 @@ func RemoveInvestmentLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.D
 }
 
 // Fetch Investment
-func getInvestmentRule(description *string, svc *dynamodb.DynamoDB, pk *string) (*models.InvestmentRule, error) {
+func getInvestmentRule(description *string, svc dynamodbiface.DynamoDBAPI, pk *string) (*models.InvestmentRule, error) {
 	sk := config.SkInvestmentRulePrefix + *description
 	investmentRule, err := repository.GetInvestmentRuleItem(svc, &sk, pk)
 	return investmentRule, err

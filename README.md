@@ -165,3 +165,8 @@ serverless for the backend application
 ### Sonra Qube Quality Check 
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=BlitzBudget_serverless-backend-application)
+
+
+# AWS Golang SDK documentation
+
+![AWS Documentation](https://docs.aws.amazon.com/code-samples/latest/catalog/go-dynamodb-CreateTableItem-CreateTableItem_test.go.html)

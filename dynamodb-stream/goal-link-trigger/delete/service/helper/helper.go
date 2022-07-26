@@ -9,9 +9,10 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func RemoveGoalLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) {
+func RemoveGoalLink(records *[]events.DynamoDBEventRecord, svc dynamodbiface.DynamoDBAPI) {
 
 	for _, record := range *records {
 		fmt.Printf("RemoveGoalLink:: Old Image is %v. \n", record)

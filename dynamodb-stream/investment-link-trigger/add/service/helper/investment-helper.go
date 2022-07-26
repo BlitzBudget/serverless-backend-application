@@ -5,13 +5,12 @@ import (
 	"add-investment-link/service/repository"
 	"fmt"
 	"strings"
-
-	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 // Increament the Investment Amount with the transaction
 // Add the transaction amount with the current value field in the investment
-func IncrementInvestmentAmount(investmentRule *models.InvestmentRule, transaction *models.Transaction, svc *dynamodb.DynamoDB) {
+func IncrementInvestmentAmount(investmentRule *models.InvestmentRule, transaction *models.Transaction, svc dynamodbiface.DynamoDBAPI) {
 	if !(descriptionMatches(investmentRule, transaction.Description) || amountMatches(investmentRule, *transaction.Amount)) {
 		fmt.Printf("incrementInvestmentAmount: The transaction description and the transaction amount do not match: %v. \n", *investmentRule.Sk)
 		return

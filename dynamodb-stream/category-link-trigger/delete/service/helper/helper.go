@@ -10,9 +10,10 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func RemoveCategoryLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.DynamoDB) {
+func RemoveCategoryLink(records *[]events.DynamoDBEventRecord, svc dynamodbiface.DynamoDBAPI) {
 
 	for _, record := range *records {
 		fmt.Printf("RemoveGoalLink:: Old Image is %v. \n", record)
@@ -30,7 +31,7 @@ func RemoveCategoryLink(records *[]events.DynamoDBEventRecord, svc *dynamodb.Dyn
 	}
 }
 
-func deleteCategoryRulesForWallet(svc *dynamodb.DynamoDB, wallet *models.Wallet, category *models.Category) {
+func deleteCategoryRulesForWallet(svc dynamodbiface.DynamoDBAPI, wallet *models.Wallet, category *models.Category) {
 	queryOutput, err := repository.QueryItems(svc, wallet.Sk, config.SkCategoryRulePrefix, config.ProjectionExpression)
 	if err != nil {
 		fmt.Printf("RemoveCategoryLink: Got error Category Rule GetCategoryRuleItem: %v. \n", err)

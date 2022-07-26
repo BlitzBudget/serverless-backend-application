@@ -7,9 +7,10 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func QueryItem(av *models.QueryParameter, svc *dynamodb.DynamoDB) (*dynamodb.QueryOutput, error) {
+func QueryItem(av *models.QueryParameter, svc dynamodbiface.DynamoDBAPI) (*dynamodb.QueryOutput, error) {
 	startsWithDate := config.SkPrefix + *av.StartsWithDate
 	endsWithDate := config.SkPrefix + *av.EndsWithDate
 	fmt.Printf("The starts With Date is %v and the Ends with Date is %v. \n", startsWithDate, endsWithDate)

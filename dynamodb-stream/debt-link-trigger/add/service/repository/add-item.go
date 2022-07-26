@@ -6,9 +6,10 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func CreateItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB) error {
+func CreateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.DynamoDBAPI) error {
 	input := &dynamodb.PutItemInput{
 		Item:      av,
 		TableName: aws.String(config.TableName),

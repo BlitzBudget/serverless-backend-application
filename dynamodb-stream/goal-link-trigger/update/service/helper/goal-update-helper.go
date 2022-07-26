@@ -8,6 +8,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 type GoalQueryParameter struct {
@@ -33,7 +34,7 @@ func GoalParseToQueryParameter(currentValue *float64, goalAchieved *bool) map[st
 }
 
 // Update Transaction Item with Goal ID
-func UpdateCurrentAmountForGoal(svc *dynamodb.DynamoDB, request *models.Goal) {
+func UpdateCurrentAmountForGoal(svc dynamodbiface.DynamoDBAPI, request *models.Goal) {
 	av := GoalParseToQueryParameter(request.CurrentAmount, request.GoalAchieved)
 	updateExpression := "set current_amount = :c, goal_achieved = :r, updated_date = :u"
 	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)

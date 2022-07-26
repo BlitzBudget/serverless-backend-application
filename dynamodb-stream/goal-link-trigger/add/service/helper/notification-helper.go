@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 const (
@@ -16,7 +16,7 @@ const (
 )
 
 // Add a repaid goal notification to the
-func AchievedGoalNotification(pk *string, goalName *string, svc *dynamodb.DynamoDB) {
+func AchievedGoalNotification(pk *string, goalName *string, svc dynamodbiface.DynamoDBAPI) {
 	message := i18n.Notification + *goalName
 	notification := models.Notificaion{
 		Pk:           pk,
