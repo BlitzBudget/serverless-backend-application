@@ -7,28 +7,28 @@ import (
 )
 
 func TestQueryParameter(t *testing.T) {
-	categoryId := "Category#2022-04-12T14:40:29.156Z"
-	pk := "Wallet#2022-05-12T14:40:29.156Z"
-	sk := "Transaction#2022-05-12T20:25:19Z"
-	creationDate := "2022-05-12T20:25:19Z"
+	amount := 20
+	description := "description"
+	categoryId := "Category#2022-05-12T20:25:19Z"
 	updatedDate := "2022-05-12T20:25:19Z"
-	planned := 20
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"category\":\"" + categoryId + "\",\"planned\":" + strconv.Itoa(planned) + ",\"updated_date\":\"" + updatedDate + "\"}"
+	tags := []string{"string", "string"}
+	tagsString, _ := json.Marshal(tags)
+	body := "{\":a\":" + strconv.Itoa(amount) + ",\":d\":\"" + description + "\",\":c\":\"" + categoryId + "\",\":u\":\"" + updatedDate + "\",\":t\":" + string(tagsString) + "}"
 	queryParameter := QueryParameter{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
-	if *queryParameter.Pk != pk {
-		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.Pk, pk)
+	if *queryParameter.Amount != float64(amount) {
+		t.Errorf("QueryParameter: Amount do not match, got = %v, want = %v", *queryParameter.Amount, amount)
 		return
 	}
 
-	if queryParameter.Sk != sk {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.Sk, sk)
+	if *queryParameter.Description != description {
+		t.Errorf("QueryParameter: Description do not match, got = %v, want = %v", queryParameter.Description, description)
 		return
 	}
 
-	if *queryParameter.CreationDate != creationDate {
-		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.CreationDate, creationDate)
+	if *queryParameter.CategoryId != categoryId {
+		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v", queryParameter.CategoryId, categoryId)
 		return
 	}
 
@@ -37,8 +37,8 @@ func TestQueryParameter(t *testing.T) {
 		return
 	}
 
-	if *queryParameter.Category != categoryId {
-		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v", *queryParameter.Category, categoryId)
+	if *queryParameter.Tags == nil {
+		t.Errorf("QueryParameter: Tags do not match, got = %v", *queryParameter.Tags)
 		return
 	}
 

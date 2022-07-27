@@ -7,38 +7,43 @@ import (
 )
 
 func TestQueryParameter(t *testing.T) {
-	categoryId := "Category#2022-04-12T14:40:29.156Z"
-	pk := "Wallet#2022-05-12T14:40:29.156Z"
-	sk := "Transaction#2022-05-12T20:25:19Z"
-	creationDate := "2022-05-12T20:25:19Z"
-	updatedDate := "2022-05-12T20:25:19Z"
-	planned := 20
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"category\":\"" + categoryId + "\",\"planned\":" + strconv.Itoa(planned) + ",\"updated_date\":\"" + updatedDate + "\"}"
+	currentAmount := 10
+	targetAmount := 12
+	goalAchieved := true
+	targetDate := "2022-10-10"
+	name := "name"
+	updatedDate := "2022-10-19"
+	body := "{\":c\":" + strconv.Itoa(currentAmount) + ",\":a\":" + strconv.Itoa(targetAmount) + ",\":g\":" + strconv.FormatBool(goalAchieved) + ",\":d\":\"" + targetDate + "\",\":n\":\"" + name + "\",\":u\":\"" + updatedDate + "\"}"
 	queryParameter := QueryParameter{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
-	if *queryParameter.Pk != pk {
-		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.Pk, pk)
+	if *queryParameter.CurrentAmount != float64(currentAmount) {
+		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.CurrentAmount, currentAmount)
 		return
 	}
 
-	if queryParameter.Sk != sk {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.Sk, sk)
+	if *queryParameter.TargetAmount != float64(targetAmount) {
+		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.TargetAmount, targetAmount)
 		return
 	}
 
-	if *queryParameter.CreationDate != creationDate {
-		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.CreationDate, creationDate)
+	if *queryParameter.GoalAchieved != goalAchieved {
+		t.Errorf("QueryParameter: Goal Achieved do not match, got = %v, want = %v", queryParameter.GoalAchieved, goalAchieved)
+		return
+	}
+
+	if *queryParameter.TargetDate != targetDate {
+		t.Errorf("QueryParameter: Target Date do not match, got = %v, want = %v", queryParameter.TargetDate, targetDate)
+		return
+	}
+
+	if *queryParameter.Name != name {
+		t.Errorf("QueryParameter: Name do not match, got = %v, want = %v", *queryParameter.Name, name)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedDate {
-		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v", queryParameter.UpdatedDate, updatedDate)
-		return
-	}
-
-	if *queryParameter.Category != categoryId {
-		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v", *queryParameter.Category, categoryId)
+		t.Errorf("QueryParameter: Update Date do not match, got = %v, want = %v", *queryParameter.UpdatedDate, updatedDate)
 		return
 	}
 
