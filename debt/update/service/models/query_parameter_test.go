@@ -7,28 +7,27 @@ import (
 )
 
 func TestQueryParameter(t *testing.T) {
-	categoryId := "Category#2022-04-12T14:40:29.156Z"
-	pk := "Wallet#2022-05-12T14:40:29.156Z"
-	sk := "Transaction#2022-05-12T20:25:19Z"
-	creationDate := "2022-05-12T20:25:19Z"
+	debtedAmount := 30
+	debtName := "debtName"
+	currentValue := 10
 	updatedDate := "2022-05-12T20:25:19Z"
-	planned := 20
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"category\":\"" + categoryId + "\",\"planned\":" + strconv.Itoa(planned) + ",\"updated_date\":\"" + updatedDate + "\"}"
+	debtRepaid := true
+	body := "{\":a\":" + strconv.Itoa(debtedAmount) + ",\":n\":\"" + debtName + "\",\":c\":" + strconv.Itoa(currentValue) + ",\":u\":\"" + updatedDate + "\",\":r\":" + strconv.FormatBool(debtRepaid) + "}"
 	queryParameter := QueryParameter{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
-	if *queryParameter.Pk != pk {
-		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.Pk, pk)
+	if *queryParameter.DebtedAmount != float64(debtedAmount) {
+		t.Errorf("QueryParameter: Debted Amount do not match, got = %v, want = %v", *queryParameter.DebtedAmount, debtedAmount)
 		return
 	}
 
-	if queryParameter.Sk != sk {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.Sk, sk)
+	if *queryParameter.DebtName != debtName {
+		t.Errorf("QueryParameter: DebtName do not match, got = %v, want = %v", queryParameter.DebtName, debtName)
 		return
 	}
 
-	if *queryParameter.CreationDate != creationDate {
-		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.CreationDate, creationDate)
+	if *queryParameter.CurrentValue != float64(currentValue) {
+		t.Errorf("QueryParameter: Current Value do not match, got = %v, want = %v", queryParameter.CurrentValue, currentValue)
 		return
 	}
 
@@ -37,8 +36,8 @@ func TestQueryParameter(t *testing.T) {
 		return
 	}
 
-	if *queryParameter.Category != categoryId {
-		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v", *queryParameter.Category, categoryId)
+	if *queryParameter.DebtRepaid != debtRepaid {
+		t.Errorf("QueryParameter: Debt Repaid do not match, got = %v, want = %v", *queryParameter.DebtRepaid, debtRepaid)
 		return
 	}
 

@@ -7,22 +7,20 @@ import (
 )
 
 func TestQueryParameter(t *testing.T) {
-	categoryId := "Category#2022-04-12T14:40:29.156Z"
-	pk := "Wallet#2022-05-12T14:40:29.156Z"
-	sk := "Transaction#2022-05-12T20:25:19Z"
-	creationDate := "2022-05-12T20:25:19Z"
+	investName := "investmentName"
+	investedAmount := 20
+	currentValue := 10
 	updatedDate := "2022-05-12T20:25:19Z"
-	planned := 20
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"category\":\"" + categoryId + "\",\"planned\":" + strconv.Itoa(planned) + ",\"updated_date\":\"" + updatedDate + "\"}"
+	body := "{\":n\":\"" + investName + "\",\":a\":" + strconv.Itoa(investedAmount) + ",\":c\":" + strconv.Itoa(currentValue) + ",\":u\":\"" + updatedDate + "\"}"
 	queryParameter := QueryParameter{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
-	if *queryParameter.Pk != pk {
-		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.Pk, pk)
+	if *queryParameter.InvestmentName != investName {
+		t.Errorf("QueryParameter: Investment Name do not match, got = %v, want = %v", *queryParameter.InvestmentName, investName)
 		return
 	}
 
-	if queryParameter.Sk != sk {
+	if queryParameter.InvestedAmount != sk {
 		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.Sk, sk)
 		return
 	}
