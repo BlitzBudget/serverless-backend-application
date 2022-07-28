@@ -20,23 +20,18 @@ func TestQueryParameter(t *testing.T) {
 		return
 	}
 
-	if queryParameter.InvestedAmount != sk {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.Sk, sk)
+	if *queryParameter.InvestedAmount != float64(investedAmount) {
+		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.InvestedAmount, investedAmount)
 		return
 	}
 
-	if *queryParameter.CreationDate != creationDate {
-		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.CreationDate, creationDate)
+	if *queryParameter.CurrentValue != float64(currentValue) {
+		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.CurrentValue, currentValue)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedDate {
 		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v", queryParameter.UpdatedDate, updatedDate)
-		return
-	}
-
-	if *queryParameter.Category != categoryId {
-		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v", *queryParameter.Category, categoryId)
 		return
 	}
 
