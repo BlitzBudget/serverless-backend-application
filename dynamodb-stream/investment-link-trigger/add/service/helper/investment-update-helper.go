@@ -13,12 +13,12 @@ import (
 
 type InvestmentQueryParameter struct {
 	CurrentValue     *float64 `validate:"required" json:":c"`
-	InvestmentAmount *bool    `validate:"required" json:":r"`
+	InvestmentAmount *float64 `validate:"required" json:":r"`
 	UpdatedDate      *string  `validate:"required" json:":u"`
 }
 
 // convert item to dynamodb attribute
-func InvestmentParseToQueryParameter(currentValue *float64, investmentAmount *bool) map[string]*dynamodb.AttributeValue {
+func InvestmentParseToQueryParameter(currentValue *float64, investmentAmount *float64) map[string]*dynamodb.AttributeValue {
 	date := time.Now().Format(time.RFC3339Nano)
 	av, err := dynamodbattribute.MarshalMap(InvestmentQueryParameter{
 		CurrentValue:     currentValue,
@@ -35,7 +35,7 @@ func InvestmentParseToQueryParameter(currentValue *float64, investmentAmount *bo
 
 // Update Transaction Item with Investment ID
 func UpdateCurrentValueForInvestment(svc dynamodbiface.DynamoDBAPI, request *models.Investment) {
-	av := InvestmentParseToQueryParameter(request.CurrentValue, request.InvestmentAmount)
-	updateExpression := "set current_value = :c, investment_amount = :r, updated_date = :u"
+	av := InvestmentParseToQueryParameter(request.CurrentValue, request.InvestedAmount)
+	updateExpression := "set current_value = :c, invested_amount = :r, updated_date = :u"
 	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)
 }

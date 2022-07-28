@@ -7,6 +7,5 @@ type Investment struct {
 	CreationDate     *string  `json:"creation_date"`
 	InvestedAmount   *float64 `json:"invested_amount"`
 	CurrentValue     *float64 `json:"current_value"`
-	InvestmentName   *string  `json:"investment_name"`
-	InvestmentAmount *bool    `json:"investment_amount"`
+	InvestmentName   *string  `json:"investment_name"`	
 }
