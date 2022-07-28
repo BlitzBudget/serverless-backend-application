@@ -13,7 +13,7 @@ func TestInvestment(t *testing.T) {
 	investedAmount := 20
 	currentValue := 10
 	investmentName := "investmentName"
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"invested_amount\":\"" + strconv.Itoa(investedAmount) + "\",\"current_value\":\"" + strconv.Itoa(currentValue) + "\",\"investment_name\": " + investmentName + "}"
+	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"invested_amount\":" + strconv.Itoa(investedAmount) + ",\"current_value\":" + strconv.Itoa(currentValue) + ",\"investment_name\":\"" + investmentName + "\"}"
 	queryParameter := Investment{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 

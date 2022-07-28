@@ -13,7 +13,7 @@ func TestInvestment(t *testing.T) {
 	investedAmount := 20
 	currentValue := 10
 	investmentName := "investmentName"
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"invested_amount\":\"" + strconv.Itoa(investedAmount) + "\",\"current_value\":\"" + strconv.Itoa(currentValue) + "\",\"investment_name\": " + investmentName + "}"
+	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"invested_amount\":" + strconv.Itoa(investedAmount) + ",\"current_value\":" + strconv.Itoa(currentValue) + ",\"investment_name\":\"" + investmentName + "\"}"
 	queryParameter := Investment{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
@@ -37,7 +37,6 @@ func TestInvestment(t *testing.T) {
 		return
 	}
 
-	
 	if *queryParameter.CurrentValue != float64(currentValue) {
 		t.Errorf("QueryParameter: Current Value do not match, got = %v, want = %v", queryParameter.CurrentValue, currentValue)
 		return
