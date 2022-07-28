@@ -1,9 +1,9 @@
 package repository
 
 import (
+	"add-debt-link/service/config"
+	"add-debt-link/service/models"
 	"errors"
-	"patch-budget/service/config"
-	"patch-budget/service/models"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -27,13 +27,13 @@ func (m *mockDynamodbClient) UpdateItem(input *dynamodb.UpdateItemInput) (*dynam
 }
 
 func TestUpdateItem(t *testing.T) {
-	planned := float64(20)
+	amount := float64(20)
 	category := "category"
-	updateDate := "2022-10-09"
-	av, err := dynamodbattribute.MarshalMap(models.QueryParameter{
-		Planned:     &planned,
-		Category:    &category,
-		UpdatedDate: &updateDate,
+	creationDate := "2022-10-09"
+	av, err := dynamodbattribute.MarshalMap(models.Transaction{
+		Amount:       &amount,
+		Category:     &category,
+		CreationDate: &creationDate,
 	})
 	if err != nil {
 		t.Errorf("UpdateItem() error = %v", err)
@@ -41,14 +41,11 @@ func TestUpdateItem(t *testing.T) {
 
 	pk := "pk"
 	sk := "sk"
-	requestModel := models.RequestModel{
-		Pk: &pk,
-		Sk: &sk,
-	}
+	updateExpression := "updateExpression"
 
 	mockSvc := &mockDynamodbClient{}
 
 	config.TableName = "tablename"
 
-	UpdateItem(av, mockSvc, &requestModel)
+	UpdateItem(av, mockSvc, &pk, &sk, updateExpression)
 }
