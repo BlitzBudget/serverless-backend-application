@@ -16,7 +16,6 @@ type Transaction struct {
 	Description          *string   `json:"description"`
 	Amount               *float64  `json:"amount"`
 	Tags                 *[]string `json:"tags"`
-	ScheduledTransaction *bool     `json:"scheduled_transaction"`
 }
 
 func ConvertDynamoDBToModel(dbAttrMap map[string]*dynamodb.AttributeValue) Transaction {
