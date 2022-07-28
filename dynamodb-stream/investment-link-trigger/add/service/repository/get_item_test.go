@@ -23,12 +23,14 @@ func (m *mockDynamodbClient) GetItem(input *dynamodb.GetItemInput) (*dynamodb.Ge
 	creationDate := "creationDate"
 	investAmount := float64(20)
 	currentValue := float64(30)
+	investmentName := "investmentName"
 	item := models.Investment{
-		Pk: &pk,
-		Sk: &sk,
-		CreationDate: &creationDate,
+		Pk:             &pk,
+		Sk:             &sk,
+		CreationDate:   &creationDate,
 		InvestedAmount: &investAmount,
-		CurrentValue: &currentValue,
+		InvestmentName: &investmentName,
+		CurrentValue:   &currentValue,
 	}
 
 	av, err := dynamodbattribute.MarshalMap(item)
@@ -54,6 +56,24 @@ func TestGetItem(t *testing.T) {
 	mockSvc := &mockDynamodbClient{}
 
 	item, err := GetInvestmentItem(mockSvc, &pk, &sk)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	t.Log("Retrieved movie '" + *item.Pk + "' from table ")
+}
+
+func TestGetRuleItem(t *testing.T) {
+	thisTime := time.Now()
+	nowString := thisTime.Format("2006-01-02 15:04:05 Monday")
+	t.Log("Starting unit test at " + nowString)
+
+	config.TableName = "tablename"
+	pk := "pk"
+	sk := "sk"
+	mockSvc := &mockDynamodbClient{}
+
+	item, err := GetInvestmentRuleItem(mockSvc, &pk, &sk)
 	if err != nil {
 		t.Fatal(err)
 	}
