@@ -22,11 +22,8 @@ func QueryItem(av *models.QueryParameter, svc dynamodbiface.DynamoDBAPI) (*dynam
 				},
 			},
 			"sk": {
-				ComparisonOperator: aws.String("BETWEEN"),
+				ComparisonOperator: aws.String(dynamodb.ComparisonOperatorBeginsWith),
 				AttributeValueList: []*dynamodb.AttributeValue{
-					{
-						S: aws.String(config.SkPrefix),
-					},
 					{
 						S: aws.String(config.SkPrefix),
 					},
