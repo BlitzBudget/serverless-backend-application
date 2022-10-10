@@ -7,24 +7,12 @@ import (
 
 func TestQueryParameter(t *testing.T) {
 	wallet := "Wallet#2022-05-12T14:40:29.156Z"
-	startsWithDate := "2022-05-12T20:25:19Z"
-	endsWithDate := "2022-05-12T20:25:19Z"
-	body := "{\"wallet_id\":\"" + wallet + "\",\"starts_with_date\":\"" + startsWithDate + "\",\"ends_with_date\":\"" + endsWithDate + "\"}"
+	body := "{\"wallet_id\":\"" + wallet + "\"}"
 	queryParameter := QueryParameter{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.WalletId != wallet {
 		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.WalletId, wallet)
-		return
-	}
-
-	if *queryParameter.EndsWithDate != endsWithDate {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.EndsWithDate, endsWithDate)
-		return
-	}
-
-	if *queryParameter.StartsWithDate != startsWithDate {
-		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.StartsWithDate, startsWithDate)
 		return
 	}
 

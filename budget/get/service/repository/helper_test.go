@@ -5,10 +5,8 @@ import (
 )
 
 func TestAttributeBuilder(t *testing.T) {
-	endsWithDate := "2022-05-12T20:25:19Z"
-	startsWithDate := "2022-05-12T20:25:19Z"
 	walletId := "walletId"
-	body := "{\"wallet_id\":\"" + walletId + "\",\"starts_with_date\":\"" + startsWithDate + "\",\"ends_with_date\":\"" + endsWithDate + "\"}"
+	body := "{\"wallet_id\":\"" + walletId + "\"}"
 
 	requestModel, err := AttributeBuilder(&body)
 
@@ -19,16 +17,6 @@ func TestAttributeBuilder(t *testing.T) {
 
 	if requestModel == nil {
 		t.Errorf("AttributeBuilder() is null")
-		return
-	}
-
-	if *requestModel.EndsWithDate != endsWithDate {
-		t.Errorf("EndsWithDate convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.EndsWithDate, endsWithDate)
-		return
-	}
-
-	if *requestModel.StartsWithDate != startsWithDate {
-		t.Errorf("StartsWithDate convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.StartsWithDate, startsWithDate)
 		return
 	}
 
