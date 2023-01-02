@@ -1,0 +1,2818 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "[Production] DynamoDB Stream Stack",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "0b954295-1636-43a1-a99b-752c9ebaab88": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "0bff8fec-dbd9-4807-bbd4-f35119e28292": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "498e7509-fe86-41e9-8c64-14dfdf3151ec": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "01937ed4-ad70-486a-a1ae-a5d81920d533": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 970,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "6aa14418-8079-4840-8a8c-5418a83a6532": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1130,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "a37e2b76-e8a4-44d8-a61d-6761fe508e78": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1310,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "d006a016-cdef-48d2-b8f4-ffa364f6cce3": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 270
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "14cc56df-1b26-40fe-8b99-aae67286402f": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1480,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "7ce78415-0eac-42d7-b4d6-af28fe85f36f": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1650,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "b66c7592-c927-480c-a54a-16174251baed": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": -30,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "72e45655-39e8-47b2-acdf-02b35a21ed5a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 190,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "7c10ce3d-5612-4c21-b5e7-2aabda03e90a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 260
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "a536a844-ffae-4c2e-aa71-a182262959a5": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1130,
+                    "y": 270
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "7d36e5f8-8d56-4a3d-a591-3a39bdbd1565": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 380
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "0fb42a29-0e83-4bac-8611-f9e1c81d302e": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 360
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "745349be-0a08-4cf1-842b-492ee3c49c5a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 480
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "7614d78b-d428-4789-be26-63b21cd5a83a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 470
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "543381d1-5f83-449b-a7b3-690ac3d396f4": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1130,
+                    "y": 370
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "d3b35613-7693-49ea-8190-94cd5cf79567": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 590
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "4671c7a9-50e0-4460-ab01-0d33d1833a45": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 570
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "45d4708d-c1f3-4604-8bf3-d46915988ae4": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 700
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "e7db12fc-ca36-4969-9a97-76d3b51bef65": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 680
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "a42152b7-7260-44c4-a050-e1bb7e41da74": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 810
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "08607d4b-b69c-4dad-9f54-cbf8cf0d2a0d": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1770,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "c847f340-d912-4cbe-84c0-dc9fa95e302c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1130,
+                    "y": 460
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "d1fea7af-fdf7-47ec-94ab-98edc3c1836c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1960,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "17ca7351-6a4d-4773-8b00-0f7d56930bc8": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 920
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "5e393668-b6ef-4f52-bb28-2228375da5ca": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 790
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "5a4818ba-86ef-440d-95d9-f3469984c2ef": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1130,
+                    "y": 550
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "e0e0c922-cea6-4498-9a11-d9c8d10d19a7": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1020
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "1873e1b7-1b8f-41e4-8e49-cf7ae13275b4": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 890
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "bacacd5e-d6d2-4e1a-ad14-629318f81bf3": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1120
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "d7d4afc3-e662-40fd-bbc5-002e1fb1282d": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 1000
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "cb71e37b-8ab5-4d34-ae05-7f9cf18f5671": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1770,
+                    "y": 250
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "f8fd6957-a4fc-450e-95f2-de2cb407fec6": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1210
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "5dfdb09b-278d-4b89-a759-47eae7525bf8": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 1120
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "8ba04719-f01f-4562-8990-9fbfcd4128ca": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1130,
+                    "y": 650
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "29228c38-2b23-4b7c-b70f-333ff8fa8395": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1320
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "e66a0ce6-47e2-4d6e-b20d-bb67bdbb1bec": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 780,
+                    "y": 1220
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "b8e7a925-592d-460b-aebf-0e6473211841": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1130,
+                    "y": 760
+                },
+                "z": 0,
+                "embeds": []
+            }
+        }
+    },
+    "Resources": {
+        "addToBlitzBudgetTableRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "RoleName": "addToBlitzBudgetTable",
+                "Description": "[Production] Add to BlitzBudget Table Role",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:PutItem"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_put_blitzbudget"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:UpdateItem"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_update_blitzbudget"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_query_blitzbudget"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0bff8fec-dbd9-4807-bbd4-f35119e28292"
+                }
+            }
+        },
+        "addBudget": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Budget To DynamoDB Database",
+                "FunctionName": "addBudget",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0b954295-1636-43a1-a99b-752c9ebaab88"
+                }
+            }
+        },
+        "getBudget": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] get Budget To DynamoDB Database",
+                "FunctionName": "getBudget",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "498e7509-fe86-41e9-8c64-14dfdf3151ec"
+                }
+            }
+        },
+        "queryItemFromBlitzbudgetRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "RoleName": "queryItemFromBlitzbudget",
+                "Description": "[Production] Query Item from Blitzbudget table hosted from dynamodb",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_query_blitzbudget"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_query_blitzbudget"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "01937ed4-ad70-486a-a1ae-a5d81920d533"
+                }
+            }
+        },
+        "patchBudget": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Patch Budget To DynamoDB Database",
+                "FunctionName": "patchBudget",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "patchItemFromBlitzBudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6aa14418-8079-4840-8a8c-5418a83a6532"
+                }
+            }
+        },
+        "patchItemFromBlitzBudgetRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "RoleName": "patchItemFromBlitzBudget",
+                "Description": "[Production] Patch Item from Blitzbudget table hosted from dynamodb",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_query_blitzbudget"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_query_blitzbudget"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a37e2b76-e8a4-44d8-a61d-6761fe508e78"
+                }
+            }
+        },
+        "addCategory": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Category To DynamoDB Database",
+                "FunctionName": "addCategory",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d006a016-cdef-48d2-b8f4-ffa364f6cce3"
+                }
+            }
+        },
+        "batchGetCategoryItems": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Batch Get Category Items To DynamoDB Database",
+                "FunctionName": "batchGetCategoryItems",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "batchGetCategoryItemsRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "14cc56df-1b26-40fe-8b99-aae67286402f"
+                }
+            }
+        },
+        "batchGetCategoryItemsRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "RoleName": "batchGetCategoryItems-role-4c1uue0m",
+                "Description": "[Production] Batch Category Get Items Role For DynamoDB Role",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/batchGetCategoryItems:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:BatchGetItem",
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "BatchGetItems"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "7ce78415-0eac-42d7-b4d6-af28fe85f36f"
+                }
+            }
+        },
+        "deleteCategory": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Delete Category To DynamoDB Database",
+                "FunctionName": "deleteCategory",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "deleteFromBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "b66c7592-c927-480c-a54a-16174251baed"
+                }
+            }
+        },
+        "deleteFromBlitzBudgetTableRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "RoleName": "deleteFromBlitzBudgetTable",
+                "Description": "[Production] Delete the BlitzBudget Table Entity Role",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:batchWriteItem"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_batchwrite_blitzbudget"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_query_blitzbudget"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "72e45655-39e8-47b2-acdf-02b35a21ed5a"
+                }
+            }
+        },
+        "getCategory": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Category To DynamoDB Database",
+                "FunctionName": "getCategory",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "7c10ce3d-5612-4c21-b5e7-2aabda03e90a"
+                }
+            }
+        },
+        "patchCategory": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Patch Category To DynamoDB Database",
+                "FunctionName": "patchCategory",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "patchItemFromBlitzBudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a536a844-ffae-4c2e-aa71-a182262959a5"
+                }
+            }
+        },
+        "addCategoryRules": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Category Rules To DynamoDB Database",
+                "FunctionName": "addCategoryRules",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "7d36e5f8-8d56-4a3d-a591-3a39bdbd1565"
+                }
+            }
+        },
+        "getCategoryRules": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Category Rules To DynamoDB Database",
+                "FunctionName": "getCategoryRules",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0fb42a29-0e83-4bac-8611-f9e1c81d302e"
+                }
+            }
+        },
+        "addDebt": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Debt To DynamoDB Database",
+                "FunctionName": "addDebt",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "745349be-0a08-4cf1-842b-492ee3c49c5a"
+                }
+            }
+        },
+        "getDebt": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Debt To DynamoDB Database",
+                "FunctionName": "getDebt",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "7614d78b-d428-4789-be26-63b21cd5a83a"
+                }
+            }
+        },
+        "patchDebt": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Patch Debt To DynamoDB Database",
+                "FunctionName": "patchDebt",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "patchItemFromBlitzBudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "543381d1-5f83-449b-a7b3-690ac3d396f4"
+                }
+            }
+        },
+        "addDebtRules": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Debt Rules To DynamoDB Database",
+                "FunctionName": "addDebtRules",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d3b35613-7693-49ea-8190-94cd5cf79567"
+                }
+            }
+        },
+        "getDebtRules": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Debt Rules To DynamoDB Database",
+                "FunctionName": "getDebtRules",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "4671c7a9-50e0-4460-ab01-0d33d1833a45"
+                }
+            }
+        },
+        "addGoalRules": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Goal Rules To DynamoDB Database",
+                "FunctionName": "addGoalRules",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "45d4708d-c1f3-4604-8bf3-d46915988ae4"
+                }
+            }
+        },
+        "getGoalRules": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Goal Rules To DynamoDB Database",
+                "FunctionName": "getGoalRules",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e7db12fc-ca36-4969-9a97-76d3b51bef65"
+                }
+            }
+        },
+        "addGoals": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Goals To DynamoDB Database",
+                "FunctionName": "addGoals",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a42152b7-7260-44c4-a050-e1bb7e41da74"
+                }
+            }
+        },
+        "getGoals": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Goals To DynamoDB Database",
+                "FunctionName": "getGoals",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "getOverviewRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "08607d4b-b69c-4dad-9f54-cbf8cf0d2a0d"
+                }
+            }
+        },
+        "patchGoal": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Patch Goal To DynamoDB Database",
+                "FunctionName": "patchGoal",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "patchItemFromBlitzBudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "c847f340-d912-4cbe-84c0-dc9fa95e302c"
+                }
+            }
+        },
+        "getOverviewRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "RoleName": "getOverview",
+                "Description": "[Production] Get Overview Role For DynamoDB Role",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_query_blitzbudget"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:UpdateItem"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_update_blitzbudget"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:GetItem"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "dynamodb_get_blitzbudget"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d1fea7af-fdf7-47ec-94ab-98edc3c1836c"
+                }
+            }
+        },
+        "addInvestment": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Investment To DynamoDB Database",
+                "FunctionName": "addInvestment",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "17ca7351-6a4d-4773-8b00-0f7d56930bc8"
+                }
+            }
+        },
+        "getInvestment": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Investment To DynamoDB Database",
+                "FunctionName": "getInvestment",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "5e393668-b6ef-4f52-bb28-2228375da5ca"
+                }
+            }
+        },
+        "patchInvestment": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Patch Investment To DynamoDB Database",
+                "FunctionName": "patchInvestment",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "patchItemFromBlitzBudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "5a4818ba-86ef-440d-95d9-f3469984c2ef"
+                }
+            }
+        },
+        "addInvestmentRules": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Investment Rules To DynamoDB Database",
+                "FunctionName": "addInvestmentRules",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e0e0c922-cea6-4498-9a11-d9c8d10d19a7"
+                }
+            }
+        },
+        "getInvestmentRules": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Investment Rules To DynamoDB Database",
+                "FunctionName": "getInvestmentRules",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "1873e1b7-1b8f-41e4-8e49-cf7ae13275b4"
+                }
+            }
+        },
+        "addNotification": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Notification To DynamoDB Database",
+                "FunctionName": "addNotification",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "bacacd5e-d6d2-4e1a-ad14-629318f81bf3"
+                }
+            }
+        },
+        "getNotification": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Notification To DynamoDB Database",
+                "FunctionName": "getNotification",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d7d4afc3-e662-40fd-bbc5-002e1fb1282d"
+                }
+            }
+        },
+        "getOverview": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Overview To DynamoDB Database",
+                "FunctionName": "getOverview",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "getOverviewRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "cb71e37b-8ab5-4d34-ae05-7f9cf18f5671"
+                }
+            }
+        },
+        "addTransactions": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Transaction To DynamoDB Database",
+                "FunctionName": "addTransactions",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "f8fd6957-a4fc-450e-95f2-de2cb407fec6"
+                }
+            }
+        },
+        "getTransactions": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Transactions To DynamoDB Database",
+                "FunctionName": "getTransactions",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "5dfdb09b-278d-4b89-a759-47eae7525bf8"
+                }
+            }
+        },
+        "patchTransactions": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Patch Transactions To DynamoDB Database",
+                "FunctionName": "patchTransactions",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "patchItemFromBlitzBudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "8ba04719-f01f-4562-8990-9fbfcd4128ca"
+                }
+            }
+        },
+        "addWallet": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Wallet To DynamoDB Database",
+                "FunctionName": "addWallet",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "29228c38-2b23-4b7c-b70f-333ff8fa8395"
+                }
+            }
+        },
+        "getWallet": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Wallet To DynamoDB Database",
+                "FunctionName": "getWallet",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e66a0ce6-47e2-4d6e-b20d-bb67bdbb1bec"
+                }
+            }
+        },
+        "patchWallet": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Patch Wallet To DynamoDB Database",
+                "FunctionName": "patchWallet",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "patchItemFromBlitzBudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "b8e7a925-592d-460b-aebf-0e6473211841"
+                }
+            }
+        }
+    }
+}
