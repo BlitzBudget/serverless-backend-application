@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "[Production] DynamoDB Stream Stack",
+    "Description": "[Production] Serverless API Backend Stack",
     "Metadata": {
         "AWS::CloudFormation::Designer": {
             "0b954295-1636-43a1-a99b-752c9ebaab88": {
@@ -1160,57 +1160,6 @@
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "7ce78415-0eac-42d7-b4d6-af28fe85f36f"
-                }
-            }
-        },
-        "deleteCategory": {
-            "Type": "AWS::Lambda::Function",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-                "Description": "[Production] Delete Category To DynamoDB Database",
-                "FunctionName": "deleteCategory",
-                "MemorySize": 512,
-                "Handler": "main",
-                "Runtime": "go1.x",
-                "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
-                },
-                "Environment": {
-                    "Variables": {
-                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
-                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "eu-west-1",
-                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
-                    }
-                },
-                "Code": {
-                    "S3Bucket": "sample-project-for-cf",
-                    "S3Key": "golang-sample.zip"
-                },
-                "Tags": [
-                    {
-                        "Key": "author",
-                        "Value": "Nagarjun"
-                    },
-                    {
-                        "Key": "stage",
-                        "Value": "Production"
-                    },
-                    {
-                        "Key": "site",
-                        "Value": "BlitzBudget"
-                    }
-                ],
-                "Role": {
-                    "Fn::GetAtt": [
-                        "deleteFromBlitzBudgetTableRole",
-                        "Arn"
-                    ]
-                }
-            },
-            "Metadata": {
-                "AWS::CloudFormation::Designer": {
-                    "id": "b66c7592-c927-480c-a54a-16174251baed"
                 }
             }
         },
