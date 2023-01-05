@@ -3,18 +3,15 @@ package handler
 import (
 	"add-investment/service"
 	"context"
+	"encoding/json"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
 )
 
 func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	fmt.Printf("Processing request data for request %v.\n", request.RequestContext.RequestID)
-	fmt.Printf("Body size = %v.\n", request.Body)
-	fmt.Println("Headers:")
-	for key, value := range request.Headers {
-		fmt.Printf("    %v: %v\n", key, value)
-	}
+	jsonReq, _ := json.Marshal(request)
+	fmt.Printf("Processing request data for request %v.\n", string(jsonReq))
 
 	service.SaveRequest(&request.Body)
 	header := map[string]string{

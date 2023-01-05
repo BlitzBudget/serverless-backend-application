@@ -20,7 +20,6 @@ func SaveRequest(body *string) error {
 
 	// Create DynamoDB client
 	svc := dynamodb.New(sess)
-	// snippet-end:[dynamodb.go.create_item.session]
 
 	queryParameter, err := repository.TransformToQueryParamter(body)
 	if err != nil {
@@ -32,6 +31,7 @@ func SaveRequest(body *string) error {
 	for _, item := range responseItems {
 		if item.TagName == queryParameter.TagName {
 			err = fmt.Errorf("SaveRequest: TagName already exists")
+			fmt.Printf("SaveRequest: TagName already exists: %v \n", err)
 			return err
 		}
 	}
