@@ -628,7 +628,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -679,7 +679,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -836,7 +836,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -990,7 +990,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1038,7 +1038,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1290,7 +1290,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1338,7 +1338,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1386,7 +1386,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1434,7 +1434,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1482,7 +1482,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1530,7 +1530,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1578,7 +1578,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1626,7 +1626,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1674,7 +1674,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1722,7 +1722,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1773,7 +1773,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1824,7 +1824,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1875,7 +1875,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1923,7 +1923,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2092,7 +2092,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2140,7 +2140,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2188,7 +2188,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2236,7 +2236,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2284,7 +2284,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2332,7 +2332,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2380,7 +2380,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2431,7 +2431,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2482,7 +2482,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2531,7 +2531,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2582,7 +2582,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2633,7 +2633,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2682,7 +2682,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -2733,7 +2733,151 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "patchItemFromBlitzBudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "b8e7a925-592d-460b-aebf-0e6473211841"
+                }
+            }
+        },
+        "addTag": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Add Tags To DynamoDB Database",
+                "FunctionName": "addTag",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cloudformation",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "addToBlitzBudgetTableRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "29228c38-2b23-4b7c-b70f-333ff8fa8395"
+                }
+            }
+        },
+        "getTag": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Get Tag To DynamoDB Database",
+                "FunctionName": "getTag",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cloudformation",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "queryItemFromBlitzbudgetRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e66a0ce6-47e2-4d6e-b20d-bb67bdbb1bec"
+                }
+            }
+        },
+        "patchTag": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "Description": "[Production] Patch Tag To DynamoDB Database",
+                "FunctionName": "patchTag",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
