@@ -11,11 +11,27 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 )
 
-func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error) {
+func AttributeBuilder(queryParameter *models.QueryParameter) (map[string]*dynamodb.AttributeValue, error) {
+
+	av, err := dynamodbattribute.MarshalMap(queryParameter)
+	fmt.Printf("AttributeBuilder:: marshalled struct: %+v \n", av)
+	return av, err
+}
+
+func MandatoryFieldsCheck(queryParameter *models.QueryParameter) error {
+	if queryParameter.TagName == nil {
+		err := fmt.Errorf("AttributeBuilder:: TagName is empty")
+		return err
+	}
+
+	return nil
+}
+
+func TransformToQueryParamter(body *string) (*models.QueryParameter, error) {
 	queryParameter := models.QueryParameter{}
 	err := json.Unmarshal([]byte(*body), &queryParameter)
 	if err != nil {
-		fmt.Printf("There was an error marshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("There was an error marshalling the bytes to struct: %v \n", err.Error())
 		return nil, err
 	}
 
@@ -25,16 +41,5 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + date
-
-	mandatoryFieldsCheck(queryParameter)
-
-	av, err := dynamodbattribute.MarshalMap(queryParameter)
-	fmt.Printf("marshalled struct: %+v", av)
-	return av, err
-}
-
-func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
-	if queryParameter.TagName == nil {
-		panic(fmt.Sprintln("AttributeBuilder:: TagName is empty."))
-	}
+	return &queryParameter, nil
 }
