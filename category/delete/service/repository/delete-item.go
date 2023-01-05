@@ -17,7 +17,7 @@ func DeleteItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB, 
 
 	_, err := svc.DeleteItem(input)
 	if err != nil {
-		fmt.Printf("DeleteItem: Failed to update the item %v", err)
+		fmt.Printf("DeleteItem: Failed to update the item %v \n", err)
 		return err
 	}
 

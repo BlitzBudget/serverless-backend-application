@@ -23,19 +23,19 @@ func SaveRequest(body *string) error {
 
 	request, err := repository.AttributeBuilder(body)
 	if err != nil {
-		fmt.Printf("Got error calling PutItem: %v", err)
+		fmt.Printf("Got error calling PutItem: %v \n", err)
 		return nil
 	}
 
 	av, err := repository.ParseToQueryParameter(request)
 	if err != nil {
-		fmt.Printf("Got error calling PutItem: %v", err)
+		fmt.Printf("Got error calling PutItem: %v \n", err)
 		return nil
 	}
 
 	err = repository.UpdateItem(av, svc, request)
 	if err != nil {
-		fmt.Printf("Got error calling PutItem: %v", err)
+		fmt.Printf("Got error calling PutItem: %v \n", err)
 		return nil
 	}
 

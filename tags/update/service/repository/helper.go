@@ -14,7 +14,7 @@ func AttributeBuilder(body *string) (*models.RequestModel, error) {
 	requestModel := models.RequestModel{}
 	err := json.Unmarshal([]byte(*body), &requestModel)
 	if err != nil {
-		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v \n", err.Error())
 		return nil, err
 	}
 
@@ -25,12 +25,12 @@ func AttributeBuilder(body *string) (*models.RequestModel, error) {
 func ParseToQueryParameter(request *models.RequestModel) (map[string]*dynamodb.AttributeValue, error) {
 	date := time.Now().Format(time.RFC3339Nano)
 	av, err := dynamodbattribute.MarshalMap(models.QueryParameter{
-		TagName:        request.TagName,
-		UpdatedDate:    &date,
+		TagName:     request.TagName,
+		UpdatedDate: &date,
 	})
 
 	if err != nil {
-		fmt.Printf("ParseToQueryParameter: Failed to marshal request to query parameter data %v", err)
+		fmt.Printf("ParseToQueryParameter: Failed to marshal request to query parameter data %v \n", err)
 		return nil, err
 	}
 

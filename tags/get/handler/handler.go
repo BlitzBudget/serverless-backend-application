@@ -29,7 +29,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 
 	body, errParsing := json.Marshal(data)
 	if errParsing != nil {
-		fmt.Printf("HandleRequest:: Failed to unmarshal Response data %v", errParsing)
+		fmt.Printf("HandleRequest:: Failed to unmarshal Response data %v \n", errParsing)
 		errorMessage = errParsing.Error()
 	}
 

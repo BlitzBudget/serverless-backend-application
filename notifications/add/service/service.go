@@ -23,13 +23,13 @@ func SaveRequest(body *string) error {
 
 	av, err := repository.AttributeBuilder(body)
 	if err != nil {
-		fmt.Printf("SaveRequest: Got error marshalling new item: %v", err)
+		fmt.Printf("SaveRequest: Got error marshalling new item: %v \n", err)
 		return err
 	}
 
 	err = repository.CreateItem(av, svc)
 	if err != nil {
-		fmt.Printf("SaveRequest: Got error calling PutItem: %v", err)
+		fmt.Printf("SaveRequest: Got error calling PutItem: %v \n", err)
 		return err
 	}
 

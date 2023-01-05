@@ -59,7 +59,7 @@ func ParseResponse(result *dynamodb.QueryOutput) ([]*models.DebtRule, error) {
 
 		err = dynamodbattribute.UnmarshalMap(v, &debtRule)
 		if err != nil {
-			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v", k, err))
+			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v \n", k, err))
 		}
 		debtRules = append(debtRules, &debtRule)
 	}

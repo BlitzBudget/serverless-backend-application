@@ -13,11 +13,12 @@ func AttributeBuilder(body *string) (*models.QueryParameter, error) {
 	queryParameter := models.QueryParameter{}
 	err := json.Unmarshal([]byte(*body), &queryParameter)
 	if err != nil {
-		fmt.Printf("There was an error marshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("There was an error marshalling the bytes to struct: %v \n", err.Error())
 		return nil, err
 	}
 
-	fmt.Printf("marshalled bytes to struct: %+v. \n", queryParameter)
+	respJSON, _ := json.Marshal(queryParameter)
+	fmt.Printf("marshalled bytes to struct: %+v. \n", respJSON)
 
 	return &queryParameter, err
 }
