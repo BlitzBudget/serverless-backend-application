@@ -2,7 +2,6 @@ package repository
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"get-investment-rule/service/models"
 
@@ -26,8 +25,9 @@ func AttributeBuilder(body *string) (*models.QueryParameter, error) {
 func ParseResponse(result *dynamodb.QueryOutput) (models.ResponseItems, error) {
 
 	if result.Items == nil {
-		msg := "no Items found"
-		return nil, errors.New(msg)
+		fmt.Println("ParseResponse:: No Items Found")
+		err := fmt.Errorf("ParseResponse:: No Items Found")
+		return nil, err
 	}
 
 	responseItems := models.ResponseItems{}

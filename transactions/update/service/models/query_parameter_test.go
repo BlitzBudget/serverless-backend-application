@@ -18,32 +18,32 @@ func TestQueryParameter(t *testing.T) {
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.Amount != float64(amount) {
-		t.Errorf("QueryParameter: Amount do not match, got = %v, want = %v", *queryParameter.Amount, amount)
+		t.Errorf("QueryParameter: Amount do not match, got = %v, want = %v \n", *queryParameter.Amount, amount)
 		return
 	}
 
 	if *queryParameter.Description != description {
-		t.Errorf("QueryParameter: Description do not match, got = %v, want = %v", queryParameter.Description, description)
+		t.Errorf("QueryParameter: Description do not match, got = %v, want = %v \n", queryParameter.Description, description)
 		return
 	}
 
 	if *queryParameter.CategoryId != categoryId {
-		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v", queryParameter.CategoryId, categoryId)
+		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v \n", queryParameter.CategoryId, categoryId)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedDate {
-		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v", queryParameter.UpdatedDate, updatedDate)
+		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v \n", queryParameter.UpdatedDate, updatedDate)
 		return
 	}
 
 	if *queryParameter.Tags == nil {
-		t.Errorf("QueryParameter: Tags do not match, got = %v", *queryParameter.Tags)
+		t.Errorf("QueryParameter: Tags do not match, got = %v \n", *queryParameter.Tags)
 		return
 	}
 
 	if err != nil {
-		t.Errorf("QueryParameter Struct has an error = %v", err)
+		t.Errorf("QueryParameter Struct has an error = %v \n", err)
 		return
 	}
 }

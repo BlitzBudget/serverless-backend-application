@@ -19,7 +19,6 @@ func SaveRequest(body *string) error {
 
 	// Create DynamoDB client
 	svc := dynamodb.New(sess)
-	// snippet-end:[dynamodb.go.create_item.session]
 
 	request, err := repository.AttributeBuilder(body)
 	if err != nil {
@@ -39,6 +38,6 @@ func SaveRequest(body *string) error {
 		return err
 	}
 
-	fmt.Printf("Successfully updated the item'")
+	fmt.Println("SaveRequest:: Successfully updated the item'")
 	return nil
 }

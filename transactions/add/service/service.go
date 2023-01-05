@@ -4,13 +4,12 @@ import (
 	"add-transactions/service/config"
 	"add-transactions/service/repository"
 	"fmt"
-	"log"
 
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func SaveRequest(body *string) {
+func SaveRequest(body *string) error {
 	// snippet-start:[dynamodb.go.create_item.session]
 	// Initialize a session that the SDK will use to load
 	// credentials from the shared credentials file ~/.aws/credentials
@@ -25,15 +24,16 @@ func SaveRequest(body *string) {
 
 	av, err := repository.AttributeBuilder(body)
 	if err != nil {
-		log.Fatalf("Got error marshalling new item: %v", err)
-		return
+		fmt.Printf("Got error marshalling new item: %v \n", err)
+		return err
 	}
 
 	err = repository.CreateItem(av, svc)
 	if err != nil {
-		log.Fatalf("Got error calling PutItem: %v", err)
-		return
+		fmt.Printf("Got error calling PutItem: %v \n", err)
+		return err
 	}
 
-	fmt.Println("Successfully added '" + "queryParameter.InstalledPotency" + "' (" + "queryParameter.AnnualProduction" + ") to table " + config.TableName)
+	fmt.Println("Successfully added the item to the table " + config.TableName)
+	return nil
 }

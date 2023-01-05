@@ -3,9 +3,13 @@ package repository
 import (
 	"strconv"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAttributeBuilder(t *testing.T) {
+	assert := assert.New(t)
+
 	pk := "Wallet#2022-05-12T20:25:19Z"
 	creationDate := "2022-05-12T20:25:19Z"
 	updatedDate := "2022-05-12T20:25:19Z"
@@ -17,15 +21,8 @@ func TestAttributeBuilder(t *testing.T) {
 	body := "{\"pk\":\"" + pk + "\",\"creation_date\":\"" + creationDate + "\",\"target_amount\":" + strconv.Itoa(targetAmount) + ",\"current_amount\":" + strconv.Itoa(currentAmount) + ",\"updated_date\":\"" + updatedDate + "\",\"goal_name\":\"" + goalName + "\",\"target_date\":\"" + targetDate + "\",\"goal_achieved\":" + strconv.FormatBool(goalAchieved) + "}"
 
 	got, err := AttributeBuilder(&body)
-	if err != nil {
-		t.Errorf("AttributeBuilder() error = %v", err)
-		return
-	}
-
-	if got == nil {
-		t.Errorf("AttributeBuilder() is null")
-		return
-	}
+	assert.NoError(err)
+	assert.NotNil(got)
 
 	if *(*got["creation_date"]).S == "" {
 		t.Errorf("name creationDate to DynamoDB attribute not correct, got = %v", *(*got["creation_date"]).S)

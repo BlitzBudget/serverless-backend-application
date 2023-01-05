@@ -5,7 +5,6 @@ import (
 	"add-tag/get-tag/service/repository"
 	addTagModels "add-tag/service/models"
 	"fmt"
-	"log"
 
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -27,14 +26,14 @@ func QueryItems(queryParameter *addTagModels.QueryParameter) []*models.ResponseI
 	var queryOutput *dynamodb.QueryOutput
 	queryOutput, err := repository.QueryItem(queryParameter, svc)
 	if err != nil {
-		log.Fatalf("Got error calling PutItem: %v", err)
+		fmt.Printf("Got error calling PutItem: %v", err)
 		return nil
 	}
 
 	var responseItems []*models.ResponseItem
 	responseItems, err = repository.ParseResponse(queryOutput)
 	if err != nil {
-		log.Fatalf("Got error parsing Response Item: %v", err)
+		fmt.Printf("Got error parsing Response Item: %v", err)
 		return nil
 	}
 

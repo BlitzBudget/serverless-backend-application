@@ -36,7 +36,7 @@ func TestUpdateItem(t *testing.T) {
 		UpdatedDate:  &updateDate,
 	})
 	if err != nil {
-		t.Errorf("UpdateItem() error = %v", err)
+		t.Errorf("UpdateItem() error = %v \n", err)
 	}
 
 	pk := "pk"

@@ -14,7 +14,7 @@ func TestAttributeBuilder(t *testing.T) {
 
 	got, err := AttributeBuilder(&body)
 	if err != nil {
-		t.Errorf("AttributeBuilder() error = %v", err)
+		t.Errorf("AttributeBuilder() error = %v \n", err)
 		return
 	}
 
@@ -24,32 +24,32 @@ func TestAttributeBuilder(t *testing.T) {
 	}
 
 	if *(*got["creation_date"]).S == "" {
-		t.Errorf("name creationDate to DynamoDB attribute not correct, got = %v", *(*got["creation_date"]).S)
+		t.Errorf("name creationDate to DynamoDB attribute not correct, got = %v \n", *(*got["creation_date"]).S)
 		return
 	}
 
 	if *(*got["updated_date"]).S == "" {
-		t.Errorf("name updated_date to DynamoDB attribute not correct, got = %v", *(*got["updated_date"]).S)
+		t.Errorf("name updated_date to DynamoDB attribute not correct, got = %v \n", *(*got["updated_date"]).S)
 		return
 	}
 
 	if *(*got["pk"]).S != pk {
-		t.Errorf("name pk to DynamoDB attribute not correct, got = %v, want = %v", *(*got["pk"]).S, pk)
+		t.Errorf("name pk to DynamoDB attribute not correct, got = %v, want = %v \n", *(*got["pk"]).S, pk)
 		return
 	}
 
 	if *(*got["sk"]).S == "" {
-		t.Errorf("name sk to DynamoDB attribute not correct, got = %v", *(*got["sk"]).S)
+		t.Errorf("name sk to DynamoDB attribute not correct, got = %v \n", *(*got["sk"]).S)
 		return
 	}
 
 	if *(*got["wallet_currency"]).S != walletCurrency {
-		t.Errorf("name wallet_currency to DynamoDB attribute not correct, got = %v, want = %v", *(*got["wallet_currency"]).S, walletCurrency)
+		t.Errorf("name wallet_currency to DynamoDB attribute not correct, got = %v, want = %v \n", *(*got["wallet_currency"]).S, walletCurrency)
 		return
 	}
 
 	if *(*got["wallet_name"]).S != walletName {
-		t.Errorf("name wallet_name to DynamoDB attribute not correct, got = %v, want = %v", *(*got["wallet_name"]).S, walletName)
+		t.Errorf("name wallet_name to DynamoDB attribute not correct, got = %v, want = %v \n", *(*got["wallet_name"]).S, walletName)
 		return
 	}
 }

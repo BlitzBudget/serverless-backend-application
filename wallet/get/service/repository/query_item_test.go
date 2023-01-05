@@ -18,7 +18,7 @@ func (m *mockDynamodbClient) Query(input *dynamodb.QueryInput) (*dynamodb.QueryO
 
 	wallet := "wallet"
 	item := models.QueryParameter{
-		UserId:       &wallet,
+		UserId: &wallet,
 	}
 
 	av, err := dynamodbattribute.MarshalMap(item)
@@ -39,12 +39,12 @@ func TestQueryItem(t *testing.T) {
 	mockSvc := &mockDynamodbClient{}
 	wallet := "wallet"
 	av := models.QueryParameter{
-		UserId:       &wallet,
+		UserId: &wallet,
 	}
 
 	_, err := QueryItem(&av, mockSvc)
 	if err != nil {
-		t.Errorf("QueryItem() error = %v", err)
+		t.Errorf("QueryItem() error = %v \n", err)
 		return
 	}
 

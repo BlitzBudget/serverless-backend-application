@@ -3,7 +3,6 @@ package helper
 import (
 	"add-investment-link/service/models"
 	"add-investment-link/service/repository"
-	"errors"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -47,8 +46,9 @@ func RemoveInvestmentLink(records *[]events.DynamoDBEventRecord, svc dynamodbifa
 func ParseResponse(result *dynamodb.QueryOutput) ([]*models.InvestmentRule, error) {
 
 	if result.Items == nil {
-		msg := "no Items found"
-		return nil, errors.New(msg)
+		fmt.Println("ParseResponse:: No Items Found")
+		err := fmt.Errorf("ParseResponse:: No Items Found")
+		return nil, err
 	}
 
 	var investmentRules []*models.InvestmentRule

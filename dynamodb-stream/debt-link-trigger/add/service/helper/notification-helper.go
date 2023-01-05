@@ -32,7 +32,7 @@ func RepaidDebtNotification(pk *string, debtName *string, svc dynamodbiface.Dyna
 		fmt.Printf("Notification item cannot be marshalled: %v", err)
 		return
 	}
-	fmt.Printf("Notification item Marshalled: %+v", av)
+	fmt.Printf("Notification item Marshalled: %+v \n", av)
 
 	repository.CreateItem(av, svc)
 }

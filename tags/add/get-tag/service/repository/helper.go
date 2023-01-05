@@ -2,7 +2,6 @@ package repository
 
 import (
 	getTagModels "add-tag/get-tag/service/models"
-	"errors"
 	"fmt"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -12,8 +11,9 @@ import (
 func ParseResponse(result *dynamodb.QueryOutput) (getTagModels.ResponseItems, error) {
 
 	if result.Items == nil {
-		msg := "no Items found"
-		return nil, errors.New(msg)
+		fmt.Println("ParseResponse:: No Items Found")
+		err := fmt.Errorf("ParseResponse:: No Items Found")
+		return nil, err
 	}
 
 	responseItems := getTagModels.ResponseItems{}

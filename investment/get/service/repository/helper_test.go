@@ -21,7 +21,7 @@ func TestAttributeBuilder(t *testing.T) {
 	}
 
 	if *requestModel.WalletId != walletId {
-		t.Errorf("WalletId convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.WalletId, walletId)
+		t.Errorf("WalletId convertion to DynamoDB attribute not correct, got = %v, want = %v \n", *requestModel.WalletId, walletId)
 		return
 	}
 }

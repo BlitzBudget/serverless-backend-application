@@ -21,7 +21,7 @@ func TestAttributeBuilder(t *testing.T) {
 	}
 
 	if *requestModel.UserId != userId {
-		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.UserId, userId)
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v \n", *requestModel.UserId, userId)
 		return
 	}
 }

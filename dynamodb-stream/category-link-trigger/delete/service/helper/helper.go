@@ -4,7 +4,6 @@ import (
 	"delete-category-link/service/config"
 	"delete-category-link/service/models"
 	"delete-category-link/service/repository"
-	"errors"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -55,8 +54,9 @@ func deleteCategoryRulesForWallet(svc dynamodbiface.DynamoDBAPI, wallet *models.
 func ParseResponse(result *dynamodb.QueryOutput) ([]*models.CategoryRule, error) {
 
 	if result.Items == nil {
-		msg := "no Items found"
-		return nil, errors.New(msg)
+		fmt.Println("ParseResponse:: No Items Found")
+		err := fmt.Errorf("ParseResponse:: No Items Found")
+		return nil, err
 	}
 
 	var categoryRules []*models.CategoryRule

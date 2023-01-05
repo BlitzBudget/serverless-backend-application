@@ -17,32 +17,32 @@ func TestQueryParameter(t *testing.T) {
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.DebtedAmount != float64(debtedAmount) {
-		t.Errorf("QueryParameter: Debted Amount do not match, got = %v, want = %v", *queryParameter.DebtedAmount, debtedAmount)
+		t.Errorf("QueryParameter: Debted Amount do not match, got = %v, want = %v \n", *queryParameter.DebtedAmount, debtedAmount)
 		return
 	}
 
 	if *queryParameter.DebtName != debtName {
-		t.Errorf("QueryParameter: DebtName do not match, got = %v, want = %v", queryParameter.DebtName, debtName)
+		t.Errorf("QueryParameter: DebtName do not match, got = %v, want = %v \n", queryParameter.DebtName, debtName)
 		return
 	}
 
 	if *queryParameter.CurrentValue != float64(currentValue) {
-		t.Errorf("QueryParameter: Current Value do not match, got = %v, want = %v", queryParameter.CurrentValue, currentValue)
+		t.Errorf("QueryParameter: Current Value do not match, got = %v, want = %v \n", queryParameter.CurrentValue, currentValue)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedDate {
-		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v", queryParameter.UpdatedDate, updatedDate)
+		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v \n", queryParameter.UpdatedDate, updatedDate)
 		return
 	}
 
 	if *queryParameter.DebtRepaid != debtRepaid {
-		t.Errorf("QueryParameter: Debt Repaid do not match, got = %v, want = %v", *queryParameter.DebtRepaid, debtRepaid)
+		t.Errorf("QueryParameter: Debt Repaid do not match, got = %v, want = %v \n", *queryParameter.DebtRepaid, debtRepaid)
 		return
 	}
 
 	if err != nil {
-		t.Errorf("QueryParameter Struct has an error = %v", err)
+		t.Errorf("QueryParameter Struct has an error = %v \n", err)
 		return
 	}
 }

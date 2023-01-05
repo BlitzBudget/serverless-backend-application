@@ -25,11 +25,13 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + *queryParameter.TransactionName
-
-	mandatoryFieldsCheck(queryParameter)
+	err = mandatoryFieldsCheck(queryParameter)
+	if err != nil {
+		return nil, err
+	}
 
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
-	fmt.Printf("marshalled struct: %+v", av)
+	fmt.Printf("marshalled struct: %+v \n", av)
 	return av, err
 }
 

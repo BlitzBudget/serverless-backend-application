@@ -32,22 +32,22 @@ func TestAttributeBuilder(t *testing.T) {
 	}
 
 	if *requestModel.UserId != userId {
-		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.UserId, userId)
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v \n", *requestModel.UserId, userId)
 		return
 	}
 
 	if (*(*requestModel).CategoryIds)[0] != categoryIds[0] {
-		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", (*(*requestModel).CategoryIds)[0], categoryIds[0])
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v \n", (*(*requestModel).CategoryIds)[0], categoryIds[0])
 		return
 	}
-	
+
 	if (*(*requestModel).CategoryIds)[1] != categoryIds[1] {
-		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", (*(*requestModel).CategoryIds)[1], categoryIds[1])
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v \n", (*(*requestModel).CategoryIds)[1], categoryIds[1])
 		return
 	}
-		
+
 	if (*(*requestModel).CategoryIds)[2] != categoryIds[2] {
-		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v", (*(*requestModel).CategoryIds)[2], categoryIds[2])
+		t.Errorf("UserId convertion to DynamoDB attribute not correct, got = %v, want = %v \n", (*(*requestModel).CategoryIds)[2], categoryIds[2])
 		return
 	}
 

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"get-tag/service/models"
 	"get-tag/service/repository"
-	"log"
 
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -25,21 +24,21 @@ func QueryItems(body *string) ([]*models.ResponseItem, error) {
 
 	av, err := repository.AttributeBuilder(body)
 	if err != nil {
-		log.Fatalf("Got error marshalling new item: %v", err)
+		fmt.Printf("Got error marshalling new item: %v", err)
 		return nil, err
 	}
 
 	var queryOutput *dynamodb.QueryOutput
 	queryOutput, err = repository.QueryItem(av, svc)
 	if err != nil {
-		log.Fatalf("Got error calling PutItem: %v", err)
+		fmt.Printf("Got error calling PutItem: %v", err)
 		return nil, err
 	}
 
 	var responseItems []*models.ResponseItem
 	responseItems, err = repository.ParseResponse(queryOutput)
 	if err != nil {
-		log.Fatalf("Got error parsing Response Item: %v", err)
+		fmt.Printf("Got error parsing Response Item: %v", err)
 		return nil, err
 	}
 

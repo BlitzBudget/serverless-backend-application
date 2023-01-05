@@ -19,42 +19,42 @@ func TestQueryParameter(t *testing.T) {
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.Pk != pk {
-		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.Pk, pk)
+		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v \n", *queryParameter.Pk, pk)
 		return
 	}
 
 	if queryParameter.Sk != sk {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.Sk, sk)
+		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v \n", queryParameter.Sk, sk)
 		return
 	}
 
 	if *queryParameter.CreationDate != creationDate {
-		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.CreationDate, creationDate)
+		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v \n", queryParameter.CreationDate, creationDate)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedDate {
-		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v", queryParameter.UpdatedDate, updatedDate)
+		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v \n", queryParameter.UpdatedDate, updatedDate)
 		return
 	}
 
 	if *queryParameter.Amount != float64(amount) {
-		t.Errorf("QueryParameter: Amount do not match, got = %v, want = %v", *queryParameter.Amount, amount)
+		t.Errorf("QueryParameter: Amount do not match, got = %v, want = %v \n", *queryParameter.Amount, amount)
 		return
 	}
 
 	if *queryParameter.CategoryId != categoryId {
-		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v", *queryParameter.CategoryId, categoryId)
+		t.Errorf("QueryParameter: Category ID do not match, got = %v, want = %v \n", *queryParameter.CategoryId, categoryId)
 		return
 	}
 
 	if *queryParameter.Description != description {
-		t.Errorf("QueryParameter: Description do not match, got = %v, want = %v", *queryParameter.Description, description)
+		t.Errorf("QueryParameter: Description do not match, got = %v, want = %v \n", *queryParameter.Description, description)
 		return
 	}
 
 	if err != nil {
-		t.Errorf("QueryParameter Struct has an error = %v", err)
+		t.Errorf("QueryParameter Struct has an error = %v \n", err)
 		return
 	}
 }

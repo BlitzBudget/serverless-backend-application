@@ -18,37 +18,37 @@ func TestQueryParameter(t *testing.T) {
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.CurrentAmount != float64(currentAmount) {
-		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.CurrentAmount, currentAmount)
+		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v \n", *queryParameter.CurrentAmount, currentAmount)
 		return
 	}
 
 	if *queryParameter.TargetAmount != float64(targetAmount) {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.TargetAmount, targetAmount)
+		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v \n", queryParameter.TargetAmount, targetAmount)
 		return
 	}
 
 	if *queryParameter.GoalAchieved != goalAchieved {
-		t.Errorf("QueryParameter: Goal Achieved do not match, got = %v, want = %v", queryParameter.GoalAchieved, goalAchieved)
+		t.Errorf("QueryParameter: Goal Achieved do not match, got = %v, want = %v \n", queryParameter.GoalAchieved, goalAchieved)
 		return
 	}
 
 	if *queryParameter.TargetDate != targetDate {
-		t.Errorf("QueryParameter: Target Date do not match, got = %v, want = %v", queryParameter.TargetDate, targetDate)
+		t.Errorf("QueryParameter: Target Date do not match, got = %v, want = %v \n", queryParameter.TargetDate, targetDate)
 		return
 	}
 
 	if *queryParameter.Name != name {
-		t.Errorf("QueryParameter: Name do not match, got = %v, want = %v", *queryParameter.Name, name)
+		t.Errorf("QueryParameter: Name do not match, got = %v, want = %v \n", *queryParameter.Name, name)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedDate {
-		t.Errorf("QueryParameter: Update Date do not match, got = %v, want = %v", *queryParameter.UpdatedDate, updatedDate)
+		t.Errorf("QueryParameter: Update Date do not match, got = %v, want = %v \n", *queryParameter.UpdatedDate, updatedDate)
 		return
 	}
 
 	if err != nil {
-		t.Errorf("QueryParameter Struct has an error = %v", err)
+		t.Errorf("QueryParameter Struct has an error = %v \n", err)
 		return
 	}
 }

@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func SaveRequest(body *string) {
+func SaveRequest(body *string) error {
 	// snippet-start:[dynamodb.go.create_item.session]
 	// Initialize a session that the SDK will use to load
 	// credentials from the shared credentials file ~/.aws/credentials
@@ -19,17 +19,19 @@ func SaveRequest(body *string) {
 
 	// Create DynamoDB client
 	svc := dynamodb.New(sess)
-	// snippet-end:[dynamodb.go.create_item.session]
 
 	av, err := repository.AttributeBuilder(body)
 	if err != nil {
-		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
+		fmt.Printf("SaveRequest: Attribute Builder error: %v \n", err)
+		return err
 	}
 
 	err = repository.CreateItem(av, svc)
 	if err != nil {
-		panic(fmt.Sprintf("SaveRequest: Got error calling PutItem: %v", err))
+		fmt.Printf("SaveRequest: Error Creating Item: %v \n", err)
+		return err
 	}
 
 	fmt.Println("Successfully added the item!")
+	return nil
 }
