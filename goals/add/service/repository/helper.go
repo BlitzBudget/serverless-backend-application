@@ -40,7 +40,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	}
 
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
-	respJSON, _ := json.Marshal(av)
+	respJSON, _ = json.Marshal(av)
 	fmt.Printf("AttributeBuilder:: marshalled struct: %+v \n", respJSON)
 	return av, err
 }
