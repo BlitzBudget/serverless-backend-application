@@ -29,6 +29,6 @@ func ParseResponse(result *dynamodb.QueryOutput) (getTagModels.ResponseItems, er
 		responseItems = append(responseItems, &responseItem)
 	}
 
-	fmt.Printf("Parsed %v Items. \n", len(responseItems))
+	fmt.Printf("ParseResponse:: Parsed %v Items. \n", len(responseItems))
 	return responseItems, nil
 }
