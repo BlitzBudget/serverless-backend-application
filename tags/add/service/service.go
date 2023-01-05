@@ -29,7 +29,7 @@ func SaveRequest(body *string) error {
 	responseItems := getTagService.QueryItems(queryParameter)
 
 	for _, item := range responseItems {
-		if item.TagName == queryParameter.TagName {
+		if *item.TagName == *queryParameter.TagName {
 			err = fmt.Errorf("SaveRequest: TagName already exists")
 			fmt.Printf("SaveRequest: TagName already exists: %v \n", err)
 			return err

@@ -24,7 +24,7 @@ func ParseResponse(result *dynamodb.QueryOutput) (getTagModels.ResponseItems, er
 
 		err = dynamodbattribute.UnmarshalMap(v, &responseItem)
 		if err != nil {
-			fmt.Printf("Failed to unmarshal Record %v, %v", k, err)
+			fmt.Printf("Failed to unmarshal Record %v, %v \n", k, err)
 			return nil, err
 		}
 		responseItems = append(responseItems, &responseItem)

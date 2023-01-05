@@ -29,7 +29,7 @@ func AchievedGoalNotification(pk *string, goalName *string, svc dynamodbiface.Dy
 
 	av, err := dynamodbattribute.MarshalMap(notification)
 	if err != nil {
-		fmt.Printf("Notification item cannot be marshalled: %v", err)
+		fmt.Printf("Notification item cannot be marshalled: %v \n", err)
 		return
 	}
 	fmt.Printf("Notification item Marshalled: %+v \n", av)

@@ -13,7 +13,7 @@ func AttributeBuilder(body *string) (*models.RequestModel, error) {
 	requestModel := models.RequestModel{}
 	err := json.Unmarshal([]byte(*body), &requestModel)
 	if err != nil {
-		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v \n", err.Error())
 		return nil, err
 	}
 
@@ -26,7 +26,7 @@ func ParseToQueryParameter(request *models.RequestModel) (map[string]*dynamodb.A
 	av, err := dynamodbattribute.MarshalMap(request)
 
 	if err != nil {
-		fmt.Printf("ParseToQueryParameter: Failed to marshal request to query parameter data %v", err)
+		fmt.Printf("ParseToQueryParameter: Failed to marshal request to query parameter data %v \n", err)
 		return nil, err
 	}
 

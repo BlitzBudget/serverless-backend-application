@@ -15,13 +15,13 @@ func CreateCategoryLink(records *[]events.DynamoDBEventRecord, svc dynamodbiface
 	for _, record := range *records {
 		transaction, err := UnmarshalStreamImage(record.Change.NewImage)
 		if err != nil {
-			fmt.Printf("AttributeBuilder: Got error unmarshalStreamImage: %v", err)
+			fmt.Printf("AttributeBuilder: Got error unmarshalStreamImage: %v \n", err)
 			continue
 		}
 
 		categoryRule, err := getCategoryRule(transaction, svc)
 		if err != nil {
-			fmt.Printf("AttributeBuilder: Got error Category Rule GetTableItem: %v", err)
+			fmt.Printf("AttributeBuilder: Got error Category Rule GetTableItem: %v \n", err)
 			continue
 		}
 

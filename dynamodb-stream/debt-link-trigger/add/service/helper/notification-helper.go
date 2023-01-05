@@ -29,7 +29,7 @@ func RepaidDebtNotification(pk *string, debtName *string, svc dynamodbiface.Dyna
 
 	av, err := dynamodbattribute.MarshalMap(notification)
 	if err != nil {
-		fmt.Printf("Notification item cannot be marshalled: %v", err)
+		fmt.Printf("Notification item cannot be marshalled: %v \n", err)
 		return
 	}
 	fmt.Printf("Notification item Marshalled: %+v \n", av)

@@ -28,7 +28,7 @@ func UpdateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.Dynamo
 
 	_, err := svc.UpdateItem(input)
 	if err != nil {
-		fmt.Printf("UpdateItem: Failed to update the item %v", err)
+		fmt.Printf("UpdateItem: Failed to update the item %v \n", err)
 		return err
 	}
 

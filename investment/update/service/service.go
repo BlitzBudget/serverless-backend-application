@@ -23,19 +23,19 @@ func SaveRequest(body *string) error {
 
 	request, err := repository.AttributeBuilder(body)
 	if err != nil {
-		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v \n", err.Error())
 		return err
 	}
 
 	av, err := repository.ParseToQueryParameter(request)
 	if err != nil {
-		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v \n", err.Error())
 		return err
 	}
 
 	err = repository.UpdateItem(av, svc, request)
 	if err != nil {
-		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("AttributeBuilder: There was an error unmarshalling the bytes to struct: %v \n", err.Error())
 		return err
 	}
 

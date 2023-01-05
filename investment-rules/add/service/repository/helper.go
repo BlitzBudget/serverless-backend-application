@@ -19,7 +19,8 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 		return nil, err
 	}
 
-	fmt.Printf("marshalled bytes to struct: %+v. \n", queryParameter)
+	respJSON, _ := json.Marshal(queryParameter)
+	fmt.Printf("marshalled bytes to struct: %+v. \n", respJSON)
 
 	date := time.Now().Format(time.RFC3339Nano)
 	queryParameter.CreationDate = &date
@@ -31,7 +32,8 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	}
 
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
-	fmt.Printf("marshalled struct: %+v \n", av)
+	respJSON, _ := json.Marshal(av)
+	fmt.Printf("AttributeBuilder:: marshalled struct: %+v \n", respJSON)
 	return av, err
 }
 

@@ -24,7 +24,7 @@ func ProcessRecords(records *[]events.DynamoDBEventRecord) {
 
 	_, err := helper.RemoveInvestmentLink(records, svc)
 	if err != nil {
-		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
+		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v \n", err))
 	}
 
 	fmt.Println("Successfully processed all the records!")

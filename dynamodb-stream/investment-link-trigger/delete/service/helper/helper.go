@@ -59,7 +59,7 @@ func ParseResponse(result *dynamodb.QueryOutput) ([]*models.InvestmentRule, erro
 
 		err = dynamodbattribute.UnmarshalMap(v, &investmentRule)
 		if err != nil {
-			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v", k, err))
+			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v \n", k, err))
 		}
 		investmentRules = append(investmentRules, &investmentRule)
 	}

@@ -18,7 +18,8 @@ func AttributeBuilder(body *string) (*models.QueryParameter, error) {
 		return nil, err
 	}
 
-	fmt.Printf("marshalled bytes to struct: %+v. \n", queryParameter)
+	respJSON, _ := json.Marshal(queryParameter)
+	fmt.Printf("marshalled bytes to struct: %+v. \n", respJSON)
 	return &queryParameter, err
 }
 
