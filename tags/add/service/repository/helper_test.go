@@ -1,10 +1,11 @@
 package repository
 
 import (
+	"add-tag/service/models"
 	"testing"
 )
 
-func TestAttributeBuilder(t *testing.T) {
+func TestTransformToQueryParamter(t *testing.T) {
 	pk := "Wallet#2022-05-12T14:40:29.156Z"
 	sk := "Tag#2022-05-12T20:25:19Z"
 	creationDate := "2022-05-12T20:25:19Z"
@@ -12,14 +13,44 @@ func TestAttributeBuilder(t *testing.T) {
 	tagName := "tagName"
 	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"updated_date\":\"" + updatedDate + "\",\"tag_name\":\"" + tagName + "\"}"
 
-	got, err := AttributeBuilder(&body)
+	got, err := TransformToQueryParamter(&body)
 	if err != nil {
-		t.Errorf("AttributeBuilder() error = %v", err)
+		t.Errorf("TransformToQueryParamter() error = %v", err)
 		return
 	}
 
 	if got == nil {
-		t.Errorf("AttributeBuilder() is null")
+		t.Errorf("TransformToQueryParamter() is null")
+		return
+	}
+
+	if got.TagName == nil {
+		t.Errorf("name TagName to DynamoDB attribute not correct, got = %v", got.TagName)
+		return
+	}
+
+	if got.Pk == nil {
+		t.Errorf("name Pk to DynamoDB attribute not correct, got = %v", got.Pk)
+		return
+	}
+}
+
+func TestAttributeBuilder(t *testing.T) {
+
+	tagName := "tagName"
+	pk := "Wallet#2022-05-12T14:40:29.156Z"
+	creationDate := "2022-05-12T20:25:19Z"
+	updatedDate := "2022-05-12T20:25:19Z"
+	queryParameter := models.QueryParameter{
+		TagName:      &tagName,
+		Pk:           &pk,
+		CreationDate: &creationDate,
+		UpdatedDate:  &updatedDate,
+	}
+
+	got, err := AttributeBuilder(&queryParameter)
+	if err != nil {
+		t.Errorf("TransformToQueryParamter() error = %v", err)
 		return
 	}
 
@@ -38,14 +69,8 @@ func TestAttributeBuilder(t *testing.T) {
 		return
 	}
 
-	if *(*got["sk"]).S == "" {
-		t.Errorf("name sk to DynamoDB attribute not correct, got = %v", *(*got["sk"]).S)
-		return
-	}
-
 	if *(*got["tag_name"]).S != tagName {
 		t.Errorf("name tag_name to DynamoDB attribute not correct, got = %v, want = %v", *(*got["tag_name"]).S, tagName)
 		return
 	}
-
 }
