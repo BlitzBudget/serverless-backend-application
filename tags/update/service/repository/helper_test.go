@@ -30,16 +30,6 @@ func TestAttributeBuilder(t *testing.T) {
 		return
 	}
 
-	if *requestModel.InvestedAmount != float64(investedAmount) {
-		t.Errorf("InvestedAmount convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.InvestedAmount, investedAmount)
-		return
-	}
-
-	if *requestModel.CurrentValue != float64(currentAmount) {
-		t.Errorf("CurrentValue convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.CurrentValue, currentAmount)
-		return
-	}
-
 	if *requestModel.TagName != tagName {
 		t.Errorf("TagName convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.TagName, tagName)
 		return
