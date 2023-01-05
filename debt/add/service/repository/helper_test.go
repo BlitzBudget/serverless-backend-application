@@ -17,7 +17,7 @@ func TestAttributeBuilder(t *testing.T) {
 
 	got, err := AttributeBuilder(&body)
 	if err != nil {
-		t.Errorf("AttributeBuilder() error = %v", err)
+		t.Errorf("AttributeBuilder() error = %v \n", err)
 		return
 	}
 
@@ -27,42 +27,42 @@ func TestAttributeBuilder(t *testing.T) {
 	}
 
 	if *(*got["creation_date"]).S == "" {
-		t.Errorf("name creationDate to DynamoDB attribute not correct, got = %v", *(*got["creation_date"]).S)
+		t.Errorf("name creationDate to DynamoDB attribute not correct, got = %v \n", *(*got["creation_date"]).S)
 		return
 	}
 
 	if *(*got["updated_date"]).S == "" {
-		t.Errorf("name updated_date to DynamoDB attribute not correct, got = %v", *(*got["updated_date"]).S)
+		t.Errorf("name updated_date to DynamoDB attribute not correct, got = %v \n", *(*got["updated_date"]).S)
 		return
 	}
 
 	if *(*got["pk"]).S != pk {
-		t.Errorf("name pk to DynamoDB attribute not correct, got = %v, want = %v", *(*got["pk"]).S, pk)
+		t.Errorf("name pk to DynamoDB attribute not correct, got = %v, want = %v \n", *(*got["pk"]).S, pk)
 		return
 	}
 
 	if *(*got["sk"]).S == "" {
-		t.Errorf("name sk to DynamoDB attribute not correct, got = %v", *(*got["sk"]).S)
+		t.Errorf("name sk to DynamoDB attribute not correct, got = %v \n", *(*got["sk"]).S)
 		return
 	}
 
 	if *(*got["debt_name"]).S != debtName {
-		t.Errorf("name debt_name to DynamoDB attribute not correct, got = %v, want = %v", *(*got["debt_name"]).S, debtName)
+		t.Errorf("name debt_name to DynamoDB attribute not correct, got = %v, want = %v \n", *(*got["debt_name"]).S, debtName)
 		return
 	}
 
 	if *(*got["debt_repaid"]).BOOL != debtRepaid {
-		t.Errorf("name debt_repaid to DynamoDB attribute not correct, got = %v, want = %v", *(*got["debt_repaid"]).S, debtRepaid)
+		t.Errorf("name debt_repaid to DynamoDB attribute not correct, got = %v, want = %v \n", *(*got["debt_repaid"]).S, debtRepaid)
 		return
 	}
 
 	if *(*got["current_value"]).N != strconv.Itoa(currentValue) {
-		t.Errorf("name current_value to DynamoDB attribute not correct, got = %v, want = %v", *(*got["current_value"]).N, currentValue)
+		t.Errorf("name current_value to DynamoDB attribute not correct, got = %v, want = %v \n", *(*got["current_value"]).N, currentValue)
 		return
 	}
 
 	if *(*got["debted_amount"]).N != strconv.Itoa(debtedAmount) {
-		t.Errorf("name debted_amount to DynamoDB attribute not correct, got = %v, want = %v", *(*got["debted_amount"]).N, debtedAmount)
+		t.Errorf("name debted_amount to DynamoDB attribute not correct, got = %v, want = %v \n", *(*got["debted_amount"]).N, debtedAmount)
 		return
 	}
 }

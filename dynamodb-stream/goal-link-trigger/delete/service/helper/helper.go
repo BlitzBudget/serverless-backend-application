@@ -3,7 +3,6 @@ package helper
 import (
 	"delete-goal-link/service/models"
 	"delete-goal-link/service/repository"
-	"errors"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -47,8 +46,9 @@ func RemoveGoalLink(records *[]events.DynamoDBEventRecord, svc dynamodbiface.Dyn
 func ParseResponse(result *dynamodb.QueryOutput) ([]*models.GoalRule, error) {
 
 	if result.Items == nil {
-		msg := "no Items found"
-		return nil, errors.New(msg)
+		fmt.Println("ParseResponse:: No Items Found")
+		err := fmt.Errorf("ParseResponse:: No Items Found")
+		return nil, err
 	}
 
 	var goalRules []*models.GoalRule

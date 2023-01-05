@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func DeleteItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB, request *models.RequestModel) {
+func DeleteItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB, request *models.RequestModel) error {
 
 	input := &dynamodb.DeleteItemInput{
 		TableName: &config.TableName,
@@ -17,8 +17,10 @@ func DeleteItem(av map[string]*dynamodb.AttributeValue, svc *dynamodb.DynamoDB, 
 
 	_, err := svc.DeleteItem(input)
 	if err != nil {
-		panic(fmt.Sprintf("DeleteItem: Failed to update the item %v", err))
+		fmt.Printf("DeleteItem: Failed to update the item %v", err)
+		return err
 	}
 
 	fmt.Println("Deleted the item")
+	return nil
 }

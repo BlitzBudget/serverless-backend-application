@@ -15,7 +15,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter := models.QueryParameter{}
 	err := json.Unmarshal([]byte(*body), &queryParameter)
 	if err != nil {
-		fmt.Printf("There was an error marshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("There was an error marshalling the bytes to struct: %v \n", err.Error())
 		return nil, err
 	}
 
@@ -25,20 +25,28 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.CreationDate = &date
 	queryParameter.UpdatedDate = &date
 	queryParameter.Sk = config.SkPrefix + date
-
-	mandatoryFieldsCheck(queryParameter)
+	err = mandatoryFieldsCheck(queryParameter)
+	if err != nil {
+		return nil, err
+	}
 
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
-	fmt.Printf("marshalled struct: %+v", av)
+	fmt.Printf("marshalled struct: %+v \n", av)
 	return av, err
 }
 
-func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
+func mandatoryFieldsCheck(queryParameter models.QueryParameter) error {
 	if queryParameter.Currency == nil {
-		panic(fmt.Sprintln("AttributeBuilder:: Currency is empty."))
+		fmt.Println("AttributeBuilder:: Currency is empty.")
+		err := fmt.Errorf("AttributeBuilder:: Currency is empty")
+		return err
 	}
 
 	if queryParameter.Name == nil {
-		panic(fmt.Sprintln("AttributeBuilder:: Wallet Name is empty."))
+		fmt.Println("AttributeBuilder:: Wallet Name is empty.")
+		err := fmt.Errorf("AttributeBuilder:: Wallet Name is empty")
+		return err
 	}
+
+	return nil
 }

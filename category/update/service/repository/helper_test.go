@@ -2,21 +2,22 @@ package repository
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAttributeBuilder(t *testing.T) {
+	assert := assert.New(t)
 	pk := "pk"
 	sk := "sk"
 	categoryName := "categoryName"
 	categoryType := "categoryType"
 	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"category_name\":\"" + categoryName + "\",\"category_type\":\"" + categoryType + "\"}"
 
-	requestModel := AttributeBuilder(&body)
+	requestModel, err := AttributeBuilder(&body)
 
-	if requestModel == nil {
-		t.Errorf("AttributeBuilder() is null")
-		return
-	}
+	assert.NoError(err)
+	assert.NotNil(requestModel)
 
 	if *requestModel.Pk != pk {
 		t.Errorf("pk convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.Pk, pk)

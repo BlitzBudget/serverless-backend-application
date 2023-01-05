@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func SaveRequest(body *string) {
+func SaveRequest(body *string) error {
 	// snippet-start:[dynamodb.go.create_item.session]
 	// Initialize a session that the SDK will use to load
 	// credentials from the shared credentials file ~/.aws/credentials
@@ -19,11 +19,25 @@ func SaveRequest(body *string) {
 
 	// Create DynamoDB client
 	svc := dynamodb.New(sess)
-	// snippet-end:[dynamodb.go.create_item.session]
 
-	request := repository.AttributeBuilder(body)
-	av := repository.ParseToQueryParameter(request)
-	repository.UpdateItem(av, svc, request)
+	request, err := repository.AttributeBuilder(body)
+	if err != nil {
+		fmt.Printf("SaveRequest: Error parsing Attribute Builder: %v \n", err)
+		return err
+	}
 
-	fmt.Printf("Successfully updated the item'")
+	av, err := repository.ParseToQueryParameter(request)
+	if err != nil {
+		fmt.Printf("SaveRequest: Error Parsing Query Parameter: %v \n", err)
+		return err
+	}
+
+	err = repository.UpdateItem(av, svc, request)
+	if err != nil {
+		fmt.Printf("SaveRequest: Update Item Error: %v \n", err)
+		return err
+	}
+
+	fmt.Println("SaveRequest:: Successfully updated the item'")
+	return nil
 }

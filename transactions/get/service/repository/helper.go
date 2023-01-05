@@ -2,7 +2,6 @@ package repository
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"get-transactions/service/models"
 
@@ -14,7 +13,7 @@ func AttributeBuilder(body *string) (*models.QueryParameter, error) {
 	queryParameter := models.QueryParameter{}
 	err := json.Unmarshal([]byte(*body), &queryParameter)
 	if err != nil {
-		fmt.Printf("There was an error marshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("There was an error marshalling the bytes to struct: %v \n", err.Error())
 		return nil, err
 	}
 
@@ -26,8 +25,9 @@ func AttributeBuilder(body *string) (*models.QueryParameter, error) {
 func ParseResponse(result *dynamodb.QueryOutput) (models.ResponseItems, error) {
 
 	if result.Items == nil {
-		msg := "no Items found"
-		return nil, errors.New(msg)
+		fmt.Println("ParseResponse:: No Items Found")
+		err := fmt.Errorf("ParseResponse:: No Items Found")
+		return nil, err
 	}
 
 	responseItems := models.ResponseItems{}
@@ -38,7 +38,8 @@ func ParseResponse(result *dynamodb.QueryOutput) (models.ResponseItems, error) {
 
 		err = dynamodbattribute.UnmarshalMap(v, &responseItem)
 		if err != nil {
-			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v", k, err))
+			fmt.Printf("Failed to unmarshal Record %v, %v \n", k, err)
+			return nil, err
 		}
 		responseItems = append(responseItems, &responseItem)
 	}

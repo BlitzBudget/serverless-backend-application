@@ -23,17 +23,17 @@ func TestAttributeBuilder(t *testing.T) {
 	}
 
 	if *requestModel.EndsWithDate != endsWithDate {
-		t.Errorf("EndsWithDate convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.EndsWithDate, endsWithDate)
+		t.Errorf("EndsWithDate convertion to DynamoDB attribute not correct, got = %v, want = %v \n", *requestModel.EndsWithDate, endsWithDate)
 		return
 	}
 
 	if *requestModel.StartsWithDate != startsWithDate {
-		t.Errorf("StartsWithDate convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.StartsWithDate, startsWithDate)
+		t.Errorf("StartsWithDate convertion to DynamoDB attribute not correct, got = %v, want = %v \n", *requestModel.StartsWithDate, startsWithDate)
 		return
 	}
 
 	if *requestModel.WalletId != walletId {
-		t.Errorf("WalletId convertion to DynamoDB attribute not correct, got = %v, want = %v", *requestModel.WalletId, walletId)
+		t.Errorf("WalletId convertion to DynamoDB attribute not correct, got = %v, want = %v \n", *requestModel.WalletId, walletId)
 		return
 	}
 }

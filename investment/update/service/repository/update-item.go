@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
-func UpdateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.DynamoDBAPI, request *models.RequestModel) {
+func UpdateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.DynamoDBAPI, request *models.RequestModel) error {
 	input := &dynamodb.UpdateItemInput{
 		ExpressionAttributeValues: av,
 		TableName:                 &config.TableName,
@@ -28,6 +28,9 @@ func UpdateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.Dynamo
 
 	_, err := svc.UpdateItem(input)
 	if err != nil {
-		panic(fmt.Sprintf("UpdateItem: Failed to update the item %v", err))
+		fmt.Printf("UpdateItem: Failed to update the item %v", err)
+		return err
 	}
+
+	return nil
 }

@@ -14,22 +14,22 @@ func TestQueryParameter(t *testing.T) {
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.Currency != currency {
-		t.Errorf("QueryParameter: Currency do not match, got = %v, want = %v", *queryParameter.Currency, currency)
+		t.Errorf("QueryParameter: Currency do not match, got = %v, want = %v \n", *queryParameter.Currency, currency)
 		return
 	}
 
 	if *queryParameter.Name != name {
-		t.Errorf("QueryParameter: Name do not match, got = %v, want = %v", queryParameter.Name, name)
+		t.Errorf("QueryParameter: Name do not match, got = %v, want = %v \n", queryParameter.Name, name)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedate {
-		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v", queryParameter.UpdatedDate, updatedate)
+		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v \n", queryParameter.UpdatedDate, updatedate)
 		return
 	}
 
 	if err != nil {
-		t.Errorf("QueryParameter Struct has an error = %v", err)
+		t.Errorf("QueryParameter Struct has an error = %v \n", err)
 		return
 	}
 }

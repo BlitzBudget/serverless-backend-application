@@ -13,12 +13,12 @@ func TestQueryParameter(t *testing.T) {
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.WalletId != walletId {
-		t.Errorf("QueryParameter: walletId do not match, got = %v, want = %v", *queryParameter.WalletId, walletId)
+		t.Errorf("QueryParameter: walletId do not match, got = %v, want = %v \n", *queryParameter.WalletId, walletId)
 		return
 	}
 
 	if err != nil {
-		t.Errorf("QueryParameter Struct has an error = %v", err)
+		t.Errorf("QueryParameter Struct has an error = %v \n", err)
 		return
 	}
 }
