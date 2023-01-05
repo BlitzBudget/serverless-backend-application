@@ -369,7 +369,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -543,7 +543,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -591,7 +591,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -639,7 +639,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -687,7 +687,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -735,7 +735,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -783,7 +783,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -831,7 +831,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -879,7 +879,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -927,7 +927,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -975,7 +975,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1023,7 +1023,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1071,7 +1071,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1119,7 +1119,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1167,7 +1167,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
