@@ -19,42 +19,42 @@ func TestQueryParameter(t *testing.T) {
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.Pk != pk {
-		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.Pk, pk)
+		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v \n", *queryParameter.Pk, pk)
 		return
 	}
 
 	if queryParameter.Sk != sk {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.Sk, sk)
+		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v \n", queryParameter.Sk, sk)
 		return
 	}
 
 	if *queryParameter.CreationDate != creationDate {
-		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.CreationDate, creationDate)
+		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v \n", queryParameter.CreationDate, creationDate)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedDate {
-		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v", queryParameter.UpdatedDate, updatedDate)
+		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v \n", queryParameter.UpdatedDate, updatedDate)
 		return
 	}
 
 	if *queryParameter.TransactionName != transactionName {
-		t.Errorf("QueryParameter: Transaction Name do not match, got = %v, want = %v", *queryParameter.TransactionName, transactionName)
+		t.Errorf("QueryParameter: Transaction Name do not match, got = %v, want = %v \n", *queryParameter.TransactionName, transactionName)
 		return
 	}
 
 	if *queryParameter.InvestmentId != investmentId {
-		t.Errorf("QueryParameter: Investment ID do not match, got = %v, want = %v", *queryParameter.InvestmentId, investmentId)
+		t.Errorf("QueryParameter: Investment ID do not match, got = %v, want = %v \n", *queryParameter.InvestmentId, investmentId)
 		return
 	}
 
 	if *queryParameter.TransactionAmount != float64(transactionAmount) {
-		t.Errorf("QueryParameter: Transaction Amount do not match, got = %v, want = %v", *queryParameter.TransactionAmount, transactionAmount)
+		t.Errorf("QueryParameter: Transaction Amount do not match, got = %v, want = %v \n", *queryParameter.TransactionAmount, transactionAmount)
 		return
 	}
 
 	if err != nil {
-		t.Errorf("QueryParameter Struct has an error = %v", err)
+		t.Errorf("QueryParameter Struct has an error = %v \n", err)
 		return
 	}
 }

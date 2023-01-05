@@ -15,7 +15,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter := models.QueryParameter{}
 	err := json.Unmarshal([]byte(*body), &queryParameter)
 	if err != nil {
-		fmt.Printf("There was an error marshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("There was an error marshalling the bytes to struct: %v \n", err.Error())
 		return nil, err
 	}
 
@@ -35,12 +35,18 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	return av, err
 }
 
-func mandatoryFieldsCheck(queryParameter models.QueryParameter) {
+func mandatoryFieldsCheck(queryParameter models.QueryParameter) error {
 	if queryParameter.InvestmentId == nil {
-		panic(fmt.Sprintln("AttributeBuilder:: Investment Id is empty."))
+		fmt.Println("AttributeBuilder:: Investment Id is empty.")
+		err := fmt.Errorf("AttributeBuilder:: Investment Id is empty")
+		return err
 	}
 
 	if queryParameter.TransactionName == nil {
-		panic(fmt.Sprintln("AttributeBuilder:: Transaction Name is empty."))
+		fmt.Println("AttributeBuilder:: Transaction Name is empty.")
+		err := fmt.Errorf("AttributeBuilder:: Transaction Name is empty")
+		return err
 	}
+
+	return nil
 }
