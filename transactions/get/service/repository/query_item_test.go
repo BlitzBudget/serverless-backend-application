@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
+	"github.com/stretchr/testify/assert"
 )
 
 type mockDynamodbClient struct {
@@ -50,10 +51,10 @@ func TestQueryItem(t *testing.T) {
 		EndsWithDate:   &endsWithDate,
 	}
 
-	_, err := QueryItem(&av, mockSvc)
-	if err != nil {
-		t.Errorf("QueryItem() error = %v \n", err)
-		return
-	}
+	items, err := QueryItem(&av, mockSvc)
+
+	assert := assert.New(t)
+	assert.NoError(err)
+	assert.NotNil(items)
 
 }

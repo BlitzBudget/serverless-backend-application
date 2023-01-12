@@ -5,6 +5,12 @@ Testing out things isn't so complicated.
 
 What we need to do is fire things up.
 
+### Execute Golang Tests
+
+Inorder to Execute golang tests, execute the command below.
+
+`go test -v ./...`
+
 ### To Install dependencies
 
 `go get -v all`
@@ -22,6 +28,7 @@ Build the package in build/main folder
 ### We need to Zip binary to be able to upload to AWS lambda (Linux)
 
 `zip -jrm build/main.zip build/main`
+
 
 # Auto Deploy to Lambda Function
 
