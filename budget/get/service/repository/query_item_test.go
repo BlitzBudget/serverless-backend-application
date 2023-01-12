@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
+	"github.com/stretchr/testify/assert"
 )
 
 type mockDynamodbClient struct {
@@ -18,7 +19,7 @@ func (m *mockDynamodbClient) Query(input *dynamodb.QueryInput) (*dynamodb.QueryO
 
 	wallet := "wallet"
 	item := models.QueryParameter{
-		WalletId:       &wallet,
+		WalletId: &wallet,
 	}
 
 	av, err := dynamodbattribute.MarshalMap(item)
@@ -39,13 +40,13 @@ func TestQueryItem(t *testing.T) {
 	mockSvc := &mockDynamodbClient{}
 	wallet := "wallet"
 	av := models.QueryParameter{
-		WalletId:       &wallet,
+		WalletId: &wallet,
 	}
 
-	_, err := QueryItem(&av, mockSvc)
-	if err != nil {
-		t.Errorf("QueryItem() error = %v", err)
-		return
-	}
+	items, err := QueryItem(&av, mockSvc)
+
+	assert := assert.New(t)
+	assert.NoError(err)
+	assert.NotNil(items)
 
 }
