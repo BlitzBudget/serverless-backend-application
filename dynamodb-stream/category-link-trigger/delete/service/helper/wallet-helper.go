@@ -44,7 +44,8 @@ func parseWalletResponse(result *dynamodb.QueryOutput) ([]*models.Wallet, error)
 
 		err = dynamodbattribute.UnmarshalMap(v, &wallet)
 		if err != nil {
-			panic(fmt.Sprintf("Failed to unmarshal Record %v, %v \n", k, err))
+			fmt.Printf("Failed to unmarshal Record %v, %v \n", k, err)
+			continue
 		}
 		wallets = append(wallets, &wallet)
 	}

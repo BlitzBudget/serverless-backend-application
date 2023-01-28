@@ -31,7 +31,7 @@ func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*
 	}
 
 	debt := models.ConvertDynamoDBToModel(dbAttrMap)
-	// return dynamodbattribute.UnmarshalMap(dbAttrMap, out)
+
 	return &debt, nil
 
 }
