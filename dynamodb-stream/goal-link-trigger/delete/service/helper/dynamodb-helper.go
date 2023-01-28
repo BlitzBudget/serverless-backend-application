@@ -31,7 +31,7 @@ func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*
 	}
 
 	goal := models.ConvertDynamoDBToModel(dbAttrMap)
-	// return dynamodbattribute.UnmarshalMap(dbAttrMap, out)
+
 	return &goal, nil
 
 }
