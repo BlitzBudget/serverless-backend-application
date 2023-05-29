@@ -35,5 +35,5 @@ jobs:
           role-session-name: SessionRetrieveAndValidateAPIKey
 
       - name: Update lambda
-        run: aws lambda update-function-code --function-name  InvestmentRules --zip-file fileb://investment-rules/add/addInvestmentRules.zip
+        run: aws lambda update-function-code --function-name  addInvestmentRules --zip-file fileb://investment-rules/add/addInvestmentRules.zip
   
