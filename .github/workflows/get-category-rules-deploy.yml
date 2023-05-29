@@ -21,7 +21,7 @@ jobs:
 
       # Get CategoryRules
       - name: Get category-rules
-        run: cd category-rules/get/; GOOS=linux go build cmd/main.go; zip getCategoryRules.zip main; ls;
+        run: cd category-rules/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getCategoryRules.zip main; ls;
 
       - name: Get CategoryRules Test
         run: cd category-rules/get/; go test -v ./...

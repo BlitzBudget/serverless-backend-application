@@ -21,7 +21,7 @@ jobs:
 
       # Get DebtRules
       - name: Get debt-rules
-        run: cd debt-rules/get/; GOOS=linux go build cmd/main.go; zip getDebtRules.zip main; ls;
+        run: cd debt-rules/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getDebtRules.zip main; ls;
 
       - name: Get DebtRules Test
         run: cd debt-rules/get/; go test -v ./...

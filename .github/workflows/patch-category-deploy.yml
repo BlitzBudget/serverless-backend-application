@@ -21,7 +21,7 @@ jobs:
 
       # Patch Category
       - name: Patch category
-        run: cd category/update/; GOOS=linux go build cmd/main.go; zip patchCategory.zip main; ls;
+        run: cd category/update/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip patchCategory.zip main; ls;
 
       - name: Patch Category Test
         run: cd category/update/; go test -v ./...

@@ -22,7 +22,7 @@ jobs:
 
       # Add Budget
       - name: Add budget
-        run: cd budget/add/; GOOS=linux go build cmd/main.go; zip addBudget.zip main; ls;
+        run: cd budget/add/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip addBudget.zip main; ls;
 
       - name: Add Budget Test
         run: cd budget/add/; go test -v ./...

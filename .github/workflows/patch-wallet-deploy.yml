@@ -21,7 +21,7 @@ jobs:
 
       # Patch Wallet
       - name: Patch wallet
-        run: cd wallet/update/; GOOS=linux go build cmd/main.go; zip patchWallet.zip main; ls;
+        run: cd wallet/update/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip patchWallet.zip main; ls;
 
       - name: Patch Wallet Test
         run: cd wallet/update/; go test -v ./...

@@ -21,7 +21,7 @@ jobs:
 
       # Get Budget
       - name: Get budget
-        run: cd budget/get/; GOOS=linux go build cmd/main.go; zip getBudget.zip main; ls;
+        run: cd budget/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getBudget.zip main; ls;
 
       - name: Get Budget Test
         run: cd budget/get/; go test -v ./...

@@ -21,7 +21,7 @@ jobs:
 
       # Patch Investment
       - name: Patch investment
-        run: cd investment/update/; GOOS=linux go build cmd/main.go; zip patchInvestment.zip main; ls;
+        run: cd investment/update/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip patchInvestment.zip main; ls;
 
       - name: Patch Investment Test
         run: cd investment/update/; go test -v ./...

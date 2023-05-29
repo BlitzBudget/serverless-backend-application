@@ -21,7 +21,7 @@ jobs:
 
       # Patch Budget
       - name: Patch budget
-        run: cd budget/update/; GOOS=linux go build cmd/main.go; zip patchBudget.zip main; ls;
+        run: cd budget/update/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip patchBudget.zip main; ls;
 
       - name: Patch Budget Test
         run: cd budget/update/; go test -v ./...

@@ -22,7 +22,7 @@ jobs:
 
       # Add Notification
       - name: Add notifications
-        run: cd notifications/add/; GOOS=linux go build cmd/main.go; zip addNotification.zip main; ls;
+        run: cd notifications/add/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip addNotification.zip main; ls;
 
       - name: Add Notification Test
         run: cd notifications/add/; go test -v ./...

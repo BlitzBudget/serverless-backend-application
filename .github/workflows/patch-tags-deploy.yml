@@ -21,7 +21,7 @@ jobs:
 
       # Patch Tag
       - name: Patch tags
-        run: cd tags/update/; GOOS=linux go build cmd/main.go; zip patchTag.zip main; ls;
+        run: cd tags/update/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip patchTag.zip main; ls;
 
       - name: Patch Tag Test
         run: cd tags/update/; go test -v ./...

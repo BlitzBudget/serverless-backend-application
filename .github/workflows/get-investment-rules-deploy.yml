@@ -21,7 +21,7 @@ jobs:
 
       # Get InvestmentRules
       - name: Get investment-rules
-        run: cd investment-rules/get/; GOOS=linux go build cmd/main.go; zip getInvestmentRules.zip main; ls;
+        run: cd investment-rules/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getInvestmentRules.zip main; ls;
 
       - name: Get InvestmentRules Test
         run: cd investment-rules/get/; go test -v ./...

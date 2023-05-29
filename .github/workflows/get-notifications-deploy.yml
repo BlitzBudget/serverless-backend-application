@@ -21,7 +21,7 @@ jobs:
 
       # Get Notifications
       - name: Get notification
-        run: cd notifications/get/; GOOS=linux go build cmd/main.go; zip getNotification.zip main; ls;
+        run: cd notifications/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getNotification.zip main; ls;
 
       - name: Get Notification Test
         run: cd notifications/get/; go test -v ./...
