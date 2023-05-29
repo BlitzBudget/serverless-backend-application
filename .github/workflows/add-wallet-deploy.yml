@@ -21,7 +21,7 @@ jobs:
 
       # Add Wallet
       - name: Add wallet
-        run: cd wallet/add/; GOOS=linux go build cmd/main.go; zip addWallet.zip main; ls;
+        run: cd wallet/add/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip addWallet.zip main; ls;
 
       - name: Add Wallet Test
         run: cd wallet/add/; go test -v ./...

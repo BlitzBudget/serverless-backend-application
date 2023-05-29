@@ -21,7 +21,7 @@ jobs:
 
       # Get Wallet
       - name: Get wallet
-        run: cd wallet/get/; GOOS=linux go build cmd/main.go; zip getWallet.zip main; ls;
+        run: cd wallet/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getWallet.zip main; ls;
 
       - name: Get Wallet Test
         run: cd wallet/get/; go test -v ./...

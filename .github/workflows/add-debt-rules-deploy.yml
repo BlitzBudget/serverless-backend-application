@@ -22,7 +22,7 @@ jobs:
 
       # Add DebtRules
       - name: Add Debt rules
-        run: cd debt-rules/add/; GOOS=linux go build cmd/main.go; zip addDebtRules.zip main; ls;
+        run: cd debt-rules/add/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip addDebtRules.zip main; ls;
 
       - name: Add DebtRules Test
         run: cd debt-rules/add/; go test -v ./...

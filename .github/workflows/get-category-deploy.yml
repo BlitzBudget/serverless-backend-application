@@ -21,7 +21,7 @@ jobs:
 
       # Get Category
       - name: Get category
-        run: cd category/get/; GOOS=linux go build cmd/main.go; zip getCategory.zip main; ls;
+        run: cd category/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getCategory.zip main; ls;
 
       - name: Get Category Test
         run: cd category/get/; go test -v ./...

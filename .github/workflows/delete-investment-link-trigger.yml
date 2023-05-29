@@ -22,7 +22,7 @@ jobs:
 
       # Remove InvestmentLinkTrigger
       - name: Remove dynamodb-stream/investment-link-trigger
-        run: cd dynamodb-stream/investment-link-trigger/delete/; GOOS=linux go build cmd/main.go; zip deleteInvestmentLinkTrigger.zip main; ls;
+        run: cd dynamodb-stream/investment-link-trigger/delete/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip deleteInvestmentLinkTrigger.zip main; ls;
 
       - name: Remove InvestmentLinkTrigger Test
         run: cd dynamodb-stream/investment-link-trigger/delete/; go test -v ./...

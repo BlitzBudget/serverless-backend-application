@@ -22,7 +22,7 @@ jobs:
 
       # Remove CategoryLinkTrigger
       - name: Remove dynamodb-stream/category-link-trigger
-        run: cd dynamodb-stream/category-link-trigger/delete/; GOOS=linux go build cmd/main.go; zip deleteCategoryLinkTrigger.zip main; ls;
+        run: cd dynamodb-stream/category-link-trigger/delete/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip deleteCategoryLinkTrigger.zip main; ls;
 
       - name: Remove CategoryLinkTrigger Test
         run: cd dynamodb-stream/category-link-trigger/delete/; go test -v ./...

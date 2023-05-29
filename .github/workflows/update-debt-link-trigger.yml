@@ -22,7 +22,7 @@ jobs:
 
       # Update DebtLinkTrigger
       - name: Update dynamodb-stream/debt-link-trigger
-        run: cd dynamodb-stream/debt-link-trigger/update/; GOOS=linux go build cmd/main.go; zip updateDebtLinkTrigger.zip main; ls;
+        run: cd dynamodb-stream/debt-link-trigger/update/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip updateDebtLinkTrigger.zip main; ls;
 
       - name: Update DebtLinkTrigger Test
         run: cd dynamodb-stream/debt-link-trigger/update/; go test -v ./...

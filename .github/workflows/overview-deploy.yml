@@ -21,7 +21,7 @@ jobs:
 
       # Overview
       - name: Get overview
-        run: cd overview/; GOOS=linux go build cmd/main.go; zip overview.zip main; ls;
+        run: cd overview/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip overview.zip main; ls;
 
       - name: Overview Test
         run: cd overview/; go test -v ./...

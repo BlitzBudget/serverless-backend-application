@@ -21,7 +21,7 @@ jobs:
 
       # Patch Transaction
       - name: Patch transaction
-        run: cd transactions/update/; GOOS=linux go build cmd/main.go; zip patchTransaction.zip main; ls;
+        run: cd transactions/update/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip patchTransaction.zip main; ls;
 
       - name: Patch Transaction Test
         run: cd transactions/update/; go test -v ./...

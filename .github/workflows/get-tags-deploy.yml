@@ -21,7 +21,7 @@ jobs:
 
       # Get Tag
       - name: Get tags
-        run: cd tags/get/; GOOS=linux go build cmd/main.go; zip getTag.zip main; ls;
+        run: cd tags/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getTag.zip main; ls;
 
       - name: Get Tag Test
         run: cd tags/get/; go test -v ./...

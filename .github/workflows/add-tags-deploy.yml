@@ -22,7 +22,7 @@ jobs:
 
       # Add Tag
       - name: Add tags
-        run: cd tags/add/; GOOS=linux go build cmd/main.go; zip addTag.zip main; ls;
+        run: cd tags/add/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip addTag.zip main; ls;
 
       - name: Add Tag Test
         run: cd tags/add/; go test -v ./...

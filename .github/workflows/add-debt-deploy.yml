@@ -22,7 +22,7 @@ jobs:
 
       # Add Debt
       - name: Add debt
-        run: cd debt/add/; GOOS=linux go build cmd/main.go; zip addDebt.zip main; ls;
+        run: cd debt/add/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip addDebt.zip main; ls;
 
       - name: Add Debt Test
         run: cd debt/add/; go test -v ./...

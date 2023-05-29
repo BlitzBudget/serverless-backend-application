@@ -22,7 +22,7 @@ jobs:
 
       # Remove GoalLinkTrigger
       - name: Remove dynamodb-stream/goal-link-trigger
-        run: cd dynamodb-stream/goal-link-trigger/delete/; GOOS=linux go build cmd/main.go; zip deleteGoalLinkTrigger.zip main; ls;
+        run: cd dynamodb-stream/goal-link-trigger/delete/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip deleteGoalLinkTrigger.zip main; ls;
 
       - name: Remove GoalLinkTrigger Test
         run: cd dynamodb-stream/goal-link-trigger/delete/; go test -v ./...

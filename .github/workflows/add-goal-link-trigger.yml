@@ -22,7 +22,7 @@ jobs:
 
       # Add GoalLinkTrigger
       - name: Add dynamodb-stream/goal-link-trigger
-        run: cd dynamodb-stream/goal-link-trigger/add/; GOOS=linux go build cmd/main.go; zip addGoalLinkTrigger.zip main; ls;
+        run: cd dynamodb-stream/goal-link-trigger/add/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip addGoalLinkTrigger.zip main; ls;
 
       - name: Add GoalLinkTrigger Test
         run: cd dynamodb-stream/goal-link-trigger/add/; go test -v ./...

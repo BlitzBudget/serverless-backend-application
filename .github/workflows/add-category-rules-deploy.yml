@@ -22,7 +22,7 @@ jobs:
 
       # Add CategoryRules
       - name: Add rules
-        run: cd category-rules/add/; GOOS=linux go build cmd/main.go; zip addCategoryRules.zip main; ls;
+        run: cd category-rules/add/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip addCategoryRules.zip main; ls;
 
       - name: Add CategoryRules Test
         run: cd category-rules/add/; go test -v ./...

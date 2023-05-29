@@ -21,7 +21,7 @@ jobs:
 
       # Get GoalRules
       - name: Get goal-rules
-        run: cd goal-rules/get/; GOOS=linux go build cmd/main.go; zip getGoalRules.zip main; ls;
+        run: cd goal-rules/get/; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go; zip getGoalRules.zip main; ls;
 
       - name: Get GoalRules Test
         run: cd goal-rules/get/; go test -v ./...
