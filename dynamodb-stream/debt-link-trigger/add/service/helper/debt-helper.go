@@ -4,6 +4,7 @@ import (
 	"add-debt-link/service/models"
 	"add-debt-link/service/repository"
 	"fmt"
+
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
@@ -22,7 +23,7 @@ func IncrementDebtRepayment(debtRule *models.DebtRule, transaction *models.Trans
 	}
 
 	fmt.Printf("incrementDebtRepayment: Debt Retireved is : %v. \n", *debt.DebtName)
-	if *debt.DebtRepaid {
+	if debt.DebtRepaid != nil && *debt.DebtRepaid {
 		fmt.Printf("incrementDebtRepayment: The Debt %v has been repaid %v. \n", *debt.DebtName, *debt.DebtRepaid)
 		return
 	}
