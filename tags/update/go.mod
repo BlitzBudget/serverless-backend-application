@@ -1,6 +1,6 @@
 module update-tag
 
-go 1.17
+go 1.20
 
 require (
 	github.com/aws/aws-sdk-go v1.44.13
@@ -10,7 +10,7 @@ require (
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
 require (

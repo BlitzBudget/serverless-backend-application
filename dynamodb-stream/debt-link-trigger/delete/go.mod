@@ -1,6 +1,6 @@
 module add-debt-link
 
-go 1.17
+go 1.20
 
 require github.com/aws/aws-sdk-go v1.44.13
 

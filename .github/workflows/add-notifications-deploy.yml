@@ -15,7 +15,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.17
+          go-version: 1.20
 
       # Add Notification
       - name: Add notifications
@@ -23,12 +23,13 @@ jobs:
 
       - name: Add Notification Test
         run: cd notifications/add/; go test -v ./...
-
-      - name: Add Notification gobuild deploy
-        uses: appleboy/lambda-action@master
+                
+      - name: Add addNotification gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: addNotification
-          zip_file: notifications/add/addNotification.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  addNotification --zip-file fileb://notifications/add/addNotification.zip

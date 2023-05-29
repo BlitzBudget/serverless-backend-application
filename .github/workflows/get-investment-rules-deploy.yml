@@ -14,7 +14,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.17
+          go-version: 1.20
 
       # Get InvestmentRules
       - name: Get investment-rules
@@ -23,11 +23,12 @@ jobs:
       - name: Get InvestmentRules Test
         run: cd investment-rules/get/; go test -v ./...
 
-      - name: Get InvestmentRules gobuild deploy
-        uses: appleboy/lambda-action@master
+      - name: Add getInvestmentRules gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: getInvestmentRules
-          zip_file: investment-rules/get/getInvestmentRules.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  getInvestmentRules --zip-file fileb://investment-rules/get/getInvestmentRules.zip

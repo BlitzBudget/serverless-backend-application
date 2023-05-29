@@ -15,7 +15,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.17
+          go-version: 1.20
 
       # Add CategoryLinkTrigger
       - name: Add dynamodb-stream/category-link-trigger
@@ -25,10 +25,11 @@ jobs:
         run: cd dynamodb-stream/category-link-trigger/add/; go test -v ./...
 
       - name: Add CategoryLinkTrigger gobuild deploy
-        uses: appleboy/lambda-action@master
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: addCategoryLink
-          zip_file: dynamodb-stream/category-link-trigger/add/addCategoryLinkTrigger.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  addCategoryLink --zip-file fileb://dynamodb-stream/category-link-trigger/add/addCategoryLinkTrigger.zip
