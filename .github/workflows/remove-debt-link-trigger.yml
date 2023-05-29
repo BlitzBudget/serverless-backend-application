@@ -24,11 +24,12 @@ jobs:
       - name: Remove DebtLinkTrigger Test
         run: cd dynamodb-stream/debt-link-trigger/remove/; go test -v ./...
 
-      - name: Remove DebtLinkTrigger gobuild deploy
-        uses: appleboy/lambda-action@master
+      - name: Add removeDebtLinkTrigger gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: removeDebtLinkTrigger
-          zip_file: dynamodb-stream/debt-link-trigger/remove/removeDebtLinkTrigger.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  removeDebtLinkTrigger --zip-file fileb://dynamodb-stream/debt-link-trigger/remove/removeDebtLinkTrigger.zip

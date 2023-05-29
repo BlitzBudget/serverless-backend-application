@@ -24,11 +24,12 @@ jobs:
       - name: Remove GoalLinkTrigger Test
         run: cd dynamodb-stream/goal-link-trigger/delete/; go test -v ./...
 
-      - name: Remove GoalLinkTrigger gobuild deploy
-        uses: appleboy/lambda-action@master
+      - name: Add deleteGoalLinkTrigger gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: deleteGoalLinkTrigger
-          zip_file: dynamodb-stream/goal-link-trigger/delete/deleteGoalLinkTrigger.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  deleteGoalLinkTrigger --zip-file fileb://dynamodb-stream/goal-link-trigger/delete/deleteGoalLinkTrigger.zip

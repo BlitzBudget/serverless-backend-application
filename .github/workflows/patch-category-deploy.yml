@@ -23,11 +23,12 @@ jobs:
       - name: Patch Category Test
         run: cd category/update/; go test -v ./...
 
-      - name: Patch Category gobuild deploy
-        uses: appleboy/lambda-action@master
+      - name: Add patchCategory gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: patchCategory
-          zip_file: category/update/patchCategory.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  patchCategory --zip-file fileb://category/update/patchCategory.zip

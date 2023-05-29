@@ -23,11 +23,12 @@ jobs:
       - name: Get Debt Test
         run: cd debt/get/; go test -v ./...
 
-      - name: Get Debt gobuild deploy
-        uses: appleboy/lambda-action@master
+      - name: Add getDebt gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: getDebt
-          zip_file: debt/get/getDebt.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  getDebt --zip-file fileb://debt/get/getDebt.zip

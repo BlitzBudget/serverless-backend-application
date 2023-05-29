@@ -23,12 +23,14 @@ jobs:
 
       - name: Add Tag Test
         run: cd tags/add/; go test -v ./...
-
-      - name: Add Tag gobuild deploy
-        uses: appleboy/lambda-action@master
+           
+      - name: Add addTag gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: addTag
-          zip_file: tags/add/addTag.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  addTag --zip-file fileb://tags/add/addTag.zip
+  

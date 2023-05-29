@@ -23,11 +23,12 @@ jobs:
       - name: Patch Debt Test
         run: cd debt/update/; go test -v ./...
 
-      - name: Patch Debt gobuild deploy
-        uses: appleboy/lambda-action@master
+      - name: Add patchDebt gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: patchDebt
-          zip_file: debt/update/patchDebt.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  patchDebt --zip-file fileb://debt/update/patchDebt.zip
