@@ -28,7 +28,7 @@ jobs:
         run: cd budget/add/; go test -v ./...
 
       - name: Add Budget gobuild deploy
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ secrets.AWS_REGION }}
