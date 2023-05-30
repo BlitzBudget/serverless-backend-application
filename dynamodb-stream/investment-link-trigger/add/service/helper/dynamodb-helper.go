@@ -10,7 +10,7 @@ import (
 )
 
 // unmarshalStreamImage converts events.DynamoDBAttributeValue to struct
-//func unmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue, out interface{}) error {
+// func unmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue, out interface{}) error {
 func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*models.Transaction, error) {
 
 	dbAttrMap := make(map[string]*dynamodb.AttributeValue)
@@ -28,12 +28,11 @@ func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*
 		dbAttrMap[k] = &dbAttr
 	}
 
-	
 	jsonString, err := json.Marshal(dbAttrMap)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Printf("Successfully Unmarshalled the request from DynamoDB Stream into Structs %v \n", jsonString)
+	fmt.Printf("Successfully Unmarshalled the request from DynamoDB Stream into Structs %v \n", string(jsonString))
 
 	transaction := models.ConvertDynamoDBToModel(dbAttrMap)
 

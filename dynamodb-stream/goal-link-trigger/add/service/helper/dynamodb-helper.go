@@ -33,7 +33,7 @@ func UnmarshalStreamImage(attribute map[string]events.DynamoDBAttributeValue) (*
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Printf("Successfully Unmarshalled the request from DynamoDB Stream into Structs %v \n", jsonString)
+	fmt.Printf("Successfully Unmarshalled the request from DynamoDB Stream into Structs %v \n", string(jsonString))
 
 	transaction := models.ConvertDynamoDBToModel(dbAttrMap)
 
