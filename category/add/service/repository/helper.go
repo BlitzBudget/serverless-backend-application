@@ -28,6 +28,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 	queryParameter.Sk = config.SkPrefix + date
 	err = mandatoryFieldsCheck(queryParameter)
 	if err != nil {
+		fmt.Printf("Encountered with an error %v \n", err)
 		return nil, err
 	}
 

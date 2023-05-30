@@ -29,6 +29,7 @@ func AttributeBuilder(body *string) (map[string]*dynamodb.AttributeValue, error)
 
 	err = mandatoryFieldsCheck(queryParameter)
 	if err != nil {
+		fmt.Printf("Encountered with an error %v \n", err)
 		return nil, err
 	}
 
