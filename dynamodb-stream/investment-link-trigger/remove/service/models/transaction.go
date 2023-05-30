@@ -12,7 +12,7 @@ type Transaction struct {
 	Pk                   *string   `json:"pk"`
 	Sk                   *string   `json:"sk"`
 	CreationDate         *string   `json:"creation_date"`
-	Category             *string   `json:"category"`
+	Category             *string   `json:"category_id"`
 	Description          *string   `json:"description"`
 	Amount               *float64  `json:"amount"`
 	Tags                 *[]string `json:"tags"`
