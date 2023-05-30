@@ -10,6 +10,8 @@ import (
 )
 
 func UpdateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.DynamoDBAPI, pk *string, sk *string, updateExpression string) {
+	fmt.Printf("Updating the transaction with the sk %v and pk as %v \n", *sk, *pk)
+
 	input := &dynamodb.UpdateItemInput{
 		ExpressionAttributeValues: av,
 		TableName:                 &config.TableName,
@@ -29,5 +31,6 @@ func UpdateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.Dynamo
 	if err != nil {
 		fmt.Printf("UpdateItem: Failed to update the transaction item %v.\n", err)
 	}
+
 	fmt.Printf("UpdateItem: Successfully updated the transaction item %v with category id. \n", *sk)
 }

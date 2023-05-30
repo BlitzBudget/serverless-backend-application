@@ -28,11 +28,14 @@ func ParseToQueryParameter(categoryId *string) map[string]*dynamodb.AttributeVal
 		fmt.Printf("ParseToQueryParameter: Failed to update transaction with category id %v, %v. \n", *categoryId, err)
 	}
 
+	fmt.Printf("Successfully converted the update transaction request for the category id %v \n", *categoryId)
 	return av
 }
 
 // Update Transaction Item with Category ID
 func UpdateTransactionWithCategoryId(categoryId *string, svc dynamodbiface.DynamoDBAPI, request *models.Transaction) {
+	fmt.Printf("Updating the transaction %v with the category id %v \n", *request.Sk, *categoryId)
+
 	av := ParseToQueryParameter(categoryId)
 	updateExpression := "set category_id = :d, updated_date = :u"
 	repository.UpdateItem(av, svc, request.Pk, request.Sk, updateExpression)
