@@ -13,7 +13,7 @@ func TestConfig(t *testing.T) {
 	tags := []string{"tags", "tag"}
 	description := "description"
 	tagsByte, _ := json.Marshal(tags)
-	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"category\":\"" + category + "\",\"description\":\"" + description + "\",\"tags\": " + string(tagsByte) + "}"
+	body := "{\"pk\":\"" + pk + "\",\"sk\":\"" + sk + "\",\"creation_date\":\"" + creationDate + "\",\"category_id\":\"" + category + "\",\"description\":\"" + description + "\",\"tags\": " + string(tagsByte) + "}"
 	queryParameter := Transaction{}
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
