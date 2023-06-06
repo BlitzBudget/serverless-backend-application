@@ -237,7 +237,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -250,7 +250,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -259,7 +259,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/processBlitzBudgetRecords:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/processBlitzBudgetRecords:*"
                                     ]
                                 }
                             ]
@@ -275,7 +275,7 @@
                                     "Action": [
                                         "dynamodb:PutItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
                                 }
                             ]
                         },
@@ -290,7 +290,7 @@
                                     "Action": [
                                         "dynamodb:UpdateItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
                                 }
                             ]
                         },
@@ -308,7 +308,7 @@
                                         "dynamodb:GetShardIterator",
                                         "dynamodb:ListStreams "
                                     ],
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget/stream/2020-04-28T12:26:30.529"
+                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget/stream/2020-04-28T12:26:30.529"
                                 }
                             ]
                         },
@@ -323,7 +323,7 @@
                                     "Action": [
                                         "dynamodb:GetItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
                                 }
                             ]
                         },
@@ -361,7 +361,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -426,7 +426,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -439,7 +439,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -448,7 +448,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/deleteCategoryLinkTrigger:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/deleteCategoryLinkTrigger:*"
                                     ]
                                 }
                             ]
@@ -464,7 +464,7 @@
                                     "Action": [
                                         "dynamodb:DeleteItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
                                 }
                             ]
                         },
@@ -482,7 +482,7 @@
                                         "dynamodb:GetShardIterator",
                                         "dynamodb:ListStreams "
                                     ],
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget/stream/2020-04-28T12:26:30.529"
+                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget/stream/2020-04-28T12:26:30.529"
                                 }
                             ]
                         },
@@ -497,7 +497,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
                                 }
                             ]
                         },
@@ -535,7 +535,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -583,7 +583,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -631,7 +631,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -679,7 +679,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -727,7 +727,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -775,7 +775,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -823,7 +823,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -871,7 +871,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -919,7 +919,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -967,7 +967,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1015,7 +1015,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1063,7 +1063,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1111,7 +1111,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1159,7 +1159,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
