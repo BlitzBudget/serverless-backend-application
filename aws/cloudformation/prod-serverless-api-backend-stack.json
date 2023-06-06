@@ -513,7 +513,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -526,7 +526,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -549,7 +549,7 @@
                                     "Action": [
                                         "dynamodb:PutItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -564,7 +564,7 @@
                                     "Action": [
                                         "dynamodb:UpdateItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -579,7 +579,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -617,13 +617,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -668,13 +668,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -736,7 +736,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -749,7 +749,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -772,7 +772,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -787,7 +787,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -825,13 +825,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -893,7 +893,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -906,7 +906,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -929,7 +929,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -944,7 +944,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -982,7 +982,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1030,7 +1030,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1095,7 +1095,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1108,7 +1108,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -1117,7 +1117,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/batchGetCategoryItems:*"
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/batchGetCategoryItems:*"
                                     ]
                                 }
                             ]
@@ -1135,7 +1135,7 @@
                                         "dynamodb:BatchGetItem",
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -1190,7 +1190,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1203,7 +1203,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -1226,7 +1226,7 @@
                                     "Action": [
                                         "dynamodb:batchWriteItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -1241,7 +1241,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -1279,13 +1279,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -1330,7 +1330,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1378,7 +1378,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1426,7 +1426,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1474,7 +1474,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1522,7 +1522,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1570,7 +1570,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1618,7 +1618,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1666,7 +1666,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1714,7 +1714,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1762,13 +1762,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -1813,13 +1813,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -1864,13 +1864,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -1915,7 +1915,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1980,7 +1980,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1993,7 +1993,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -2016,7 +2016,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -2031,7 +2031,7 @@
                                     "Action": [
                                         "dynamodb:UpdateItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -2046,7 +2046,7 @@
                                     "Action": [
                                         "dynamodb:GetItem"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/blitzbudget"
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
                                 }
                             ]
                         },
@@ -2084,7 +2084,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2132,7 +2132,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2180,7 +2180,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2228,7 +2228,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2276,7 +2276,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2324,7 +2324,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2372,7 +2372,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2420,13 +2420,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -2471,13 +2471,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -2522,12 +2522,12 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}"
+                        "AWS_LAMBDA_REGION": "eu-west-1"
                     }
                 },
                 "Code": {
@@ -2571,13 +2571,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -2622,13 +2622,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -2673,12 +2673,12 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}"
+                        "AWS_LAMBDA_REGION": "eu-west-1"
                     }
                 },
                 "Code": {
@@ -2722,13 +2722,13 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
                         "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:BlitzBudgetLoginClientID}}",
-                        "AWS_LAMBDA_REGION": "${AWS::Region}",
+                        "AWS_LAMBDA_REGION": "eu-west-1",
                         "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
@@ -2773,7 +2773,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2821,7 +2821,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -2869,7 +2869,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
