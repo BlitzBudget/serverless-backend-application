@@ -58,7 +58,7 @@ func GetCategoryRuleItem(svc dynamodbiface.DynamoDBAPI, sk *string, pk *string) 
 		return nil, err
 	}
 
-	fmt.Printf("Successfully Fetched the item %v \n", *item)
+	fmt.Printf("Successfully Fetched the item %v \n", item)
 	return &item, nil
 }
 
